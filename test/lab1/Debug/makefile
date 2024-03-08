@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-CG_TOOL_ROOT := /opt/ccstudio/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS
+CG_TOOL_ROOT := /Applications/ti/ccs1260/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -15,8 +15,8 @@ $(GEN_CMDS__FLAG) \
 
 -include ../makefile.init
 
-RM := rm -rf
-RMDIR := rm -rf
+RM := 
+RMDIR := 
 
 # All of the sources participating in the build are defined here
 -include sources.mk
@@ -132,7 +132,7 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 lab1.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: MSP430 Linker'
-	"/opt/ccstudio/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmsp --use_hw_mpy=none --advice:power=all --define=__MSP430G2533__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number -z -m"lab1.map" --heap_size=80 --stack_size=80 -i"/opt/ccstudio/ccs/ccs_base/msp430/include" -i"/opt/ccstudio/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/opt/ccstudio/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="lab1_linkInfo.xml" --use_hw_mpy=none --rom_model -o "lab1.out" $(ORDERED_OBJS)
+	"" -vmsp --use_hw_mpy=none --advice:power=all --define=__MSP430G2533__ -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number -z -m"lab1.map" --heap_size=80 --stack_size=80 -i"/msp430/include" -i"/Applications/ti/ccs1260/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1260/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="lab1_linkInfo.xml" --use_hw_mpy=none --rom_model -o "lab1.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
