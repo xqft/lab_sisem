@@ -8,6 +8,9 @@
 #ifndef INCLUDE_TIMER_H_
 #define INCLUDE_TIMER_H_
 
+#define tiempo_t
+
+int set_time(int)
 
 
 
