@@ -8,7 +8,6 @@
 #ifndef INCLUDE_TIMER_H_
 #define INCLUDE_TIMER_H_
 
-
 typedef struct {
     int horas;
     int minutos;
@@ -17,11 +16,8 @@ typedef struct {
 
 } tiempo_t;
 
-void set_time(tiempo_t nuevoTiempo){}
-
-void get_time(tiempo_t *tiempo){}
-
-void inc_time() {}
-
+void set_time(tiempo_t nuevoTiempo);
+void get_time(tiempo_t *tiempo);
+void inc_time();
 
 #endif /* INCLUDE_TIMER_H_ */
