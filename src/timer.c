@@ -5,11 +5,13 @@
  *      Author: lucaspereyra
  */
 
+#include "timer.h"
+
+static tiempo_t tiempoActual;
 
 void set_time(tiempo_t nuevoTiempo){
-        tiempoInicial = nuevoTiempo;
+    tiempoActual = nuevoTiempo;
 }
-
 
 void inc_time() {
     tiempoActual.milisegundos += 250;
@@ -34,12 +36,8 @@ void inc_time() {
 }
 
 void get_time(tiempo_t *tiempo){
-        tiempo->horas = tiempoActual.horas;
-        tiempo->minutos = tiempoActual.minutos;
-        tiempo->segundos = tiempoActual.segundos;
-        tiempo->milisegundos = tiempoActual.milisegundos;
-
-
+    tiempo->horas = tiempoActual.horas;
+    tiempo->minutos = tiempoActual.minutos;
+    tiempo->segundos = tiempoActual.segundos;
+    tiempo->milisegundos = tiempoActual.milisegundos;
 }
-
-
