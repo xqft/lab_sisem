@@ -8,6 +8,8 @@
 #ifndef INCLUDE_TIMER_H_
 #define INCLUDE_TIMER_H_
 
+extern tiempo_t tiempoActual;
+
 typedef struct {
     int horas;
     int minutos;
