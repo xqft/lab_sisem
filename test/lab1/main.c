@@ -1,4 +1,4 @@
-#include <timer.h>
+#include "../../include/timer.h"
 #include <msp430.h>
 
 tiempo_t t_inicial = {23, 59, 59, 500};
