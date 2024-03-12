@@ -10,13 +10,6 @@
 
 
 
-typedef struct {
-    int horas;
-    int minutos;
-    int segundos;
-    int milisegundos;
-
-} tiempo_t;
 
 void set_time(tiempo_t nuevoTiempo);
 void get_time(tiempo_t *tiempo);
