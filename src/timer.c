@@ -7,13 +7,7 @@
 
 #include "../include/timer.h"
 
-typedef struct {
-    int horas;
-    int minutos;
-    int segundos;
-    int milisegundos;
 
-} tiempo_t;
 
 static tiempo_t tiempoActual;
 
