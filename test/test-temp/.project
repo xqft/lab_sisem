@@ -28,12 +28,12 @@
 		<link>
 			<name>include</name>
 			<type>2</type>
-			<location>/home/xqft/git/lab_sisem/include</location>
+			<locationURI>$%7BWORKSPACE_LOC%7D/include</locationURI>
 		</link>
 		<link>
 			<name>src</name>
 			<type>2</type>
-			<location>/home/xqft/git/lab_sisem/src</location>
+			<locationURI>$%7BWORKSPACE_LOC%7D/src</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
