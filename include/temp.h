@@ -8,6 +8,6 @@
 #ifndef INCLUDE_TEMP_H_
 #define INCLUDE_TEMP_H_
 
-float ConvTemp (int datotemp);
+float conv_temp(int datotemp);
 
 #endif /* INCLUDE_TEMP_H_ */
