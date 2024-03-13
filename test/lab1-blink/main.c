@@ -1,8 +1,6 @@
 #include <msp430.h>
 #define LED1 (0x0001)
-// hola
 
-// snesor humedad y prueba conflicto
 int main(void)
 {
     volatile unsigned int i;
