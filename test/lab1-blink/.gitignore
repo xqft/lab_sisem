@@ -1,1 +1,13 @@
-/Debug/
+/.metadata/
+
+.DS_Store
+
+.jxbrowser.userdata/
+
+# https://software-dl.ti.com/ccs/esd/documents/sdto_ccs_source-control.html
+.xdchelp
+.config
+.launches
+.settings
+Debug/
+Release/
