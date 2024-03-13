@@ -1,15 +1,17 @@
 #include <msp430.h> 
-#include "../../include/Temp.h"
+#include "Temp.h"
 
 
 /**
  * main.c
  */
+int dato = 750;
+float temp;
+
 int main(void)
 {
 
 	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
-	int dato = 750;
-	float temp = ConvTemp(dato);
+	temp = ConvTemp(dato);
 	return 0;
 }
