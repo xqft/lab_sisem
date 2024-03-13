@@ -1,7 +1,7 @@
 #include "../../include/timer.h"
 #include <msp430.h>
 
-tiempo_t t_inicial = {23, 59, 59, 500};
+const tiempo_t t_inicial = {23, 59, 59, 500};
 tiempo_t t1;
 tiempo_t t2;
 //tiempo_t tiempoActual;
