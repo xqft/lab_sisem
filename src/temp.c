@@ -15,10 +15,24 @@ float conv_temp(int datotemp)
 
 void conv_temp_fast(int datotemp, temp_celsius_t* temp)
 {
-    int temp_raw = datotemp * 413 - 277750;
+    int i,enteros;
 
-    int enteros = temp_raw / 1000;
-    int decimales = temp_raw - enteros * 1000;
+    int temp_raw;
+    for(i = 1;i<=datotemp; i++){
+      temp_raw += 413;
+    }
+    temp_raw = temp_raw -277750;
+
+
+    int temporal = temp_raw;
+       for(enteros = 0; 1000 <= temporal; enteros++){
+           temporal -= 1000;
+       }
+
+    int decimales = temp_raw;
+       for(i = 1; i <= enteros; i++){
+           decimales -= 1000;
+       }
 
     temp->enteros = enteros;
     temp->decimales = decimales;
