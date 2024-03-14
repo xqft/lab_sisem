@@ -28,10 +28,6 @@ void inc_time() {
             if (tiempoActual.minutos >= 60) {
                 tiempoActual.minutos -= 60;
                 tiempoActual.horas++;
-
-                if (tiempoActual.horas >= 24) {
-                    tiempoActual.horas -= 24;
-                }
             }
         }
     }
