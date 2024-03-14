@@ -15,5 +15,6 @@ typedef struct {
 
 float conv_temp(int datotemp);
 void conv_temp_fast(int datotemp, temp_celsius_t* temp);
+void conv_temp_faster(int datotemp, temp_celsius_t* temp);
 
 #endif /* INCLUDE_TEMP_H_ */
