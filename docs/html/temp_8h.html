@@ -104,15 +104,19 @@ $(function(){initNavTree('temp_8h.html',''); initResizable(); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Clases</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtemp__celsius__t.html">temp_celsius_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa una temperatura en punto fijo, en Celsius.  <a href="structtemp__celsius__t.html#details">Más...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funciones</h2></td></tr>
 <tr class="memitem:af9168a35369898aeaa433be43116e366" id="r_af9168a35369898aeaa433be43116e366"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9168a35369898aeaa433be43116e366">conv_temp</a> (int <a class="el" href="test-temp_2main_8c.html#a8933b34ffce9dec7cb0d94da852d40f7">datotemp</a>)</td></tr>
+<tr class="memdesc:af9168a35369898aeaa433be43116e366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convierte la salida cruda del termometro en una temperature en Celsius.  <br /></td></tr>
 <tr class="separator:af9168a35369898aeaa433be43116e366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46dd04f2f0f1fb2d6f842dd85488472b" id="r_a46dd04f2f0f1fb2d6f842dd85488472b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46dd04f2f0f1fb2d6f842dd85488472b">conv_temp_fast</a> (int <a class="el" href="test-temp_2main_8c.html#a8933b34ffce9dec7cb0d94da852d40f7">datotemp</a>, <a class="el" href="structtemp__celsius__t.html">temp_celsius_t</a> *<a class="el" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a>)</td></tr>
+<tr class="memdesc:a46dd04f2f0f1fb2d6f842dd85488472b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convierte la salida cruda del termometro en una temperature en Celsius.  <br /></td></tr>
 <tr class="separator:a46dd04f2f0f1fb2d6f842dd85488472b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8a97ae54732d20036b21d7fa19eda75" id="r_ad8a97ae54732d20036b21d7fa19eda75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8a97ae54732d20036b21d7fa19eda75">conv_temp_faster</a> (int <a class="el" href="test-temp_2main_8c.html#a8933b34ffce9dec7cb0d94da852d40f7">datotemp</a>, <a class="el" href="structtemp__celsius__t.html">temp_celsius_t</a> *<a class="el" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a>)</td></tr>
+<tr class="memdesc:ad8a97ae54732d20036b21d7fa19eda75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convierte la salida cruda del termometro en una temperature en Celsius.  <br /></td></tr>
 <tr class="separator:ad8a97ae54732d20036b21d7fa19eda75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación de funciones</h2>
@@ -130,6 +134,9 @@ Funciones</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Convierte la salida cruda del termometro en una temperature en Celsius. </p>
+<p>No se recomienda su uso debido a su ineficiencia y gran cantidad de codigo assembly que genera. Usar <a class="el" href="temp_8c.html#ad8a97ae54732d20036b21d7fa19eda75">conv_temp_faster</a> </p>
 
 <p class="definition">Definición en la línea <a class="el" href="temp_8c_source.html#l00011">11</a> del archivo <a class="el" href="temp_8c_source.html">temp.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   12</span>{</div>
@@ -158,6 +165,9 @@ Funciones</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Convierte la salida cruda del termometro en una temperature en Celsius. </p>
+<p>Utiliza la representacion en punto fijo <a class="el" href="structtemp__celsius__t.html">temp_celsius_t</a> para evitar aritmetica de punto flotante, resultando en menor codigo assembly y ciclos. </p>
+
 <p class="definition">Definición en la línea <a class="el" href="temp_8c_source.html#l00017">17</a> del archivo <a class="el" href="temp_8c_source.html">temp.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   18</span>{</div>
 <div class="line"><span class="lineno">   19</span>    <span class="keywordtype">int</span> temp_raw = 0;</div>
@@ -181,8 +191,8 @@ Funciones</h2></td></tr>
 <div class="line"><span class="lineno">   37</span>    <a class="code hl_variable" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a>-&gt;<a class="code hl_variable" href="structtemp__celsius__t.html#abe85d161f8ad1a041dd6e013cc575e09">enteros</a> = enteros;</div>
 <div class="line"><span class="lineno">   38</span>    <a class="code hl_variable" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a>-&gt;<a class="code hl_variable" href="structtemp__celsius__t.html#a546973799a524e5984b50774ec5b8687">decimales</a> = decimales;</div>
 <div class="line"><span class="lineno">   39</span>}</div>
-<div class="ttc" id="astructtemp__celsius__t_html_a546973799a524e5984b50774ec5b8687"><div class="ttname"><a href="structtemp__celsius__t.html#a546973799a524e5984b50774ec5b8687">temp_celsius_t::decimales</a></div><div class="ttdeci">int decimales</div><div class="ttdef"><b>Definition</b> <a href="temp_8h_source.html#l00013">temp.h:13</a></div></div>
-<div class="ttc" id="astructtemp__celsius__t_html_abe85d161f8ad1a041dd6e013cc575e09"><div class="ttname"><a href="structtemp__celsius__t.html#abe85d161f8ad1a041dd6e013cc575e09">temp_celsius_t::enteros</a></div><div class="ttdeci">int enteros</div><div class="ttdef"><b>Definition</b> <a href="temp_8h_source.html#l00012">temp.h:12</a></div></div>
+<div class="ttc" id="astructtemp__celsius__t_html_a546973799a524e5984b50774ec5b8687"><div class="ttname"><a href="structtemp__celsius__t.html#a546973799a524e5984b50774ec5b8687">temp_celsius_t::decimales</a></div><div class="ttdeci">int decimales</div><div class="ttdef"><b>Definition</b> <a href="temp_8h_source.html#l00014">temp.h:14</a></div></div>
+<div class="ttc" id="astructtemp__celsius__t_html_abe85d161f8ad1a041dd6e013cc575e09"><div class="ttname"><a href="structtemp__celsius__t.html#abe85d161f8ad1a041dd6e013cc575e09">temp_celsius_t::enteros</a></div><div class="ttdeci">int enteros</div><div class="ttdef"><b>Definition</b> <a href="temp_8h_source.html#l00013">temp.h:13</a></div></div>
 <div class="ttc" id="atest-temp_2main_8c_html_ab0360163c4915c1f3e616af00d4c9503"><div class="ttname"><a href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a></div><div class="ttdeci">temp_celsius_t temp</div><div class="ttdef"><b>Definition</b> <a href="test-temp_2main_8c_source.html#l00007">main.c:7</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -205,6 +215,9 @@ Funciones</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Convierte la salida cruda del termometro en una temperature en Celsius. </p>
+<p>Utiliza la representacion en punto fijo <a class="el" href="structtemp__celsius__t.html">temp_celsius_t</a> para evitar aritmetica de punto flotante, resultando en menor codigo y ciclos. A diferencia de <a class="el" href="temp_8c.html#a46dd04f2f0f1fb2d6f842dd85488472b">conv_temp_fast</a>, no utiliza bucles para simular productos y divisiones, resultando en menos ciclos. </p>
 
 <p class="definition">Definición en la línea <a class="el" href="temp_8c_source.html#l00042">42</a> del archivo <a class="el" href="temp_8c_source.html">temp.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   43</span>{</div>

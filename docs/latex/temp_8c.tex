@@ -6,11 +6,11 @@
 \begin{DoxyCompactItemize}
 \item 
 float \mbox{\hyperlink{temp_8c_af9168a35369898aeaa433be43116e366}{conv\+\_\+temp}} (int \mbox{\hyperlink{test-temp_2main_8c_a8933b34ffce9dec7cb0d94da852d40f7}{datotemp}})
-\item 
+\begin{DoxyCompactList}\small\item\em Convierte la salida cruda del termometro en una temperature en Celsius. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{temp_8c_a46dd04f2f0f1fb2d6f842dd85488472b}{conv\+\_\+temp\+\_\+fast}} (int \mbox{\hyperlink{test-temp_2main_8c_a8933b34ffce9dec7cb0d94da852d40f7}{datotemp}}, \mbox{\hyperlink{structtemp__celsius__t}{temp\+\_\+celsius\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}})
-\item 
+\begin{DoxyCompactList}\small\item\em Convierte la salida cruda del termometro en una temperature en Celsius. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{temp_8c_ad8a97ae54732d20036b21d7fa19eda75}{conv\+\_\+temp\+\_\+faster}} (int \mbox{\hyperlink{test-temp_2main_8c_a8933b34ffce9dec7cb0d94da852d40f7}{datotemp}}, \mbox{\hyperlink{structtemp__celsius__t}{temp\+\_\+celsius\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Convierte la salida cruda del termometro en una temperature en Celsius. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Documentación de funciones}
@@ -21,6 +21,10 @@ void \mbox{\hyperlink{temp_8c_ad8a97ae54732d20036b21d7fa19eda75}{conv\+\_\+temp\
 {\footnotesize\ttfamily float conv\+\_\+temp (\begin{DoxyParamCaption}\item[{int}]{datotemp }\end{DoxyParamCaption})}
 
 
+
+Convierte la salida cruda del termometro en una temperature en Celsius. 
+
+No se recomienda su uso debido a su ineficiencia y gran cantidad de codigo assembly que genera. Usar \doxylink{temp_8c_ad8a97ae54732d20036b21d7fa19eda75}{conv\+\_\+temp\+\_\+faster} 
 
 Definición en la línea \mbox{\hyperlink{temp_8c_source_l00011}{11}} del archivo \mbox{\hyperlink{temp_8c_source}{temp.\+c}}.
 
@@ -38,6 +42,10 @@ Definición en la línea \mbox{\hyperlink{temp_8c_source_l00011}{11}} del archiv
 {\footnotesize\ttfamily void conv\+\_\+temp\+\_\+fast (\begin{DoxyParamCaption}\item[{int}]{datotemp,  }\item[{\mbox{\hyperlink{structtemp__celsius__t}{temp\+\_\+celsius\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{temp }\end{DoxyParamCaption})}
 
 
+
+Convierte la salida cruda del termometro en una temperature en Celsius. 
+
+Utiliza la representacion en punto fijo \doxylink{structtemp__celsius__t}{temp\+\_\+celsius\+\_\+t} para evitar aritmetica de punto flotante, resultando en menor codigo assembly y ciclos. 
 
 Definición en la línea \mbox{\hyperlink{temp_8c_source_l00017}{17}} del archivo \mbox{\hyperlink{temp_8c_source}{temp.\+c}}.
 
@@ -74,6 +82,10 @@ Definición en la línea \mbox{\hyperlink{temp_8c_source_l00017}{17}} del archiv
 {\footnotesize\ttfamily void conv\+\_\+temp\+\_\+faster (\begin{DoxyParamCaption}\item[{int}]{datotemp,  }\item[{\mbox{\hyperlink{structtemp__celsius__t}{temp\+\_\+celsius\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{temp }\end{DoxyParamCaption})}
 
 
+
+Convierte la salida cruda del termometro en una temperature en Celsius. 
+
+Utiliza la representacion en punto fijo \doxylink{structtemp__celsius__t}{temp\+\_\+celsius\+\_\+t} para evitar aritmetica de punto flotante, resultando en menor codigo y ciclos. A diferencia de \doxylink{temp_8c_a46dd04f2f0f1fb2d6f842dd85488472b}{conv\+\_\+temp\+\_\+fast}, no utiliza bucles para simular productos y divisiones, resultando en menos ciclos. 
 
 Definición en la línea \mbox{\hyperlink{temp_8c_source_l00042}{42}} del archivo \mbox{\hyperlink{temp_8c_source}{temp.\+c}}.
 
