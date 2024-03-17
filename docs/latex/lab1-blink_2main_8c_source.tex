@@ -1,0 +1,22 @@
+\doxysection{main.\+c}
+\hypertarget{lab1-blink_2main_8c_source}{}\label{lab1-blink_2main_8c_source}\index{test/lab1-\/blink/main.c@{test/lab1-\/blink/main.c}}
+\mbox{\hyperlink{lab1-blink_2main_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <msp430.h>}}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00002}\mbox{\hyperlink{lab1-blink_2main_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{00002}}\ \textcolor{preprocessor}{\#define\ LED1\ (0x0001)}}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00004}\mbox{\hyperlink{lab1-blink_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}{00004}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{lab1-blink_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00006}00006\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00007}00007\ \ \ \ \ WDTCTL\ =\ WDTPW\ +\ WDTHOLD;\ \textcolor{comment}{//\ Detiene\ el\ watchdog\ timer}}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00008}00008\ \ \ \ \ P1DIR\ |=\ \mbox{\hyperlink{lab1-blink_2main_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{LED1}};\ \textcolor{comment}{//\ Configura\ pin\ LED1\ salida}}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00011}00011\ \ \ \ \ \textcolor{keywordflow}{while}(1)}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00013}00013\ \ \ \ \ \ \ \ \ P1OUT\ \string^=\ \mbox{\hyperlink{lab1-blink_2main_8c_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{LED1}};\ \textcolor{comment}{//\ Conmuta\ LED1\ usando\ XOR}}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00014}00014\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i=10000;\ i>0;\ i-\/-\/);\ \textcolor{comment}{//\ Retardo\ software}}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00015}00015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lab1-blink_2main_8c_source_l00016}00016\ \}}
+
+\end{DoxyCode}

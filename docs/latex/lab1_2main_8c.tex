@@ -1,0 +1,88 @@
+\doxysection{Referencia del archivo test/lab1/main.c}
+\hypertarget{lab1_2main_8c}{}\label{lab1_2main_8c}\index{test/lab1/main.c@{test/lab1/main.c}}
+{\ttfamily \#include "{}../../include/timer.\+h"{}}\newline
+{\ttfamily \#include $<$msp430.\+h$>$}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{lab1_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} \mbox{\hyperlink{lab1_2main_8c_aba24c3bb482e474d3c95585c2edf641e}{t\+\_\+inicial}} = \{23, 59, 59, 500\}
+\item 
+\mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} \mbox{\hyperlink{lab1_2main_8c_ab2b51a481c70221bd360126785af5bdc}{t1}}
+\item 
+\mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} \mbox{\hyperlink{lab1_2main_8c_a5e2b1e3b354c677dd9125ec84795c6a4}{t2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{lab1_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{lab1_2main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{lab1_2main_8c_source_l00009}{9}} del archivo \mbox{\hyperlink{lab1_2main_8c_source}{main.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \mbox{\hyperlink{structtiempo__t}{tiempo\_t}}\ t\_local;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ WDTCTL\ =\ WDTPW\ |\ WDTHOLD;}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a79505286387f67f704876b0271603e21}{set\_time}}(\mbox{\hyperlink{lab1_2main_8c_aba24c3bb482e474d3c95585c2edf641e}{t\_inicial}});}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a8d2f62f1ad6b494b7381253a1ee5baff}{get\_time}}(\&\mbox{\hyperlink{lab1_2main_8c_ab2b51a481c70221bd360126785af5bdc}{t1}});}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_adf7670abf909a2f3bdff6b262732e817}{inc\_time}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_adf7670abf909a2f3bdff6b262732e817}{inc\_time}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_adf7670abf909a2f3bdff6b262732e817}{inc\_time}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_adf7670abf909a2f3bdff6b262732e817}{inc\_time}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a8d2f62f1ad6b494b7381253a1ee5baff}{get\_time}}(\&\mbox{\hyperlink{lab1_2main_8c_a5e2b1e3b354c677dd9125ec84795c6a4}{t2}});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a8d2f62f1ad6b494b7381253a1ee5baff}{get\_time}}(\&t\_local);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00024\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{lab1_2main_8c_ab2b51a481c70221bd360126785af5bdc}\label{lab1_2main_8c_ab2b51a481c70221bd360126785af5bdc} 
+\index{main.c@{main.c}!t1@{t1}}
+\index{t1@{t1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t1}{t1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} t1}
+
+
+
+Definición en la línea \mbox{\hyperlink{lab1_2main_8c_source_l00005}{5}} del archivo \mbox{\hyperlink{lab1_2main_8c_source}{main.\+c}}.
+
+\Hypertarget{lab1_2main_8c_a5e2b1e3b354c677dd9125ec84795c6a4}\label{lab1_2main_8c_a5e2b1e3b354c677dd9125ec84795c6a4} 
+\index{main.c@{main.c}!t2@{t2}}
+\index{t2@{t2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t2}{t2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} t2}
+
+
+
+Definición en la línea \mbox{\hyperlink{lab1_2main_8c_source_l00006}{6}} del archivo \mbox{\hyperlink{lab1_2main_8c_source}{main.\+c}}.
+
+\Hypertarget{lab1_2main_8c_aba24c3bb482e474d3c95585c2edf641e}\label{lab1_2main_8c_aba24c3bb482e474d3c95585c2edf641e} 
+\index{main.c@{main.c}!t\_inicial@{t\_inicial}}
+\index{t\_inicial@{t\_inicial}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{t\_inicial}{t\_inicial}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} t\+\_\+inicial = \{23, 59, 59, 500\}}
+
+
+
+Definición en la línea \mbox{\hyperlink{lab1_2main_8c_source_l00004}{4}} del archivo \mbox{\hyperlink{lab1_2main_8c_source}{main.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00004\ \{23,\ 59,\ 59,\ 500\};}
+
+\end{DoxyCode}

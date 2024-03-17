@@ -1,0 +1,92 @@
+\doxysection{Referencia del archivo src/temp.c}
+\hypertarget{temp_8c}{}\label{temp_8c}\index{src/temp.c@{src/temp.c}}
+{\ttfamily \#include $<$msp430.\+h$>$}\newline
+{\ttfamily \#include "{}temp.\+h"{}}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{temp_8c_af9168a35369898aeaa433be43116e366}{conv\+\_\+temp}} (int \mbox{\hyperlink{test-temp_2main_8c_a8933b34ffce9dec7cb0d94da852d40f7}{datotemp}})
+\item 
+void \mbox{\hyperlink{temp_8c_a46dd04f2f0f1fb2d6f842dd85488472b}{conv\+\_\+temp\+\_\+fast}} (int \mbox{\hyperlink{test-temp_2main_8c_a8933b34ffce9dec7cb0d94da852d40f7}{datotemp}}, \mbox{\hyperlink{structtemp__celsius__t}{temp\+\_\+celsius\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}})
+\item 
+void \mbox{\hyperlink{temp_8c_ad8a97ae54732d20036b21d7fa19eda75}{conv\+\_\+temp\+\_\+faster}} (int \mbox{\hyperlink{test-temp_2main_8c_a8933b34ffce9dec7cb0d94da852d40f7}{datotemp}}, \mbox{\hyperlink{structtemp__celsius__t}{temp\+\_\+celsius\+\_\+t}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{temp_8c_af9168a35369898aeaa433be43116e366}\label{temp_8c_af9168a35369898aeaa433be43116e366} 
+\index{temp.c@{temp.c}!conv\_temp@{conv\_temp}}
+\index{conv\_temp@{conv\_temp}!temp.c@{temp.c}}
+\doxysubsubsection{\texorpdfstring{conv\_temp()}{conv\_temp()}}
+{\footnotesize\ttfamily float conv\+\_\+temp (\begin{DoxyParamCaption}\item[{int}]{datotemp }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{temp_8c_source_l00011}{11}} del archivo \mbox{\hyperlink{temp_8c_source}{temp.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test-temp_2main_8c_a8933b34ffce9dec7cb0d94da852d40f7}{datotemp}}\ *\ 0.413\ -\/\ 277.75;}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}
+\Hypertarget{temp_8c_a46dd04f2f0f1fb2d6f842dd85488472b}\label{temp_8c_a46dd04f2f0f1fb2d6f842dd85488472b} 
+\index{temp.c@{temp.c}!conv\_temp\_fast@{conv\_temp\_fast}}
+\index{conv\_temp\_fast@{conv\_temp\_fast}!temp.c@{temp.c}}
+\doxysubsubsection{\texorpdfstring{conv\_temp\_fast()}{conv\_temp\_fast()}}
+{\footnotesize\ttfamily void conv\+\_\+temp\+\_\+fast (\begin{DoxyParamCaption}\item[{int}]{datotemp,  }\item[{\mbox{\hyperlink{structtemp__celsius__t}{temp\+\_\+celsius\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{temp }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{temp_8c_source_l00017}{17}} del archivo \mbox{\hyperlink{temp_8c_source}{temp.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ temp\_raw\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ \mbox{\hyperlink{test-temp_2main_8c_a8933b34ffce9dec7cb0d94da852d40f7}{datotemp}};\ i++)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ temp\_raw\ +=\ 413;}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ \ \ \ \ temp\_raw\ -\/=\ 277750;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ temporal\ =\ temp\_raw;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ enteros;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{for}\ (enteros\ =\ 0;\ temporal\ >=\ 1000;\ enteros++)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ temporal\ -\/=\ 1000;}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ decimales\ =\ temp\_raw;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ enteros;\ i++)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ decimales\ -\/=\ 1000;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}}-\/>\mbox{\hyperlink{structtemp__celsius__t_abe85d161f8ad1a041dd6e013cc575e09}{enteros}}\ =\ enteros;}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}}-\/>\mbox{\hyperlink{structtemp__celsius__t_a546973799a524e5984b50774ec5b8687}{decimales}}\ =\ decimales;}
+\DoxyCodeLine{00039\ \}}
+
+\end{DoxyCode}
+\Hypertarget{temp_8c_ad8a97ae54732d20036b21d7fa19eda75}\label{temp_8c_ad8a97ae54732d20036b21d7fa19eda75} 
+\index{temp.c@{temp.c}!conv\_temp\_faster@{conv\_temp\_faster}}
+\index{conv\_temp\_faster@{conv\_temp\_faster}!temp.c@{temp.c}}
+\doxysubsubsection{\texorpdfstring{conv\_temp\_faster()}{conv\_temp\_faster()}}
+{\footnotesize\ttfamily void conv\+\_\+temp\+\_\+faster (\begin{DoxyParamCaption}\item[{int}]{datotemp,  }\item[{\mbox{\hyperlink{structtemp__celsius__t}{temp\+\_\+celsius\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{temp }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{temp_8c_source_l00042}{42}} del archivo \mbox{\hyperlink{temp_8c_source}{temp.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ temp\_raw\ =\ \mbox{\hyperlink{test-temp_2main_8c_a8933b34ffce9dec7cb0d94da852d40f7}{datotemp}}\ *\ 413\ -\/\ 277750;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{int}\ enteros\ =\ temp\_raw\ /\ 1000;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ decimales\ =\ temp\_raw\ -\/\ enteros\ *\ 1000;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}}-\/>\mbox{\hyperlink{structtemp__celsius__t_abe85d161f8ad1a041dd6e013cc575e09}{enteros}}\ =\ enteros;}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}}-\/>\mbox{\hyperlink{structtemp__celsius__t_a546973799a524e5984b50774ec5b8687}{decimales}}\ =\ decimales;}
+\DoxyCodeLine{00051\ \}}
+
+\end{DoxyCode}
