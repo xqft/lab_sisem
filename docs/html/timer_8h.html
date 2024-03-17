@@ -104,15 +104,19 @@ $(function(){initNavTree('timer_8h.html',''); initResizable(); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Clases</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtiempo__t.html">tiempo_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa tiempo transcurrido.  <a href="structtiempo__t.html#details">Más...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funciones</h2></td></tr>
 <tr class="memitem:a79505286387f67f704876b0271603e21" id="r_a79505286387f67f704876b0271603e21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79505286387f67f704876b0271603e21">set_time</a> (<a class="el" href="structtiempo__t.html">tiempo_t</a> nuevoTiempo)</td></tr>
+<tr class="memdesc:a79505286387f67f704876b0271603e21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asigna la variable de tiempo interna del modulo.  <br /></td></tr>
 <tr class="separator:a79505286387f67f704876b0271603e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d2f62f1ad6b494b7381253a1ee5baff" id="r_a8d2f62f1ad6b494b7381253a1ee5baff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d2f62f1ad6b494b7381253a1ee5baff">get_time</a> (<a class="el" href="structtiempo__t.html">tiempo_t</a> *tiempo)</td></tr>
+<tr class="memdesc:a8d2f62f1ad6b494b7381253a1ee5baff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve una copia de la variable de tiempo interna del modulo.  <br /></td></tr>
 <tr class="separator:a8d2f62f1ad6b494b7381253a1ee5baff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf7670abf909a2f3bdff6b262732e817" id="r_adf7670abf909a2f3bdff6b262732e817"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf7670abf909a2f3bdff6b262732e817">inc_time</a> ()</td></tr>
+<tr class="memdesc:adf7670abf909a2f3bdff6b262732e817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incrementa la variable de tiempo interna del modulo en 250 ms.  <br /></td></tr>
 <tr class="separator:adf7670abf909a2f3bdff6b262732e817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación de funciones</h2>
@@ -131,6 +135,8 @@ Funciones</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Devuelve una copia de la variable de tiempo interna del modulo. </p>
+
 <p class="definition">Definición en la línea <a class="el" href="timer_8c_source.html#l00036">36</a> del archivo <a class="el" href="timer_8c_source.html">timer.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   36</span>                               {</div>
 <div class="line"><span class="lineno">   37</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a>;</div>
@@ -138,10 +144,10 @@ Funciones</h2></td></tr>
 <div class="line"><span class="lineno">   39</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a>;</div>
 <div class="line"><span class="lineno">   40</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a>;</div>
 <div class="line"><span class="lineno">   41</span>}</div>
-<div class="ttc" id="astructtiempo__t_html_a22744f5c9e53504d924918d878218739"><div class="ttname"><a href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">tiempo_t::segundos</a></div><div class="ttdeci">int segundos</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00015">timer.h:15</a></div></div>
-<div class="ttc" id="astructtiempo__t_html_a709365ef11e50c33a18cdd3c5148357c"><div class="ttname"><a href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">tiempo_t::minutos</a></div><div class="ttdeci">int minutos</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00014">timer.h:14</a></div></div>
-<div class="ttc" id="astructtiempo__t_html_ab1cace913a3aa4d6cb0ada19fee9882b"><div class="ttname"><a href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">tiempo_t::milisegundos</a></div><div class="ttdeci">int milisegundos</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00016">timer.h:16</a></div></div>
-<div class="ttc" id="astructtiempo__t_html_ad5403d249d403984dc36e34ee6e7e826"><div class="ttname"><a href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">tiempo_t::horas</a></div><div class="ttdeci">int horas</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00013">timer.h:13</a></div></div>
+<div class="ttc" id="astructtiempo__t_html_a22744f5c9e53504d924918d878218739"><div class="ttname"><a href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">tiempo_t::segundos</a></div><div class="ttdeci">int segundos</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00016">timer.h:16</a></div></div>
+<div class="ttc" id="astructtiempo__t_html_a709365ef11e50c33a18cdd3c5148357c"><div class="ttname"><a href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">tiempo_t::minutos</a></div><div class="ttdeci">int minutos</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00015">timer.h:15</a></div></div>
+<div class="ttc" id="astructtiempo__t_html_ab1cace913a3aa4d6cb0ada19fee9882b"><div class="ttname"><a href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">tiempo_t::milisegundos</a></div><div class="ttdeci">int milisegundos</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00017">timer.h:17</a></div></div>
+<div class="ttc" id="astructtiempo__t_html_ad5403d249d403984dc36e34ee6e7e826"><div class="ttname"><a href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">tiempo_t::horas</a></div><div class="ttdeci">int horas</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00014">timer.h:14</a></div></div>
 <div class="ttc" id="atimer_8c_html_a0ad450bcd5aaca370ad1b14abba62784"><div class="ttname"><a href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a></div><div class="ttdeci">static tiempo_t tiempoActual</div><div class="ttdef"><b>Definition</b> <a href="timer_8c_source.html#l00012">timer.c:12</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -160,6 +166,8 @@ Funciones</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Incrementa la variable de tiempo interna del modulo en 250 ms. </p>
 
 <p class="definition">Definición en la línea <a class="el" href="timer_8c_source.html#l00018">18</a> del archivo <a class="el" href="timer_8c_source.html">timer.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   18</span>                {</div>
@@ -196,6 +204,8 @@ Funciones</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Asigna la variable de tiempo interna del modulo. </p>
 
 <p class="definition">Definición en la línea <a class="el" href="timer_8c_source.html#l00014">14</a> del archivo <a class="el" href="timer_8c_source.html">timer.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   14</span>                                   {</div>
