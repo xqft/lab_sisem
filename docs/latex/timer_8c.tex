@@ -1,0 +1,113 @@
+\doxysection{Referencia del archivo src/timer.c}
+\hypertarget{timer_8c}{}\label{timer_8c}\index{src/timer.c@{src/timer.c}}
+{\ttfamily \#include "{}../include/timer.\+h"{}}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{timer_8c_a79505286387f67f704876b0271603e21}{set\+\_\+time}} (\mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} nuevo\+Tiempo)
+\begin{DoxyCompactList}\small\item\em Asigna la variable de tiempo interna del modulo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{timer_8c_adf7670abf909a2f3bdff6b262732e817}{inc\+\_\+time}} ()
+\begin{DoxyCompactList}\small\item\em Incrementa la variable de tiempo interna del modulo en 250 ms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{timer_8c_a8d2f62f1ad6b494b7381253a1ee5baff}{get\+\_\+time}} (\mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} \texorpdfstring{$\ast$}{*}tiempo)
+\begin{DoxyCompactList}\small\item\em Devuelve una copia de la variable de tiempo interna del modulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempo\+Actual}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{timer_8c_a8d2f62f1ad6b494b7381253a1ee5baff}\label{timer_8c_a8d2f62f1ad6b494b7381253a1ee5baff} 
+\index{timer.c@{timer.c}!get\_time@{get\_time}}
+\index{get\_time@{get\_time}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{get\_time()}{get\_time()}}
+{\footnotesize\ttfamily void get\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tiempo }\end{DoxyParamCaption})}
+
+
+
+Devuelve una copia de la variable de tiempo interna del modulo. 
+
+
+
+Definición en la línea \mbox{\hyperlink{timer_8c_source_l00036}{36}} del archivo \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_ad5403d249d403984dc36e34ee6e7e826}{horas}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ad5403d249d403984dc36e34ee6e7e826}{horas}};}
+\DoxyCodeLine{00038\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}};}
+\DoxyCodeLine{00039\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_a22744f5c9e53504d924918d878218739}{segundos}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a22744f5c9e53504d924918d878218739}{segundos}};}
+\DoxyCodeLine{00040\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_ab1cace913a3aa4d6cb0ada19fee9882b}{milisegundos}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ab1cace913a3aa4d6cb0ada19fee9882b}{milisegundos}};}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\Hypertarget{timer_8c_adf7670abf909a2f3bdff6b262732e817}\label{timer_8c_adf7670abf909a2f3bdff6b262732e817} 
+\index{timer.c@{timer.c}!inc\_time@{inc\_time}}
+\index{inc\_time@{inc\_time}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{inc\_time()}{inc\_time()}}
+{\footnotesize\ttfamily void inc\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Incrementa la variable de tiempo interna del modulo en 250 ms. 
+
+
+
+Definición en la línea \mbox{\hyperlink{timer_8c_source_l00018}{18}} del archivo \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ab1cace913a3aa4d6cb0ada19fee9882b}{milisegundos}}\ +=\ 250;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ab1cace913a3aa4d6cb0ada19fee9882b}{milisegundos}}\ >=\ 1000)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ab1cace913a3aa4d6cb0ada19fee9882b}{milisegundos}}\ -\/=\ 1000;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a22744f5c9e53504d924918d878218739}{segundos}}++;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a22744f5c9e53504d924918d878218739}{segundos}}\ >=\ 60)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a22744f5c9e53504d924918d878218739}{segundos}}\ -\/=\ 60;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}}++;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}}\ >=\ 60)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}}\ -\/=\ 60;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ad5403d249d403984dc36e34ee6e7e826}{horas}}++;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\Hypertarget{timer_8c_a79505286387f67f704876b0271603e21}\label{timer_8c_a79505286387f67f704876b0271603e21} 
+\index{timer.c@{timer.c}!set\_time@{set\_time}}
+\index{set\_time@{set\_time}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{set\_time()}{set\_time()}}
+{\footnotesize\ttfamily void set\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}}}]{nuevo\+Tiempo }\end{DoxyParamCaption})}
+
+
+
+Asigna la variable de tiempo interna del modulo. 
+
+
+
+Definición en la línea \mbox{\hyperlink{timer_8c_source_l00014}{14}} del archivo \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}\ =\ nuevoTiempo;}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de variables}
+\Hypertarget{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}\label{timer_8c_a0ad450bcd5aaca370ad1b14abba62784} 
+\index{timer.c@{timer.c}!tiempoActual@{tiempoActual}}
+\index{tiempoActual@{tiempoActual}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{tiempoActual}{tiempoActual}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtiempo__t}{tiempo\+\_\+t}} tiempo\+Actual\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definición en la línea \mbox{\hyperlink{timer_8c_source_l00012}{12}} del archivo \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+
