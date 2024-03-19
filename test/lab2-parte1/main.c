@@ -1,6 +1,6 @@
 #include <msp430.h> 
 #define LED1 (0x0001)
-#include "timer_hw.h"
+#include "../../include/timer_hw.h"
 /**
  * main.c
  */
@@ -12,6 +12,7 @@ int main(void)
     config_timer_crystal();
     //config_timer_VLO();
     _enable_interrupt();
+
     while(1){
         P1OUT = ESTADO_LED;
     }
