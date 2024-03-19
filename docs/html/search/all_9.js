@@ -10,5 +10,7 @@ var searchData=
   ['tiempo_5ft_7',['tiempo_t',['../structtiempo__t.html',1,'']]],
   ['tiempoactual_8',['tiempoActual',['../timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784',1,'timer.c']]],
   ['timer_2ec_9',['timer.c',['../timer_8c.html',1,'']]],
-  ['timer_2eh_10',['timer.h',['../timer_8h.html',1,'']]]
+  ['timer_2eh_10',['timer.h',['../timer_8h.html',1,'']]],
+  ['timer_5fhw_2ec_11',['timer_hw.c',['../timer__hw_8c.html',1,'']]],
+  ['timer_5fhw_2eh_12',['timer_hw.h',['../timer__hw_8h.html',1,'']]]
 ];

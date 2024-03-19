@@ -60,5 +60,13 @@ var NAVTREEINDEX0 =
 "timer_8h.html#a79505286387f67f704876b0271603e21":[1,0,0,1,3],
 "timer_8h.html#a8d2f62f1ad6b494b7381253a1ee5baff":[1,0,0,1,1],
 "timer_8h.html#adf7670abf909a2f3bdff6b262732e817":[1,0,0,1,2],
-"timer_8h_source.html":[1,0,0,1]
+"timer_8h_source.html":[1,0,0,1],
+"timer__hw_8c.html":[1,0,1,2],
+"timer__hw_8c.html#a7c114b7f6ec84ab3230fffd220c5d9e6":[1,0,1,2,1],
+"timer__hw_8c.html#af7a418f397f4e37bf327ee39e6e04ed8":[1,0,1,2,0],
+"timer__hw_8c_source.html":[1,0,1,2],
+"timer__hw_8h.html":[1,0,0,2],
+"timer__hw_8h.html#a7c114b7f6ec84ab3230fffd220c5d9e6":[1,0,0,2,1],
+"timer__hw_8h.html#af7a418f397f4e37bf327ee39e6e04ed8":[1,0,0,2,0],
+"timer__hw_8h_source.html":[1,0,0,2]
 };
