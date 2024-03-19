@@ -25,6 +25,6 @@ void config_timer_VLO(){
     BCSCTL1 |= DIVA_0;          // Divisor en /1.
     BCSCTL3 |= LFXT1S_2;        // Oscilador VLO de frecuencia 12-KHz.
 
-    TACTL   |= TAIE;             // Habilito las interrupciones del Timer A.
+    //TACTL   |= TAIE;             // Habilito las interrupciones del Timer A.
     TACCTL0 |= CCIE;            // Habilito las interrupciones del Timer A en modo comparacion.
 }
