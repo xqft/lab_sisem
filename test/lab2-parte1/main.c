@@ -9,10 +9,13 @@ int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
     P1DIR |= LED1; // Configura pin LED1 salida
+    config_timer_crystal();
+    //config_timer_VLO();
     _enable_interrupt();
     while(1){
         P1OUT = ESTADO_LED;
     }
+    return 0;
 
 }
 
