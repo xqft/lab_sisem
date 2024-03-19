@@ -29,16 +29,16 @@ Devuelve una copia de la variable de tiempo interna del modulo.
 
 
 
-Definición en la línea \mbox{\hyperlink{timer_8c_source_l00036}{36}} del archivo \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
+Definición en la línea \mbox{\hyperlink{timer_8c_source_l00039}{39}} del archivo \mbox{\hyperlink{timer_8c_source}{timer.\+c}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00037\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_ad5403d249d403984dc36e34ee6e7e826}{horas}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ad5403d249d403984dc36e34ee6e7e826}{horas}};}
-\DoxyCodeLine{00038\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}};}
-\DoxyCodeLine{00039\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_a22744f5c9e53504d924918d878218739}{segundos}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a22744f5c9e53504d924918d878218739}{segundos}};}
-\DoxyCodeLine{00040\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_ab1cace913a3aa4d6cb0ada19fee9882b}{milisegundos}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ab1cace913a3aa4d6cb0ada19fee9882b}{milisegundos}};}
-\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_ad5403d249d403984dc36e34ee6e7e826}{horas}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ad5403d249d403984dc36e34ee6e7e826}{horas}};}
+\DoxyCodeLine{00041\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}};}
+\DoxyCodeLine{00042\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_a22744f5c9e53504d924918d878218739}{segundos}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a22744f5c9e53504d924918d878218739}{segundos}};}
+\DoxyCodeLine{00043\ \ \ \ \ tiempo-\/>\mbox{\hyperlink{structtiempo__t_ab1cace913a3aa4d6cb0ada19fee9882b}{milisegundos}}\ =\ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ab1cace913a3aa4d6cb0ada19fee9882b}{milisegundos}};}
+\DoxyCodeLine{00044\ \}}
 
 \end{DoxyCode}
 \Hypertarget{timer_8h_adf7670abf909a2f3bdff6b262732e817}\label{timer_8h_adf7670abf909a2f3bdff6b262732e817} 
@@ -70,10 +70,13 @@ Definición en la línea \mbox{\hyperlink{timer_8c_source_l00018}{18}} del archi
 \DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}}\ >=\ 60)\ \{}
 \DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_a709365ef11e50c33a18cdd3c5148357c}{minutos}}\ -\/=\ 60;}
 \DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ad5403d249d403984dc36e34ee6e7e826}{horas}}++;}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00033\ \ \ \ \ \}}
-\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ad5403d249d403984dc36e34ee6e7e826}{horas}}\ >=\ 24)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{timer_8c_a0ad450bcd5aaca370ad1b14abba62784}{tiempoActual}}.\mbox{\hyperlink{structtiempo__t_ad5403d249d403984dc36e34ee6e7e826}{horas}}\ -\/=\ 24;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \}}
 
 \end{DoxyCode}
 \Hypertarget{timer_8h_a79505286387f67f704876b0271603e21}\label{timer_8h_a79505286387f67f704876b0271603e21} 
