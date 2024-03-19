@@ -24,4 +24,16 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>include</name>
+			<type>2</type>
+			<location>/home/xqft/git/lab_sisem/include</location>
+		</link>
+		<link>
+			<name>src</name>
+			<type>2</type>
+			<location>/home/xqft/git/lab_sisem/src</location>
+		</link>
+	</linkedResources>
 </projectDescription>
