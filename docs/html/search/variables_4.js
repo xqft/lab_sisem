@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['segundos_0',['segundos',['../structtiempo__t.html#a22744f5c9e53504d924918d878218739',1,'tiempo_t']]]
+  ['horas_0',['horas',['../structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826',1,'tiempo_t']]]
 ];

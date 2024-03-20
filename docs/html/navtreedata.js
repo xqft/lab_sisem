@@ -25,17 +25,17 @@
 var NAVTREE =
 [
   [ "Laboratorio de Sistemas Embebidos", "index.html", [
-    [ "Clases", "annotated.html", [
-      [ "Lista de clases", "annotated.html", "annotated_dup" ],
-      [ "Índice de clases", "classes.html", null ],
-      [ "Miembros de clases", "functions.html", [
+    [ "Estructuras de datos", "annotated.html", [
+      [ "Estructuras de datos", "annotated.html", "annotated_dup" ],
+      [ "Índice de estructuras de datos", "classes.html", null ],
+      [ "Campos de datos", "functions.html", [
         [ "Todos", "functions.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
     [ "Archivos", "files.html", [
       [ "Lista de archivos", "files.html", "files_dup" ],
-      [ "Miembros de los archivos", "globals.html", [
+      [ "Globales", "globals.html", [
         [ "Todos", "globals.html", null ],
         [ "Funciones", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
