@@ -4,6 +4,8 @@
 #include "timer.h"
 
 #define LED1 (0x0001)
+const tiempo_t Tiempoini = {0,0,0,50};
+tiempo_t tiempo_Real;
 
 int main(void)
 {
@@ -11,9 +13,12 @@ int main(void)
     P1DIR |= LED1; // Configura pin LED1 salida
     config_timer_crystal();
     //config_timer_VLO();
+    set_time(Tiempoini);
     _enable_interrupt();
 
-    for(;;) {}
+    for(;;) {
+        get_time(&tiempo_Real);
+    }
     return 0;
 }
 
