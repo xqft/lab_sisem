@@ -5,6 +5,7 @@
  *      Author: lucaspereyra
  */
 
+#include <msp430.h>
 #include "timer.h"
 
 static tiempo_t tiempoActual;
@@ -35,8 +36,13 @@ void inc_time() {
 }
 
 void get_time(tiempo_t *tiempo){
+    unsigned short s = __get_interrupt_state();
+    __disable_interrupt();
+
     tiempo->horas = tiempoActual.horas;
     tiempo->minutos = tiempoActual.minutos;
     tiempo->segundos = tiempoActual.segundos;
     tiempo->milisegundos = tiempoActual.milisegundos;
+
+    __set_interrupt_state(s);
 }
