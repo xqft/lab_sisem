@@ -93,7 +93,7 @@ $(function(){initNavTree('timer_8h.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Clases</a> &#124;
+<a href="#nested-classes">Estructuras de datos</a> &#124;
 <a href="#func-members">Funciones</a>  </div>
   <div class="headertitle"><div class="title">Referencia del archivo timer.h</div></div>
 </div><!--header-->
@@ -102,7 +102,7 @@ $(function(){initNavTree('timer_8h.html',''); initResizable(); });
 <p><a href="timer_8h_source.html">Ir al código fuente de este archivo.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Clases</h2></td></tr>
+Estructuras de datos</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtiempo__t.html">tiempo_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa tiempo transcurrido.  <a href="structtiempo__t.html#details">Más...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,18 +137,23 @@ Funciones</h2></td></tr>
 
 <p>Devuelve una copia de la variable de tiempo interna del modulo. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="timer_8c_source.html#l00039">39</a> del archivo <a class="el" href="timer_8c_source.html">timer.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   39</span>                               {</div>
-<div class="line"><span class="lineno">   40</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a>;</div>
-<div class="line"><span class="lineno">   41</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">minutos</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">minutos</a>;</div>
-<div class="line"><span class="lineno">   42</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a>;</div>
-<div class="line"><span class="lineno">   43</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a>;</div>
-<div class="line"><span class="lineno">   44</span>}</div>
+<p class="definition">Definición en la línea <a class="el" href="timer_8c_source.html#l00038">38</a> del archivo <a class="el" href="timer_8c_source.html">timer.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>                               {</div>
+<div class="line"><span class="lineno">   39</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> s = __get_interrupt_state();</div>
+<div class="line"><span class="lineno">   40</span>    __disable_interrupt();</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a>;</div>
+<div class="line"><span class="lineno">   43</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">minutos</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">minutos</a>;</div>
+<div class="line"><span class="lineno">   44</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a>;</div>
+<div class="line"><span class="lineno">   45</span>    tiempo-&gt;<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a> = <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a>;</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    __set_interrupt_state(s);</div>
+<div class="line"><span class="lineno">   48</span>}</div>
 <div class="ttc" id="astructtiempo__t_html_a22744f5c9e53504d924918d878218739"><div class="ttname"><a href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">tiempo_t::segundos</a></div><div class="ttdeci">int segundos</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00016">timer.h:16</a></div></div>
 <div class="ttc" id="astructtiempo__t_html_a709365ef11e50c33a18cdd3c5148357c"><div class="ttname"><a href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">tiempo_t::minutos</a></div><div class="ttdeci">int minutos</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00015">timer.h:15</a></div></div>
 <div class="ttc" id="astructtiempo__t_html_ab1cace913a3aa4d6cb0ada19fee9882b"><div class="ttname"><a href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">tiempo_t::milisegundos</a></div><div class="ttdeci">int milisegundos</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00017">timer.h:17</a></div></div>
 <div class="ttc" id="astructtiempo__t_html_ad5403d249d403984dc36e34ee6e7e826"><div class="ttname"><a href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">tiempo_t::horas</a></div><div class="ttdeci">int horas</div><div class="ttdef"><b>Definition</b> <a href="timer_8h_source.html#l00014">timer.h:14</a></div></div>
-<div class="ttc" id="atimer_8c_html_a0ad450bcd5aaca370ad1b14abba62784"><div class="ttname"><a href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a></div><div class="ttdeci">static tiempo_t tiempoActual</div><div class="ttdef"><b>Definition</b> <a href="timer_8c_source.html#l00012">timer.c:12</a></div></div>
+<div class="ttc" id="atimer_8c_html_a0ad450bcd5aaca370ad1b14abba62784"><div class="ttname"><a href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a></div><div class="ttdeci">static tiempo_t tiempoActual</div><div class="ttdef"><b>Definition</b> <a href="timer_8c_source.html#l00011">timer.c:11</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -169,27 +174,27 @@ Funciones</h2></td></tr>
 
 <p>Incrementa la variable de tiempo interna del modulo en 250 ms. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="timer_8c_source.html#l00018">18</a> del archivo <a class="el" href="timer_8c_source.html">timer.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   18</span>                {</div>
-<div class="line"><span class="lineno">   19</span>    <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a> += 250;</div>
-<div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a> &gt;= 1000) {</div>
-<div class="line"><span class="lineno">   22</span>        <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a> -= 1000;</div>
-<div class="line"><span class="lineno">   23</span>        <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a>++;</div>
-<div class="line"><span class="lineno">   24</span> </div>
-<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a> &gt;= 60) {</div>
-<div class="line"><span class="lineno">   26</span>            <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a> -= 60;</div>
-<div class="line"><span class="lineno">   27</span>            <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">minutos</a>++;</div>
-<div class="line"><span class="lineno">   28</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">minutos</a> &gt;= 60) {</div>
-<div class="line"><span class="lineno">   29</span>                <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">minutos</a> -= 60;</div>
-<div class="line"><span class="lineno">   30</span>                <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a>++;</div>
-<div class="line"><span class="lineno">   31</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a> &gt;= 24) {</div>
-<div class="line"><span class="lineno">   32</span>                    <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a> -= 24;</div>
-<div class="line"><span class="lineno">   33</span>                }</div>
-<div class="line"><span class="lineno">   34</span>            }</div>
-<div class="line"><span class="lineno">   35</span>        }</div>
-<div class="line"><span class="lineno">   36</span>    }</div>
-<div class="line"><span class="lineno">   37</span>}</div>
+<p class="definition">Definición en la línea <a class="el" href="timer_8c_source.html#l00017">17</a> del archivo <a class="el" href="timer_8c_source.html">timer.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>                {</div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a> += 250;</div>
+<div class="line"><span class="lineno">   19</span> </div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a> &gt;= 1000) {</div>
+<div class="line"><span class="lineno">   21</span>        <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ab1cace913a3aa4d6cb0ada19fee9882b">milisegundos</a> -= 1000;</div>
+<div class="line"><span class="lineno">   22</span>        <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a>++;</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a> &gt;= 60) {</div>
+<div class="line"><span class="lineno">   25</span>            <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a22744f5c9e53504d924918d878218739">segundos</a> -= 60;</div>
+<div class="line"><span class="lineno">   26</span>            <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">minutos</a>++;</div>
+<div class="line"><span class="lineno">   27</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">minutos</a> &gt;= 60) {</div>
+<div class="line"><span class="lineno">   28</span>                <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#a709365ef11e50c33a18cdd3c5148357c">minutos</a> -= 60;</div>
+<div class="line"><span class="lineno">   29</span>                <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a>++;</div>
+<div class="line"><span class="lineno">   30</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a> &gt;= 24) {</div>
+<div class="line"><span class="lineno">   31</span>                    <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a>.<a class="code hl_variable" href="structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826">horas</a> -= 24;</div>
+<div class="line"><span class="lineno">   32</span>                }</div>
+<div class="line"><span class="lineno">   33</span>            }</div>
+<div class="line"><span class="lineno">   34</span>        }</div>
+<div class="line"><span class="lineno">   35</span>    }</div>
+<div class="line"><span class="lineno">   36</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -210,10 +215,10 @@ Funciones</h2></td></tr>
 
 <p>Asigna la variable de tiempo interna del modulo. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="timer_8c_source.html#l00014">14</a> del archivo <a class="el" href="timer_8c_source.html">timer.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>                                   {</div>
-<div class="line"><span class="lineno">   15</span>    <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a> = nuevoTiempo;</div>
-<div class="line"><span class="lineno">   16</span>}</div>
+<p class="definition">Definición en la línea <a class="el" href="timer_8c_source.html#l00013">13</a> del archivo <a class="el" href="timer_8c_source.html">timer.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>                                   {</div>
+<div class="line"><span class="lineno">   14</span>    <a class="code hl_variable" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">tiempoActual</a> = nuevoTiempo;</div>
+<div class="line"><span class="lineno">   15</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
