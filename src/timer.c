@@ -5,9 +5,7 @@
  *      Author: lucaspereyra
  */
 
-#include "../include/timer.h"
-
-
+#include "timer.h"
 
 static tiempo_t tiempoActual;
 
