@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['horas_0',['horas',['../structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826',1,'tiempo_t']]]
+  ['enteros_0',['enteros',['../structtemp__celsius__t.html#abe85d161f8ad1a041dd6e013cc575e09',1,'temp_celsius_t']]]
 ];
