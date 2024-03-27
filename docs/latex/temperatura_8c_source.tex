@@ -1,0 +1,55 @@
+\doxysection{temperatura.\+c}
+\hypertarget{temperatura_8c_source}{}\label{temperatura_8c_source}\index{src/temperatura.c@{src/temperatura.c}}
+\mbox{\hyperlink{temperatura_8c}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <msp430.h>}\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{temperatura_8h}{temperatura.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00004}\mbox{\hyperlink{temperatura_8c_a12d489e73f212592b64fc0095babc8a9}{00004}}\ \textcolor{keyword}{static}\ int32\_t\ \ \mbox{\hyperlink{temperatura_8c_a12d489e73f212592b64fc0095babc8a9}{adcval}};}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00005}\mbox{\hyperlink{temperatura_8c_a6a6c51c1bb8571c71d0f9a7167f8c649}{00005}}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}*\ \ \ \ \mbox{\hyperlink{temperatura_8c_a6a6c51c1bb8571c71d0f9a7167f8c649}{flag}};}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00008}\mbox{\hyperlink{temperatura_8c_a4951849af33974c808373658703b9e03}{00008}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{temperatura_8c_a4951849af33974c808373658703b9e03}{initTemp}}()\{}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00010}00010\ \ \ \textcolor{comment}{/*\ Temp\ Sensor\ ADC10CLK/4\ */}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00011}00011\ \ \ \ \ ADC10CTL1\ =\ INCH\_10\ +\ ADC10DIV\_3;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00012}00012\ \ \ \ \ ADC10CTL0\ =\ SREF\_1\ +\ ADC10SHT\_3\ +\ REFON\ +\ ADC10ON\ +\ ADC10IE;}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00014}00014\ \ \ \textcolor{comment}{/*\ Espero\ que\ se\ estabilice\ la\ Ref\ del\ ADC\ */}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00015}00015\ \ \ \ \ \_\_delay\_cycles(1000);}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00018}\mbox{\hyperlink{temperatura_8c_ac8df7e112c539faf36a8276a7bea1508}{00018}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{temperatura_8c_ac8df7e112c539faf36a8276a7bea1508}{setFlagTemp}}(\textcolor{keywordtype}{char}*\ flag\_main)\{}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00019}00019\ \ \ \ \ \textcolor{comment}{/*Set\ flag*/}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{temperatura_8c_a6a6c51c1bb8571c71d0f9a7167f8c649}{flag}}\ =\ flag\_main;}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00023}\mbox{\hyperlink{temperatura_8c_a4f4ef1359800a4474e2568a0fed5cca4}{00023}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{temperatura_8c_a4f4ef1359800a4474e2568a0fed5cca4}{runTemp}}()\{}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00025}00025\ \ \ \textcolor{comment}{/*\ Start\ samppling\ and\ conversionb*/}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00026}00026\ \ \ \ \ ADC10CTL0\ |=\ ENC\ +\ ADC10SC;}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00031}\mbox{\hyperlink{temperatura_8c_aee3087955efa0c22bf5aeadbf7b72634}{00031}}\ int32\_t\ \mbox{\hyperlink{temperatura_8c_aee3087955efa0c22bf5aeadbf7b72634}{getTemp}}()\{}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00032}00032\ \ \ \ \ int32\_t\ \ \mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}};}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00033}00033\ \ \ \textcolor{comment}{/*\ Convert\ ADC\ value\ to\ celsius\ degrees*/}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}}\ =\ (((\mbox{\hyperlink{temperatura_8c_a12d489e73f212592b64fc0095babc8a9}{adcval}}\ -\/\ 673)\ *\ 423)/1024);}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00036}00036\ \ \ \ \ *\mbox{\hyperlink{temperatura_8c_a6a6c51c1bb8571c71d0f9a7167f8c649}{flag}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}};}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00042}00042\ \textcolor{comment}{/*\ ISR\ */}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00044}00044\ \textcolor{preprocessor}{\#pragma\ vector=ADC10\_VECTOR}}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00045}\mbox{\hyperlink{temperatura_8c_ab1581ed1b539a6912bff880d419e015f}{00045}}\ \_\_interrupt\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{temperatura_8c_ab1581ed1b539a6912bff880d419e015f}{ADC10\_ISR}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00047}00047\ \ \ \ \ *\mbox{\hyperlink{temperatura_8c_a6a6c51c1bb8571c71d0f9a7167f8c649}{flag}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{temperatura_8c_a12d489e73f212592b64fc0095babc8a9}{adcval}}\ =\ ADC10MEM;}
+\DoxyCodeLine{\Hypertarget{temperatura_8c_source_l00049}00049\ \}}
+
+\end{DoxyCode}

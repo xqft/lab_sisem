@@ -1,0 +1,155 @@
+\doxysection{Referencia del archivo include/temperatura.h}
+\hypertarget{temperatura_8h}{}\label{temperatura_8h}\index{include/temperatura.h@{include/temperatura.h}}
+
+
+Laboratorio 2 -\/ Sistemas Embebidos -\/ Fing Modulo temperatura.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{temperatura_8h_a4951849af33974c808373658703b9e03}{init\+Temp}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el ADC, lo configura en modo "{}sensar temperatura"{} y espera que estabilice la Ref0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{temperatura_8h_ac8df7e112c539faf36a8276a7bea1508}{set\+Flag\+Temp}} (char \texorpdfstring{$\ast$}{*}flag\+\_\+main)
+\begin{DoxyCompactList}\small\item\em Le indica al modulo temperatura qué bandera activar cuando haya una medida de temperatura lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{temperatura_8h_a4f4ef1359800a4474e2568a0fed5cca4}{run\+Temp}} ()
+\begin{DoxyCompactList}\small\item\em Comienza una lectura de temperatura. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{temperatura_8h_aee3087955efa0c22bf5aeadbf7b72634}{get\+Temp}} ()
+\begin{DoxyCompactList}\small\item\em Obtengo la ultima medida de temperatura en miligrados Celsius. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Laboratorio 2 -\/ Sistemas Embebidos -\/ Fing Modulo temperatura. 
+
+\begin{DoxyAuthor}{Autor}
+Javier Schandy \href{mailto:jschandy@fing.edu.uy}{\texttt{ jschandy@fing.\+edu.\+uy}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+0
+\end{DoxyVersion}
+\begin{DoxyDate}{Fecha}
+16/3/2020 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Autor}
+Carolina Cabrera \href{mailto:ccabrera@fing.edu.uy}{\texttt{ ccabrera@fing.\+edu.\+uy}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Versión}
+1.\+1 
+\end{DoxyVersion}
+
+
+Definición en el archivo \mbox{\hyperlink{temperatura_8h_source}{temperatura.\+h}}.
+
+
+
+\doxysubsection{Documentación de funciones}
+\Hypertarget{temperatura_8h_aee3087955efa0c22bf5aeadbf7b72634}\label{temperatura_8h_aee3087955efa0c22bf5aeadbf7b72634} 
+\index{temperatura.h@{temperatura.h}!getTemp@{getTemp}}
+\index{getTemp@{getTemp}!temperatura.h@{temperatura.h}}
+\doxysubsubsection{\texorpdfstring{getTemp()}{getTemp()}}
+{\footnotesize\ttfamily int32\+\_\+t get\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtengo la ultima medida de temperatura en miligrados Celsius. 
+
+\begin{DoxyReturn}{Devuelve}
+int32\+\_\+t temperatura en miligrados celsius 
+\end{DoxyReturn}
+
+
+Definición en la línea \mbox{\hyperlink{temperatura_8c_source_l00031}{31}} del archivo \mbox{\hyperlink{temperatura_8c_source}{temperatura.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ int32\_t\ \ \mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}};}
+\DoxyCodeLine{00033\ \ \ \textcolor{comment}{/*\ Convert\ ADC\ value\ to\ celsius\ degrees*/}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}}\ =\ (((\mbox{\hyperlink{temperatura_8c_a12d489e73f212592b64fc0095babc8a9}{adcval}}\ -\/\ 673)\ *\ 423)/1024);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ *\mbox{\hyperlink{temperatura_8c_a6a6c51c1bb8571c71d0f9a7167f8c649}{flag}}\ =\ 0;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{test-temp_2main_8c_ab0360163c4915c1f3e616af00d4c9503}{temp}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \}}
+
+\end{DoxyCode}
+\Hypertarget{temperatura_8h_a4951849af33974c808373658703b9e03}\label{temperatura_8h_a4951849af33974c808373658703b9e03} 
+\index{temperatura.h@{temperatura.h}!initTemp@{initTemp}}
+\index{initTemp@{initTemp}!temperatura.h@{temperatura.h}}
+\doxysubsubsection{\texorpdfstring{initTemp()}{initTemp()}}
+{\footnotesize\ttfamily void init\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inicializa el ADC, lo configura en modo "{}sensar temperatura"{} y espera que estabilice la Ref0. 
+
+
+
+Definición en la línea \mbox{\hyperlink{temperatura_8c_source_l00008}{8}} del archivo \mbox{\hyperlink{temperatura_8c_source}{temperatura.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \textcolor{comment}{/*\ Temp\ Sensor\ ADC10CLK/4\ */}}
+\DoxyCodeLine{00011\ \ \ \ \ ADC10CTL1\ =\ INCH\_10\ +\ ADC10DIV\_3;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \ \ \ \ ADC10CTL0\ =\ SREF\_1\ +\ ADC10SHT\_3\ +\ REFON\ +\ ADC10ON\ +\ ADC10IE;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \textcolor{comment}{/*\ Espero\ que\ se\ estabilice\ la\ Ref\ del\ ADC\ */}}
+\DoxyCodeLine{00015\ \ \ \ \ \_\_delay\_cycles(1000);}
+\DoxyCodeLine{00016\ \}}
+
+\end{DoxyCode}
+\Hypertarget{temperatura_8h_a4f4ef1359800a4474e2568a0fed5cca4}\label{temperatura_8h_a4f4ef1359800a4474e2568a0fed5cca4} 
+\index{temperatura.h@{temperatura.h}!runTemp@{runTemp}}
+\index{runTemp@{runTemp}!temperatura.h@{temperatura.h}}
+\doxysubsubsection{\texorpdfstring{runTemp()}{runTemp()}}
+{\footnotesize\ttfamily void run\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Comienza una lectura de temperatura. 
+
+
+
+Definición en la línea \mbox{\hyperlink{temperatura_8c_source_l00023}{23}} del archivo \mbox{\hyperlink{temperatura_8c_source}{temperatura.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{comment}{/*\ Start\ samppling\ and\ conversionb*/}}
+\DoxyCodeLine{00026\ \ \ \ \ ADC10CTL0\ |=\ ENC\ +\ ADC10SC;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \}}
+
+\end{DoxyCode}
+\Hypertarget{temperatura_8h_ac8df7e112c539faf36a8276a7bea1508}\label{temperatura_8h_ac8df7e112c539faf36a8276a7bea1508} 
+\index{temperatura.h@{temperatura.h}!setFlagTemp@{setFlagTemp}}
+\index{setFlagTemp@{setFlagTemp}!temperatura.h@{temperatura.h}}
+\doxysubsubsection{\texorpdfstring{setFlagTemp()}{setFlagTemp()}}
+{\footnotesize\ttfamily void set\+Flag\+Temp (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{flag\+\_\+main }\end{DoxyParamCaption})}
+
+
+
+Le indica al modulo temperatura qué bandera activar cuando haya una medida de temperatura lista. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em char\texorpdfstring{$\ast$}{*}} & flag\+\_\+main\+: bandera a encender cuando haya una medida de temperatura lista \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \mbox{\hyperlink{temperatura_8c_source_l00018}{18}} del archivo \mbox{\hyperlink{temperatura_8c_source}{temperatura.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{/*Set\ flag*/}}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{temperatura_8c_a6a6c51c1bb8571c71d0f9a7167f8c649}{flag}}\ =\ flag\_main;}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}
