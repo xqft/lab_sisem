@@ -30,12 +30,12 @@ void uart_init()
     UCA0CTL1 |= UCSWRST;        // Set reset
 
     UCA0CTL0 &= ~UCPEN;         // Set paridad off
-    UCA0CTL0 |= UC7BIT;         // Set 8-bit
+    UCA0CTL0 &= ~UC7BIT;        // Set 8-bit
 
     UCA0CTL1 &= ~UCSSEL1;       // Set aclk fuente
     UCA0CTL1 |= UCSSEL0;        // ""
 
-    BCSCTL1 &= ~XTS; // Modo 0 para el oscilador LFXT1 (selecciona low frequency).
+    BCSCTL1 &= ~XTS;            // Modo 0 para el oscilador LFXT1 (selecciona low frequency).
     BCSCTL1 |= DIVA_0;          // Divisor en /1.
     BCSCTL3 |= LFXT1S_0;        // Cristal de 32768-Hz para el oscilador LFXT1.
 
