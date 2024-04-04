@@ -22,27 +22,32 @@ static volatile uint8_t *flag_rx;
 void p1_init()
 {
     P1SEL |= BIT1 + BIT2;       // Set pines RXD y TXD
-    P1SEL2 &= ~BIT1 + ~BIT2;    // ""
+    P1SEL2 |= BIT1 + BIT2;    // ""
 }
 
 void uart_init()
 {
     UCA0CTL1 |= UCSWRST;        // Set reset
 
-    UCA0CTL0 &= ~UCPEN;         // Set paridad off
-    UCA0CTL0 &= ~UC7BIT;        // Set 8-bit
+    //UCA0CTL0 &= ~UCPEN;         // Set paridad off
+    //UCA0CTL0 |= UC7BIT;         // Set 8-bit
 
-    UCA0CTL1 &= ~UCSSEL1;       // Set aclk fuente
-    UCA0CTL1 |= UCSSEL0;        // ""
+    UCA0CTL1 |= UCSSEL_1;       // Set aclk fuente
+    //UCA0CTL1 |= UCSSEL0;        // ""
 
-    BCSCTL1 &= ~XTS;            // Modo 0 para el oscilador LFXT1 (selecciona low frequency).
-    BCSCTL1 |= DIVA_0;          // Divisor en /1.
-    BCSCTL3 |= LFXT1S_0;        // Cristal de 32768-Hz para el oscilador LFXT1.
+    //BCSCTL1 &= ~XTS; // Modo 0 para el oscilador LFXT1 (selecciona low frequency).
+    //BCSCTL1 |= DIVA_0;          // Divisor en /1.
+    //BCSCTL3 |= LFXT1S_0;        // Cristal de 32768-Hz para el oscilador LFXT1.
 
-    UCA0BR0 = 3;                // baud-rate 9600bps a 32k fuente
-    UCA0MCTL = 3 << 1;          //""
+    UCA0BR1 = 0x00;
+    UCA0BR0 = 0x03;// baud-rate 9600bps a 32k fuente
+    UCA0MCTL |= UCBRS_3;          //""
+    UCA0MCTL |= UCBRS_0;
+
 
     UCA0CTL1 &= ~UCSWRST;        // Reset reset
+
+    //IE2 = UCA0RXIE;
 }
 
 void uart_transmit(uint8_t *data_ptr, uint8_t largo)
