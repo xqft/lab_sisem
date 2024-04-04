@@ -4,88 +4,99 @@
  *  Created on: Mar 27, 2024
  *      Author: lucas
  */
+
+#include <stdint.h>
+#include <msp430.h>
 #include "timer.h"
 
+static uint8_t *tx_data;
+static uint8_t tx_largo;
 
-static uint8_t * Tx_data;
-static uint8_t Tx_largo;
-static char Rx_data[10];
-static uint8_t cont_pos;
-static volatile uint8_t Rx_largo;
+static int rx_data[10];
+static volatile uint8_t rx_cont;
 
-static volatile char*    flag_Rx;
+static uint8_t tx_cont;
 
-void initP1 (){
-    P1SEL |= BIT1 + BIT2;       //Set pines RXD y TXD
+static volatile uint8_t *flag_rx;
+
+void p1_init()
+{
+    P1SEL |= BIT1 + BIT2;       // Set pines RXD y TXD
     P1SEL2 |= BIT1 + BIT2;      // ""
-
 }
 
-
-void initUART(){
-    UCA0CTL1 |= UCSWRST         // Reset Gral
+void uart_init()
+{
+    UCA0CTL1 |= UCSWRST;         // Reset Gral
     UCA0CTL0 &= ~UCPEN;         // Set paridad off
     UCA0CTL0 |= UC7BIT;         // Set 8-bit
     UCA0CTL1 &= ~UCSSEL1;       // Set aclk fuente
     UCA0CTL1 |= UCSSEL0;        // ""
 
-    BCSCTL1 &= ~XTS;            // Modo 0 para el oscilador LFXT1 (selecciona low frequency).
+    BCSCTL1 &= ~XTS; // Modo 0 para el oscilador LFXT1 (selecciona low frequency).
     BCSCTL1 |= DIVA_0;          // Divisor en /1.
     BCSCTL3 |= LFXT1S_0;        // Cristal de 32768-Hz para el oscilador LFXT1.
 
-    UCA0BR0 = 3;                //baud-rate 9600bps a 32k fuente
-    UCA0MCTL = 3<<1;            //""
-
-
+    UCA0BR0 = 3;                // baud-rate 9600bps a 32k fuente
+    UCA0MCTL = 3 << 1;            //""
 }
 
-void Tx_int (uint8_t * data_ptr, uint8_t largo){
-    Tx_data = data_ptr;
-    Tx_largo = largo;
-    UCA0TXBUF = * Tx_data;
+void uart_transmit(uint8_t *data_ptr, uint8_t largo)
+{
+    tx_data = data_ptr;
+    tx_largo = largo;
+    UCA0TXBUF = *tx_data;
+    tx_cont = 1;
     IE2 |= UCA0TXIE; // Habilito interrupciones de registro vacio
-    cont_pos = 1;
 }
 
 #pragma vector = USCIAB0TX_VECTOR
-__interrupt void Tx_isr(void){
-    cont_pos++;
-    if cont_pos <= Tx_largo{
-        Tx_data++;
-        UCA0TXBUF = * Tx_data;
+__interrupt void tx_isr(void)
+{
+    tx_cont++;
+    if (tx_cont <= tx_largo)
+    {
+        tx_data++;
+        UCA0TXBUF = *tx_data;
     }
-    else{
-    IE2 &= !UCA0TXIE;
-    cont_pos = 0;
+    else
+    {
+        IE2 &= !UCA0TXIE;
+        tx_cont = 0;
     }
 }
 
 #pragma vector = USCIAB0RX_VECTOR
-__interrupt void Rx_isr(void){
+__interrupt void rx_isr(void)
+{
+    int received_char = UCA0RXBUF; // Leer el caracter recibido
 
-    char received_char = UCA0RXBUF; // Leer el carácter recibido
-
-    if (received_char == '\r') {
-                  // rx_message_complete = 1; // Activar la bandera de mensaje completo
-                  * flag_Rx = 1;
+    if (received_char == '\r')
+    {
+        // rx_message_complete = 1; // Activar la bandera de mensaje completo
+        *flag_rx = 1;
     }
 
-        // Almacenar el carácter en el buffer de recepción
-    else if (Rx_largo < 10) {
-           Rx_data[Rx_largo++] = received_char;
-           // Verificar si se ha recibido el carácter de fin de mensaje
+    // Almacenar el caracter en el buffer de recepcion
+    else if (rx_cont < 10)
+    {
+        rx_data[rx_cont++] = received_char;
+        // Verificar si se ha recibido el caracter de fin de mensaje
     }
 }
 
-void copy_Rx_buff(char *Rx_buff){
+void copy_rx_buff(char *rx_buff)
+{
     int i;
-    for(i = 0; i < Rx_largo; i++){
-    Rx_buff[i] = Rx_data[i];
+    for (i = 0; i < rx_cont; i++)
+    {
+        rx_buff[i] = rx_data[i];
     }
-    Rx_largo = 0;
+    rx_cont = 0;
 }
 
-void setFlagRx(char* flag_main){
+void set_flag_rx(uint8_t *flag_main)
+{
     /*Set flag*/
-    flag_Rx = flag_main;        //En main inicializar flag_main en cero
+    flag_rx = flag_main;        // En main inicializar flag_main en cero
 }
