@@ -7,7 +7,7 @@
  */
 
 static volatile char tx_msg[5] = "listo";
-static volatile char rx_msg[5] = "listo";
+static volatile char rx_msg[5];
 
 static volatile uint8_t *flag_rx_main = 0;
 
