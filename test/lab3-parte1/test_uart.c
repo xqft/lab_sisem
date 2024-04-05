@@ -15,10 +15,10 @@ int main(void)
 	
 	p1_init();
 	uart_init();
-
+    uart_transmit(&msg, 4);
+    _enable_interrupt();
 	while (1) {
-	    //uart_transmit(&msg, 4);
-	    UCA0TXBUF = 'A';
+	   // UCA0TXBUF = 'A';
 	    int i;
 	    for (i = 0; i < 10000; i++) {}
 	}
