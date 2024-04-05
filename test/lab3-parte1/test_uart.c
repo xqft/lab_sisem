@@ -6,7 +6,9 @@
  * main.c
  */
 
-static volatile char msg[5] = "listo";
+static volatile char tx_msg[5] = "listo";
+static volatile char rx_msg[5] = "listo";
+
 static volatile uint8_t *flag_rx_main = 0;
 
 int main(void)
@@ -15,7 +17,7 @@ int main(void)
 
     p1_init();
     uart_init();
-    uart_transmit(&msg, 5);
+    uart_transmit(&tx_msg, 5);
     set_flag_rx(&flag_rx_main);
 
     _enable_interrupt();
@@ -25,8 +27,8 @@ int main(void)
         {
             *flag_rx_main = 0;
 
-            copy_rx_buff(&msg);
-            uart_transmit(&msg, 5);
+            copy_rx_buff(&rx_msg);
+            uart_transmit(&rx_msg, 10);
 
             while (1)
             {
