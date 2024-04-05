@@ -7,9 +7,9 @@
  */
 
 static volatile char tx_msg[5] = "listo";
-static volatile char rx_msg[5];
+static volatile char rx_msg[5] = "listo";
 
-static volatile uint8_t *flag_rx_main = 0;
+static volatile uint8_t flag_rx_main = 0;
 
 int main(void)
 {
@@ -23,12 +23,12 @@ int main(void)
     _enable_interrupt();
     while (1)
     {
-        if (*flag_rx_main == 1)
+        if (flag_rx_main == 1)
         {
-            *flag_rx_main = 0;
+            flag_rx_main = 0;
 
-            copy_rx_buff(&rx_msg);
-            uart_transmit(&rx_msg, 10);
+            copy_rx_buff(rx_msg);
+            uart_transmit(rx_msg, 10);
 
             while (1)
             {
