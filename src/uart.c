@@ -12,7 +12,7 @@
 static uint8_t *tx_data;
 static uint8_t tx_largo;
 
-static int rx_data[10];
+static char rx_data[10];
 static volatile uint8_t rx_cont;
 
 static uint8_t tx_cont;
@@ -47,7 +47,7 @@ void uart_init()
     UCA0MCTL |= UCBRS_0;
 
     UCA0CTL1 &= ~UCSWRST;        // Reset reset
-    IE2 |= UCA0RXIE; //Habilito interrupciones de recepcion
+    //IE2 |= UCA0RXIE; //Habilito interrupciones de recepcion
 }
 
 void uart_transmit(uint8_t *data_ptr, uint8_t largo)
@@ -70,7 +70,7 @@ __interrupt void tx_isr(void)
     }
     else
     {
-        IE2 &= !UCA0TXIE;
+        IE2 &= ~UCA0TXIE;
         tx_cont = 0;
     }
 }
@@ -78,7 +78,7 @@ __interrupt void tx_isr(void)
 #pragma vector = USCIAB0RX_VECTOR
 __interrupt void rx_isr(void)
 {
-    int received_char = UCA0RXBUF; // Leer el caracter recibido
+    char received_char = UCA0RXBUF; // Leer el caracter recibido
 
     if (received_char == '\r')
     {

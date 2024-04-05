@@ -20,26 +20,25 @@ int main(void)
     uart_transmit(&tx_msg, 5);
     set_flag_rx(&flag_rx_main);
 
-    _enable_interrupt();
+    __enable_interrupt();
     while (1)
     {
         if (IFG2 & UCA0RXIFG == 1) {
-            tx_msg[0] = UCA0RXBUF;
+            char received_char = UCA0RXBUF;
+            tx_msg[0] = received_char;
             uart_transmit(&tx_msg, 1);
         }
         if (flag_rx_main == 1)
         {
             flag_rx_main = 0;
 
-            copy_rx_buff(rx_msg);
-            uart_transmit(rx_msg, 10);
+            copy_rx_buff(&rx_msg);
+            uart_transmit(&rx_msg, 1);
 
-            while (1)
+            int i;
+            for (i = 0; i < 10000; i++)
             {
-                int i;
-                for (i = 0; i < 10000; i++)
-                {
-                }
+
             }
         }
 
