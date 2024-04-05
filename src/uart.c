@@ -102,7 +102,6 @@ void copy_rx_buff(char *rx_buff)
     {
         rx_buff[i] = rx_data[i];
     }
-    largoo = rx_cont;
     rx_cont = 0;
 }
 
