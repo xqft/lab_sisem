@@ -23,6 +23,10 @@ int main(void)
     _enable_interrupt();
     while (1)
     {
+        if (IFG2 & UCA0RXIFG == 1) {
+            tx_msg[0] = UCA0RXBUF;
+            uart_transmit(&tx_msg, 1);
+        }
         if (flag_rx_main == 1)
         {
             flag_rx_main = 0;

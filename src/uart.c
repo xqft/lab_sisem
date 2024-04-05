@@ -46,9 +46,8 @@ void uart_init()
     UCA0MCTL |= UCBRS_3;          //""
     UCA0MCTL |= UCBRS_0;
 
-   // IE2 = UCA0RXIE; //Habilito interrupciones de recepcion
     UCA0CTL1 &= ~UCSWRST;        // Reset reset
-    IE2 = UCA0RXIE;
+    IE2 |= UCA0RXIE; //Habilito interrupciones de recepcion
 }
 
 void uart_transmit(uint8_t *data_ptr, uint8_t largo)
