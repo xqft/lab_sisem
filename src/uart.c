@@ -78,22 +78,23 @@ __interrupt void tx_isr(void)
 #pragma vector = USCIAB0RX_VECTOR
 __interrupt void rx_isr(void)
 {
-    char received_char = UCA0RXBUF; // Leer el caracter recibido
+    if (IFG2 & UCA0RXIFG == 1) {
 
-    if (received_char == '\r')
-    {
-        // rx_message_complete = 1; // Activar la bandera de mensaje completo
-        *flag_rx = 1;
-    }
+        char received_char = UCA0RXBUF; // Leer el caracter recibido
+        if (received_char == '\r')
+        {
+            // rx_message_complete = 1; // Activar la bandera de mensaje completo
+                *flag_rx = 1;
+        }
 
-    // Almacenar el caracter en el buffer de recepcion
-    else if (rx_cont < 10)
-    {
-        rx_data[rx_cont++] = received_char;
-        // Verificar si se ha recibido el caracter de fin de mensaje
+        // Almacenar el caracter en el buffer de recepcion
+        else if (rx_cont < 10)
+        {
+            rx_data[rx_cont++] = received_char;
+            // Verificar si se ha recibido el caracter de fin de mensaje
+        }
     }
 }
-
 void copy_rx_buff(char *rx_buff)
 {
     int i;
