@@ -6,109 +6,107 @@
  */
 
 #include <stdint.h>
+#include <string.h>
 #include <msp430.h>
+
 #include "timer.h"
 
-static uint8_t *tx_data;
-static uint8_t tx_largo;
+/// Buffer de datos de transmision
+static uint8_t tx_data[16];
+/// Largo del buffer de transmision en bytes
+static uint8_t tx_data_length;
+/// Siguiente dato del buffer a enviar
+static uint8_t tx_data_count;
 
-static char rx_data[10];
-static volatile uint8_t rx_cont;
-
-static uint8_t tx_cont;
-
-static volatile uint8_t *flag_rx;
+/// Buffer de datos de transmision
+static char rx_data[16];
+/// Largo del buffer de datos de transmision
+static volatile uint8_t rx_data_length;
+/// Puntero a flag que indica la recepcion de un dato
+static volatile uint8_t *rx_received_flag;
 
 void p1_init()
 {
     P1SEL |= BIT1 + BIT2;       // Set pines RXD y TXD
-    P1SEL2 |= BIT1 + BIT2;    // ""
+    P1SEL2 |= BIT1 + BIT2;      // ""
 }
 
 void uart_init()
 {
-    UCA0CTL1 |= UCSWRST;        // Set reset
+    UCA0CTL1 |= UCSWRST;    // Set reset
 
-    //Estado basico UART luego de un rst
-    //UCA0CTL0 &= ~UCPEN;         // Set paridad off
-    //UCA0CTL0 |= UC7BIT;         // Set 8-bit
+    // Estado por defecto luego de un reset
+    // UCA0CTL0 &= ~UCPEN;  // Set paridad off
+    // UCA0CTL0 |= UC7BIT;  // Set 8-bit
 
-    UCA0CTL1 |= UCSSEL_1;       // Set aclk fuente
-    //UCA0CTL1 |= UCSSEL0;        // ""
+    UCA0CTL1 |= UCSSEL_1;   // Set fuente ACLK
+    UCA0CTL1 |= UCSSEL0;    // ""
 
-    //Estado basico UART luego de un rst
-    //BCSCTL1 &= ~XTS; // Modo 0 para el oscilador LFXT1 (selecciona low frequency).
-    //BCSCTL1 |= DIVA_0;          // Divisor en /1.
-    //BCSCTL3 |= LFXT1S_0;        // Cristal de 32768-Hz para el oscilador LFXT1.
+    // Estado por defecto luego de un reset
+    // BCSCTL1 &= ~XTS;     // Modo 0 para el oscilador LFXT1 (selecciona low frequency).
+    // BCSCTL1 |= DIVA_0;   // Divisor en /1.
+    // BCSCTL3 |= LFXT1S_0; // Cristal de 32768-Hz para el oscilador LFXT1.
 
+    // Establecer baud-rate 9600 con fuente de 32 kHz.
+    // Ref: Tabla 15-4, Family User's Guide.
     UCA0BR1 = 0x00;
-    UCA0BR0 = 0x03;// baud-rate 9600bps a 32k fuente
-    UCA0MCTL |= UCBRS_3;          //""
-    UCA0MCTL |= UCBRS_0;
+    UCA0BR0 = 0x03;
+    UCA0MCTL |= UCBRS_3;
+    UCA0MCTL |= UCBRF_0;
 
-    UCA0CTL1 &= ~UCSWRST;        // Reset reset
-    IE2 |= UCA0RXIE; //Habilito interrupciones de recepcion
+    UCA0CTL1 &= ~UCSWRST;   // Reestablecer reset
+    IE2 |= UCA0RXIE;        // Habilito interrupciones de recepcion
 }
 
-void uart_transmit(uint8_t *data_ptr, uint8_t largo)
+void uart_transmit(uint8_t *data, uint8_t length)
 {
-    tx_data = data_ptr;
-    tx_largo = largo;
+    memcpy(tx_data, data, length);
+    tx_data_length = length;
+
+    // Transmito el primer byte
     UCA0TXBUF = *tx_data;
-    tx_cont = 1;
-    IE2 |= UCA0TXIE; // Habilito interrupciones de registro vacio
+    tx_data_count = 1;
+    // Habilito interrupcion de registro vacio
+    IE2 |= UCA0TXIE;
+}
+
+void copy_rx_buff(char *external_buff, uint8_t *length)
+{
+    memcpy(external_buff, rx_data, rx_data_length);
+    *length = rx_data_length;
+}
+
+void set_flag_rx(uint8_t *flag)
+{
+    rx_received_flag = flag;   // En main inicializar flag en cero
 }
 
 #pragma vector = USCIAB0TX_VECTOR
 __interrupt void tx_isr(void)
 {
-    tx_cont++;
-    if (tx_cont <= tx_largo)
+    if (tx_data_count <= tx_data_length)
     {
-        tx_data++;
-        UCA0TXBUF = *tx_data;
+        UCA0TXBUF = tx_data[tx_data_count];
+        tx_data_count++;
     }
     else
     {
         IE2 &= ~UCA0TXIE;
-        tx_cont = 0;
+        tx_data_count = 0;
     }
 }
 
 #pragma vector = USCIAB0RX_VECTOR
 __interrupt void rx_isr(void)
 {
-    if (IFG2 & UCA0RXIFG == 1) {
+    char received_char = UCA0RXBUF; // Leer el caracter recibido
 
-        char received_char = UCA0RXBUF; // Leer el caracter recibido
-        if (received_char == '\r')
-        {
-            // rx_message_complete = 1; // Activar la bandera de mensaje completo
-                *flag_rx = 1;
-        }
-
-        // Almacenar el caracter en el buffer de recepcion
-        else if (rx_cont < 10)
-        {
-            rx_data[rx_cont++] = received_char;
-            // Verificar si se ha recibido el caracter de fin de mensaje
-        }
-    }
-}
-void copy_rx_buff(char *rx_buff, uint8_t* rx_largo)
-{
-    int i;
-    *rx_largo = rx_cont;
-
-    for (i = 0; i < rx_cont; i++)
+    if (received_char == '\r')
     {
-        rx_buff[i] = rx_data[i];
+        *rx_received_flag = 1;
     }
-    rx_cont = 0;
-}
-
-void set_flag_rx(uint8_t *flag_main)
-{
-    /*Set flag*/
-    flag_rx = flag_main;        // En main inicializar flag_main en cero
+    else if (rx_data_length < 16) // saturar en el limite del buffer
+    {
+        rx_data[rx_data_length++] = received_char;
+    }
 }
