@@ -95,9 +95,11 @@ __interrupt void rx_isr(void)
         }
     }
 }
-void copy_rx_buff(char *rx_buff)
+void copy_rx_buff(char *rx_buff, uint8_t* rx_largo)
 {
     int i;
+    *rx_largo = rx_cont;
+
     for (i = 0; i < rx_cont; i++)
     {
         rx_buff[i] = rx_data[i];

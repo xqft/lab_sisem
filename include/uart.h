@@ -11,7 +11,7 @@
 void p1_init();
 void uart_init();
 void uart_transmit(uint8_t *data_ptr, uint8_t largo);
-void copy_rx_buff(char *rx_buff);
+void copy_rx_buff(char *rx_buff, uint8_t* rx_largo);
 void set_flag_rx(uint8_t *flag_main);
 
 #endif /* INCLUDE_UART_H_ */

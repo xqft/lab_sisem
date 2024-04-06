@@ -9,7 +9,8 @@
 static volatile char tx_msg[5] = "listo";
 static volatile char rx_msg[5];
 
-static volatile uint8_t *flag_rx_main;
+static volatile uint8_t * flag_rx_main;
+static volatile uint8_t rx_largo;
 
 int main(void)
 {
@@ -35,8 +36,8 @@ int main(void)
         {
             *flag_rx_main = 0;
 
-            copy_rx_buff(&rx_msg);
-            uart_transmit(&rx_msg, 5);
+            copy_rx_buff(&rx_msg, &rx_largo);
+            uart_transmit(&rx_msg, rx_largo);
 
             int i;
             for (i = 0; i < 10000; i++)
