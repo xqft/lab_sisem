@@ -104,6 +104,7 @@ __interrupt void rx_isr(void)
     if (received_char == '\r')
     {
         *rx_received_flag = 1;
+        rx_data_length = 0;
     }
     else if (rx_data_length < 16) // saturar en el limite del buffer
     {
