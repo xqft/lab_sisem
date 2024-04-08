@@ -5,18 +5,19 @@
 #include "timer_hw.h"
 #include "temperatura.h"
 #include "uart.h"
-
-static char rx_msg[16];
+#define LED1 (0x0001)
 
 int main(void)
 {
+    P1DIR |= LED1; // Configura pin LED1 salida
+
     WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
 
     const uint32_t counter_max = 2; // Periodo de adquicision de temperatura en multiplos de 250 ms.
 
     int32_t watch; 				// Variable que toma el valor de la temperatura.
-    uint8_t temp_flag = 0;		// Flag que indica nueva medida de temp. disponible.
-    uint8_t counter_flag = 0;	// Flag que indica que el contador del timer dio una vuelta.
+    volatile uint8_t temp_flag = 0;		// Flag que indica nueva medida de temp. disponible.
+    volatile uint8_t counter_flag = 0;	// Flag que indica que el contador del timer dio una vuelta.
 
     // Init timer module
     config_timer_crystal();
@@ -43,8 +44,8 @@ int main(void)
         	watch = getTemp();
         }
         if (counter_flag) {
-        	char temp_msg[16];
-        	itoa(watch, temp_msg);
+        	static char temp_msg[4] = "";
+        	itoa(watch, &temp_msg);
 
         	uart_transmit(temp_msg, 2);
 

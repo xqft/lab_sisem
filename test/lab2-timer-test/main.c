@@ -22,9 +22,9 @@ int main(void)
     return 0;
 }
 
-#pragma vector = TIMER0_A0_VECTOR
-__interrupt void int_timer_A (void)
-{
-    P1OUT ^= LED1;  // Conmuta LED1 usando XOR
-    inc_time();     // Incrementa 250 ms
-}
+//#pragma vector = TIMER0_A0_VECTOR
+//__interrupt void int_timer_A (void)
+//{
+ //   P1OUT ^= LED1;  // Conmuta LED1 usando XOR
+ //   inc_time();     // Incrementa 250 ms
+//}
