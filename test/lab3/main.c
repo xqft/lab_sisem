@@ -25,6 +25,7 @@ int main(void)
 
     // Init temp module
     initTemp();
+    runTemp();
     setFlagTemp(&temp_flag);
 
     // Init UART module
@@ -45,7 +46,7 @@ int main(void)
         	char temp_msg[16];
         	itoa(watch, temp_msg);
 
-        	uart_transmit(temp_msg, strlen(temp_msg));
+        	uart_transmit(temp_msg, 2);
 
         	counter_flag = 0;
         }
