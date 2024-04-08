@@ -46,6 +46,8 @@ int main(void)
         	itoa(watch, temp_msg);
 
         	uart_transmit(temp_msg, strlen(temp_msg));
+
+        	counter_flag = 0;
         }
     }
 }
