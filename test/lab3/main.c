@@ -1,55 +1,51 @@
-#include <msp430.h> 
+#include <stdint.h>
+#include <string.h>
+#include <msp430.h>
+
+#include "timer_hw.h"
 #include "temperatura.h"
 #include "uart.h"
-#include "utils.h"
-/**
- * main.c
- */
 
-static volatile char tx_msg[5] = "listo";
-static volatile char rx_msg[5];
-
-static volatile uint8_t * flag_rx_main;
-static volatile uint8_t rx_largo;
-static  uint8_t cont_temp;
+static char rx_msg[16];
 
 int main(void)
 {
-    WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
-        volatile int32_t watch;        //Variable que toma el valor de la temperatura
-        volatile char* flag_de_temp;         //Puntero a flag
-        *flag_de_temp = 0;          //Arranco con flag baja
-        setFlagTemp(flag_de_temp);  //Apunto flag a flag_de_main
-        initTemp();
-        runTemp();
+    WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
 
-        *flag_rx_main = 0;
-        set_flag_rx(flag_rx_main);
+    const uint32_t counter_max = 2; // Periodo de adquicision de temperatura en multiplos de 250 ms.
 
-        p1_init();
-        uart_init();
-        uart_transmit(&tx_msg, 5);
+    int32_t watch; 				// Variable que toma el valor de la temperatura.
+    uint8_t temp_flag = 0;		// Flag que indica nueva medida de temp. disponible.
+    uint8_t counter_flag = 0;	// Flag que indica que el contador del timer dio una vuelta.
 
+    // Init timer module
+    config_timer_crystal();
+    set_counter_flag(&counter_flag);
+    set_counter_max(counter_max);
 
-        _enable_interrupt();        //Habilito interrupciones
+    // Init temp module
+    initTemp();
+    setFlagTemp(&temp_flag);
 
-        for(;;){
+    // Init UART module
+    p1_init();
+    uart_init();
 
-                if (*flag_de_temp == 1){
-                    watch = getTemp();
-                    cont_temp++;
-                }
+    const uint8_t *init_msg = "tx init ready";
+    uart_transmit(init_msg, strlen(init_msg));
 
-            if(cont_temp == 2){
-                cont_temp =0;
+    __enable_interrupt();
 
-                if (*flag_rx_main == 1){
-                          *flag_rx_main = 0;
-
-                          itoa(watch,&rx_msg);
-                          uart_transmit(&rx_msg, 16);
-                }
-            }
+    while (1)
+    {
+        if (temp_flag) {
+        	watch = getTemp();
         }
-    return 0;
+        if (counter_flag) {
+        	char temp_msg[16];
+        	itoa(watch, temp_msg);
+
+        	uart_transmit(temp_msg, strlen(temp_msg));
+        }
+    }
 }
