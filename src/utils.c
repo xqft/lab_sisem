@@ -30,8 +30,7 @@ void itoa(int value, char* str) {
     // Conversion. Number is reversed.
     do *wstr++ = num[value%BASE]; while(value/=BASE);
     if(sign<0) *wstr++='-';
-    //*wstr='\0';
     // Reverse string
     strreverse(str,wstr-1);
-
+    *wstr='\0';
 }
