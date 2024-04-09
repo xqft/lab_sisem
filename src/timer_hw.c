@@ -1,5 +1,12 @@
 #include <msp430.h>
+#include <stdint.h>
+
 #include "timer.h"
+#define LED1 (0x0001)
+
+volatile static uint32_t counter = 0;
+static uint8_t *counter_flag;
+static uint32_t counter_max = 0;
 
 void config_timer_crystal()
 {
@@ -27,4 +34,24 @@ void config_timer_VLO(){
 
     //TACTL   |= TAIE;             // Habilito las interrupciones del Timer A.
     TACCTL0 |= CCIE;            // Habilito las interrupciones del Timer A en modo comparacion.
+}
+
+void set_counter_flag(uint8_t *flag) {
+	counter_flag = flag;
+}
+
+void set_counter_max(uint32_t max) {
+	counter_max = max;
+}
+
+#pragma vector = TIMER0_A0_VECTOR
+__interrupt void int_timer_A (void){
+	P1OUT ^= LED1;  // Conmuta LED1 usando XOR
+	if (counter == counter_max) {
+		*counter_flag = 1;
+		counter = 0;
+	}else{
+	    counter++;
+	}
+
 }
