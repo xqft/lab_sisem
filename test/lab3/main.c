@@ -5,7 +5,11 @@
 #include "timer_hw.h"
 #include "temperatura.h"
 #include "uart.h"
+#include "utils.h"
+
 #define LED1 (0x0001)
+
+static char temp_msg[4];
 
 int main(void)
 {
@@ -44,9 +48,9 @@ int main(void)
         	watch = getTemp();
         }
         if (counter_flag) {
-        	static char temp_msg[4] = "";
-        	itoa(watch, &temp_msg);
+            char *poss = temp_msg;
 
+        	itoa(watch, poss);
         	uart_transmit(temp_msg, 2);
 
         	counter_flag = 0;

@@ -50,6 +50,8 @@ __interrupt void int_timer_A (void){
 	if (counter == counter_max) {
 		*counter_flag = 1;
 		counter = 0;
+	}else{
+	    counter++;
 	}
-	counter++;
+
 }
