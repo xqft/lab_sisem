@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flag_0',['flag',['../temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649',1,'temperatura.c']]]
+  ['enteros_0',['enteros',['../structtemp__celsius__t.html#abe85d161f8ad1a041dd6e013cc575e09',1,'temp_celsius_t']]]
 ];

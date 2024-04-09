@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['datotemp_0',['datotemp',['../test-temp_2main_8c.html#a8933b34ffce9dec7cb0d94da852d40f7',1,'main.c']]],
-  ['decimales_1',['decimales',['../structtemp__celsius__t.html#a546973799a524e5984b50774ec5b8687',1,'temp_celsius_t']]]
+  ['counter_0',['counter',['../timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b',1,'timer_hw.c']]],
+  ['counter_5fflag_1',['counter_flag',['../timer__hw_8c.html#ade057b2cfdc66b88f0193e5ef778f020',1,'timer_hw.c']]],
+  ['counter_5fmax_2',['counter_max',['../timer__hw_8c.html#a229e9e5919673b2018dcd5c88a3d6b99',1,'timer_hw.c']]]
 ];
