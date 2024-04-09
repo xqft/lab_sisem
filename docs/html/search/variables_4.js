@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['horas_0',['horas',['../structtiempo__t.html#ad5403d249d403984dc36e34ee6e7e826',1,'tiempo_t']]]
+  ['flag_0',['flag',['../temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649',1,'temperatura.c']]]
 ];

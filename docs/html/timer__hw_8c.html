@@ -93,15 +93,23 @@ $(function(){initNavTree('timer__hw_8c.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Funciones</a>  </div>
+<a href="#define-members">defines</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Referencia del archivo timer_hw.c</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;msp430.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="timer_8h_source.html">timer.h</a>&quot;</code><br />
 </div>
 <p><a href="timer__hw_8c_source.html">Ir al código fuente de este archivo.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a8aa85ae9867fabf70ec72cd3bf6fb6b9" id="r_a8aa85ae9867fabf70ec72cd3bf6fb6b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a>&#160;&#160;&#160;(0x0001)</td></tr>
+<tr class="separator:a8aa85ae9867fabf70ec72cd3bf6fb6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funciones</h2></td></tr>
 <tr class="memitem:af7a418f397f4e37bf327ee39e6e04ed8" id="r_af7a418f397f4e37bf327ee39e6e04ed8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7a418f397f4e37bf327ee39e6e04ed8">config_timer_crystal</a> ()</td></tr>
@@ -110,7 +118,41 @@ Funciones</h2></td></tr>
 <tr class="memitem:a7c114b7f6ec84ab3230fffd220c5d9e6" id="r_a7c114b7f6ec84ab3230fffd220c5d9e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c114b7f6ec84ab3230fffd220c5d9e6">config_timer_VLO</a> ()</td></tr>
 <tr class="memdesc:a7c114b7f6ec84ab3230fffd220c5d9e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rutina de inicializacion del timer hardware usando el VLO como fuente de reloj.  <br /></td></tr>
 <tr class="separator:a7c114b7f6ec84ab3230fffd220c5d9e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab813cc6f552c9da6ac224b873bf6ce94" id="r_ab813cc6f552c9da6ac224b873bf6ce94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab813cc6f552c9da6ac224b873bf6ce94">set_counter_flag</a> (uint8_t *<a class="el" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a>)</td></tr>
+<tr class="memdesc:ab813cc6f552c9da6ac224b873bf6ce94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establecer la flag del contador que indica cuando el mismo mide un periodo.  <br /></td></tr>
+<tr class="separator:ab813cc6f552c9da6ac224b873bf6ce94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9871fa3d41077ae9e2ee285131c3937" id="r_aa9871fa3d41077ae9e2ee285131c3937"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9871fa3d41077ae9e2ee285131c3937">set_counter_max</a> (uint32_t max)</td></tr>
+<tr class="memdesc:aa9871fa3d41077ae9e2ee285131c3937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establecer el periodo del contador.  <br /></td></tr>
+<tr class="separator:aa9871fa3d41077ae9e2ee285131c3937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd08b9248582f6b2bf2a72313b818b61" id="r_acd08b9248582f6b2bf2a72313b818b61"><td class="memItemLeft" align="right" valign="top">__interrupt void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd08b9248582f6b2bf2a72313b818b61">int_timer_A</a> (void)</td></tr>
+<tr class="separator:acd08b9248582f6b2bf2a72313b818b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aeeebb32803adf351ccddd3d4a382939b" id="r_aeeebb32803adf351ccddd3d4a382939b"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeeebb32803adf351ccddd3d4a382939b">counter</a> = 0</td></tr>
+<tr class="separator:aeeebb32803adf351ccddd3d4a382939b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade057b2cfdc66b88f0193e5ef778f020" id="r_ade057b2cfdc66b88f0193e5ef778f020"><td class="memItemLeft" align="right" valign="top">static uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade057b2cfdc66b88f0193e5ef778f020">counter_flag</a></td></tr>
+<tr class="separator:ade057b2cfdc66b88f0193e5ef778f020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a229e9e5919673b2018dcd5c88a3d6b99" id="r_a229e9e5919673b2018dcd5c88a3d6b99"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a> = 0</td></tr>
+<tr class="separator:a229e9e5919673b2018dcd5c88a3d6b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="a8aa85ae9867fabf70ec72cd3bf6fb6b9" name="a8aa85ae9867fabf70ec72cd3bf6fb6b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aa85ae9867fabf70ec72cd3bf6fb6b9">&#9670;&#160;</a></span>LED1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED1&#160;&#160;&#160;(0x0001)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00005">5</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Documentación de funciones</h2>
 <a id="af7a418f397f4e37bf327ee39e6e04ed8" name="af7a418f397f4e37bf327ee39e6e04ed8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af7a418f397f4e37bf327ee39e6e04ed8">&#9670;&#160;</a></span>config_timer_crystal()</h2>
@@ -129,20 +171,20 @@ Funciones</h2></td></tr>
 
 <p>Rutina de inicializacion del timer hardware usando el cristal como fuente de reloj. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00004">4</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    5</span>{</div>
-<div class="line"><span class="lineno">    6</span>    TACTL   |= TASSEL_1;        <span class="comment">// Selecciono ACLK para el Timer A.</span></div>
-<div class="line"><span class="lineno">    7</span>    TACTL   |= MC_1;            <span class="comment">// Modo 1 para el Timer A: cuenta de forma ascendente.</span></div>
-<div class="line"><span class="lineno">    8</span>    TACCR0  = 8192;             <span class="comment">// Constante a decrementar por el Timer A cada t=1/32768.</span></div>
-<div class="line"><span class="lineno">    9</span> </div>
-<div class="line"><span class="lineno">   10</span> </div>
-<div class="line"><span class="lineno">   11</span>    BCSCTL1 &amp;= ~XTS;            <span class="comment">// Modo 0 para el oscilador LFXT1 (selecciona low frequency).</span></div>
-<div class="line"><span class="lineno">   12</span>    BCSCTL1 |= DIVA_0;          <span class="comment">// Divisor en /1.</span></div>
-<div class="line"><span class="lineno">   13</span>    BCSCTL3 |= LFXT1S_0;        <span class="comment">// Cristal de 32768-Hz para el oscilador LFXT1.</span></div>
-<div class="line"><span class="lineno">   14</span> </div>
-<div class="line"><span class="lineno">   15</span>    <span class="comment">//TACTL   |= TAIE;            // Habilito las interrupciones del Timer A.</span></div>
-<div class="line"><span class="lineno">   16</span>    TACCTL0 |= CCIE;            <span class="comment">// Habilito las interrupciones del Timer A en modo comparacion.</span></div>
-<div class="line"><span class="lineno">   17</span>}</div>
+<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00011">11</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   12</span>{</div>
+<div class="line"><span class="lineno">   13</span>    TACTL   |= TASSEL_1;        <span class="comment">// Selecciono ACLK para el Timer A.</span></div>
+<div class="line"><span class="lineno">   14</span>    TACTL   |= MC_1;            <span class="comment">// Modo 1 para el Timer A: cuenta de forma ascendente.</span></div>
+<div class="line"><span class="lineno">   15</span>    TACCR0  = 8192;             <span class="comment">// Constante a decrementar por el Timer A cada t=1/32768.</span></div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span> </div>
+<div class="line"><span class="lineno">   18</span>    BCSCTL1 &amp;= ~XTS;            <span class="comment">// Modo 0 para el oscilador LFXT1 (selecciona low frequency).</span></div>
+<div class="line"><span class="lineno">   19</span>    BCSCTL1 |= DIVA_0;          <span class="comment">// Divisor en /1.</span></div>
+<div class="line"><span class="lineno">   20</span>    BCSCTL3 |= LFXT1S_0;        <span class="comment">// Cristal de 32768-Hz para el oscilador LFXT1.</span></div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>    <span class="comment">//TACTL   |= TAIE;            // Habilito las interrupciones del Timer A.</span></div>
+<div class="line"><span class="lineno">   23</span>    TACCTL0 |= CCIE;            <span class="comment">// Habilito las interrupciones del Timer A en modo comparacion.</span></div>
+<div class="line"><span class="lineno">   24</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -163,20 +205,176 @@ Funciones</h2></td></tr>
 
 <p>Rutina de inicializacion del timer hardware usando el VLO como fuente de reloj. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00019">19</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>                       {</div>
-<div class="line"><span class="lineno">   20</span>    TACTL   |= TASSEL_1;        <span class="comment">// Selecciono ACLK para el Timer A.</span></div>
-<div class="line"><span class="lineno">   21</span>    TACTL   |= MC_1;            <span class="comment">// Modo 1 para el Timer A: cuenta de forma ascendente.</span></div>
-<div class="line"><span class="lineno">   22</span>    TACCR0  = 3000;             <span class="comment">// Constante a decrementar por el Timer A cada t=1/12000.</span></div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>    BCSCTL1 &amp;= ~XTS;            <span class="comment">// Modo 0 para el oscilador VLO (selecciona low frequency).</span></div>
-<div class="line"><span class="lineno">   25</span>    BCSCTL1 |= DIVA_0;          <span class="comment">// Divisor en /1.</span></div>
-<div class="line"><span class="lineno">   26</span>    BCSCTL3 |= LFXT1S_2;        <span class="comment">// Oscilador VLO de frecuencia 12-KHz.</span></div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>    <span class="comment">//TACTL   |= TAIE;             // Habilito las interrupciones del Timer A.</span></div>
-<div class="line"><span class="lineno">   29</span>    TACCTL0 |= CCIE;            <span class="comment">// Habilito las interrupciones del Timer A en modo comparacion.</span></div>
-<div class="line"><span class="lineno">   30</span>}</div>
+<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00026">26</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>                       {</div>
+<div class="line"><span class="lineno">   27</span>    TACTL   |= TASSEL_1;        <span class="comment">// Selecciono ACLK para el Timer A.</span></div>
+<div class="line"><span class="lineno">   28</span>    TACTL   |= MC_1;            <span class="comment">// Modo 1 para el Timer A: cuenta de forma ascendente.</span></div>
+<div class="line"><span class="lineno">   29</span>    TACCR0  = 3000;             <span class="comment">// Constante a decrementar por el Timer A cada t=1/12000.</span></div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>    BCSCTL1 &amp;= ~XTS;            <span class="comment">// Modo 0 para el oscilador VLO (selecciona low frequency).</span></div>
+<div class="line"><span class="lineno">   32</span>    BCSCTL1 |= DIVA_0;          <span class="comment">// Divisor en /1.</span></div>
+<div class="line"><span class="lineno">   33</span>    BCSCTL3 |= LFXT1S_2;        <span class="comment">// Oscilador VLO de frecuencia 12-KHz.</span></div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>    <span class="comment">//TACTL   |= TAIE;             // Habilito las interrupciones del Timer A.</span></div>
+<div class="line"><span class="lineno">   36</span>    TACCTL0 |= CCIE;            <span class="comment">// Habilito las interrupciones del Timer A en modo comparacion.</span></div>
+<div class="line"><span class="lineno">   37</span>}</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="acd08b9248582f6b2bf2a72313b818b61" name="acd08b9248582f6b2bf2a72313b818b61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd08b9248582f6b2bf2a72313b818b61">&#9670;&#160;</a></span>int_timer_A()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__interrupt void int_timer_A </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00048">48</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>                                   {</div>
+<div class="line"><span class="lineno">   49</span>    P1OUT ^= <a class="code hl_define" href="#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a>;  <span class="comment">// Conmuta LED1 usando XOR</span></div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#aeeebb32803adf351ccddd3d4a382939b">counter</a> == <a class="code hl_variable" href="#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a>) {</div>
+<div class="line"><span class="lineno">   51</span>        *<a class="code hl_variable" href="#ade057b2cfdc66b88f0193e5ef778f020">counter_flag</a> = 1;</div>
+<div class="line"><span class="lineno">   52</span>        <a class="code hl_variable" href="#aeeebb32803adf351ccddd3d4a382939b">counter</a> = 0;</div>
+<div class="line"><span class="lineno">   53</span>    }<span class="keywordflow">else</span>{</div>
+<div class="line"><span class="lineno">   54</span>        <a class="code hl_variable" href="#aeeebb32803adf351ccddd3d4a382939b">counter</a>++;</div>
+<div class="line"><span class="lineno">   55</span>    }</div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   57</span>}</div>
+<div class="ttc" id="atimer__hw_8c_html_a229e9e5919673b2018dcd5c88a3d6b99"><div class="ttname"><a href="#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a></div><div class="ttdeci">static uint32_t counter_max</div><div class="ttdef"><b>Definition</b> <a href="timer__hw_8c_source.html#l00009">timer_hw.c:9</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_a8aa85ae9867fabf70ec72cd3bf6fb6b9"><div class="ttname"><a href="#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a></div><div class="ttdeci">#define LED1</div><div class="ttdef"><b>Definition</b> <a href="timer__hw_8c_source.html#l00005">timer_hw.c:5</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_ade057b2cfdc66b88f0193e5ef778f020"><div class="ttname"><a href="#ade057b2cfdc66b88f0193e5ef778f020">counter_flag</a></div><div class="ttdeci">static uint8_t * counter_flag</div><div class="ttdef"><b>Definition</b> <a href="timer__hw_8c_source.html#l00008">timer_hw.c:8</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_aeeebb32803adf351ccddd3d4a382939b"><div class="ttname"><a href="#aeeebb32803adf351ccddd3d4a382939b">counter</a></div><div class="ttdeci">static volatile uint32_t counter</div><div class="ttdef"><b>Definition</b> <a href="timer__hw_8c_source.html#l00007">timer_hw.c:7</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab813cc6f552c9da6ac224b873bf6ce94" name="ab813cc6f552c9da6ac224b873bf6ce94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab813cc6f552c9da6ac224b873bf6ce94">&#9670;&#160;</a></span>set_counter_flag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_counter_flag </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>flag</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Establecer la flag del contador que indica cuando el mismo mide un periodo. </p>
+<p>La flag se debe desactivar manualmente. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00039">39</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>                                     {</div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="#ade057b2cfdc66b88f0193e5ef778f020">counter_flag</a> = <a class="code hl_variable" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a>;</div>
+<div class="line"><span class="lineno">   41</span>}</div>
+<div class="ttc" id="atemperatura_8c_html_a6a6c51c1bb8571c71d0f9a7167f8c649"><div class="ttname"><a href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a></div><div class="ttdeci">static char * flag</div><div class="ttdef"><b>Definition</b> <a href="temperatura_8c_source.html#l00005">temperatura.c:5</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa9871fa3d41077ae9e2ee285131c3937" name="aa9871fa3d41077ae9e2ee285131c3937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9871fa3d41077ae9e2ee285131c3937">&#9670;&#160;</a></span>set_counter_max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_counter_max </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>max</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Establecer el periodo del contador. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00043">43</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>                                   {</div>
+<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a> = max;</div>
+<div class="line"><span class="lineno">   45</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentación de variables</h2>
+<a id="aeeebb32803adf351ccddd3d4a382939b" name="aeeebb32803adf351ccddd3d4a382939b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeebb32803adf351ccddd3d4a382939b">&#9670;&#160;</a></span>counter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t counter = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00007">7</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
+
+</div>
+</div>
+<a id="ade057b2cfdc66b88f0193e5ef778f020" name="ade057b2cfdc66b88f0193e5ef778f020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade057b2cfdc66b88f0193e5ef778f020">&#9670;&#160;</a></span>counter_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* counter_flag</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00008">8</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
+
+</div>
+</div>
+<a id="a229e9e5919673b2018dcd5c88a3d6b99" name="a229e9e5919673b2018dcd5c88a3d6b99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a229e9e5919673b2018dcd5c88a3d6b99">&#9670;&#160;</a></span>counter_max</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t counter_max = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="timer__hw_8c_source.html#l00009">9</a> del archivo <a class="el" href="timer__hw_8c_source.html">timer_hw.c</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

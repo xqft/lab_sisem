@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['set_5ftime_0',['set_time',['../timer_8c.html#a79505286387f67f704876b0271603e21',1,'set_time(tiempo_t nuevoTiempo):&#160;timer.c'],['../timer_8h.html#a79505286387f67f704876b0271603e21',1,'set_time(tiempo_t nuevoTiempo):&#160;timer.c']]],
-  ['setflagtemp_1',['setFlagTemp',['../temperatura_8c.html#ac8df7e112c539faf36a8276a7bea1508',1,'setFlagTemp(char *flag_main):&#160;temperatura.c'],['../temperatura_8h.html#ac8df7e112c539faf36a8276a7bea1508',1,'setFlagTemp(char *flag_main):&#160;temperatura.c']]]
+  ['runtemp_0',['runTemp',['../temperatura_8c.html#a4f4ef1359800a4474e2568a0fed5cca4',1,'runTemp():&#160;temperatura.c'],['../temperatura_8h.html#a4f4ef1359800a4474e2568a0fed5cca4',1,'runTemp():&#160;temperatura.c']]],
+  ['rx_5fisr_1',['rx_isr',['../uart_8c.html#a56357d18276232e124dbf88c9276dcb1',1,'uart.c']]]
 ];
