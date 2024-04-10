@@ -7,6 +7,7 @@
 #include "temperatura.h"
 #include "uart.h"
 #include "utils.h"
+#include "timer.h"
 
 
 /**
@@ -25,6 +26,7 @@ int main(void)
 
     char temp_msg[4];
     char counter_msg[4];
+    char time_msg[8];
     int32_t watch;                      // Variable que toma el valor de la temperatura.
     volatile uint8_t temp_flag = 0;     // Flag que indica nueva medida de temp. disponible.
     volatile uint8_t counter_flag = 0;  // Flag que indica que el contador del timer dio una vuelta.
@@ -34,7 +36,7 @@ int main(void)
     set_counter_flag(&counter_flag);
     set_counter_max(counter_max);
 
-    // Init temp module
+    // Init temperature module
     initTemp();
     runTemp();
     setFlagTemp(&temp_flag);
@@ -42,6 +44,9 @@ int main(void)
     // Init UART module
     p1_init();
     uart_init();
+
+
+    volatile tiempo_t t_actual = {23, 59, 59, 500};
 
     const uint8_t *init_msg = "tx init ready";
     uart_transmit(init_msg, strlen(init_msg));
@@ -86,6 +91,29 @@ int main(void)
                     itoa(watch, temp_msg);
                     uart_transmit(temp_msg, strlen(temp_msg));
 
+                }
+                if (strcmp(dataa,"WH")==0){
+                                   dataa[0]= rx_msg[3];
+                                   dataa[1]= rx_msg[4];
+                                   t_actual.horas = atoi(dataa);
+                                   dataa[0]= rx_msg[6];
+                                   dataa[1]= rx_msg[7];
+                                   t_actual.minutos = atoi(dataa);
+                                   dataa[0]= rx_msg[9];
+                                   dataa[1]= rx_msg[10];
+                                   t_actual.segundos = atoi(dataa);
+                                   t_actual.milisegundos = 0;
+                               }
+                if (strcmp(dataa,"RH")==0){
+                    char aux_msg[2];
+                    itoa(t_actual.horas, time_msg);
+                    strcat(time_msg,":");
+                    itoa(t_actual.minutos, aux_msg);
+                    strcat(time_msg, aux_msg);
+                    strcat(time_msg,":");
+                    itoa(t_actual.segundos, aux_msg);
+                    strcat(time_msg, aux_msg);
+                    uart_transmit(time_msg, strlen(time_msg));
                 }
             }
     }
