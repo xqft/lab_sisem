@@ -66,10 +66,10 @@ int main(void)
 
                 copy_rx_buff(rx_msg, &rx_largo);
 
-                if(&rx_msg == 'RP'){
+                if(strcmp(rx_msg,"RP")){
                     uart_transmit(counter_max,strlen(counter_max));
                 }
-                if(&rx_msg =='RT'){
+                if(strcmp(rx_msg,"RP")){
                     itoa(watch, temp_msg);
                     uart_transmit(temp_msg, strlen(temp_msg));
                     counter_flag = 0;
@@ -77,5 +77,5 @@ int main(void)
                 }
             }
     }
-	return 0;
+
 }
