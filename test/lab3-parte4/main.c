@@ -20,9 +20,10 @@ int main(void)
 
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
-    uint32_t counter_max = 1; // Periodo de adquicision de temperatura en multiplos de 250 ms.
+    int counter_max = 1; // Periodo de adquicision de temperatura en multiplos de 250 ms.
 
     char temp_msg[4];
+    char counter_msg[4];
     int32_t watch;                      // Variable que toma el valor de la temperatura.
     volatile uint8_t temp_flag = 0;     // Flag que indica nueva medida de temp. disponible.
     volatile uint8_t counter_flag = 0;  // Flag que indica que el contador del timer dio una vuelta.
@@ -67,7 +68,8 @@ int main(void)
                 copy_rx_buff(rx_msg, &rx_largo);
 
                 if(strcmp(rx_msg,"RP")==0){
-                    uart_transmit(counter_max,strlen(counter_max));
+                    itoa(counter_max, counter_msg);
+                    uart_transmit(counter_msg,strlen(counter_max));
                 }
                 if(strcmp(rx_msg,"RT")==0){
                     itoa(watch, temp_msg);
