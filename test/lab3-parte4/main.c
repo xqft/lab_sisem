@@ -69,7 +69,7 @@ int main(void)
 
                 if(strcmp(rx_msg,"RP")==0){
                     itoa(counter_max, counter_msg);
-                    uart_transmit(counter_msg,strlen(counter_max));
+                    uart_transmit(counter_msg,strlen(counter_msg));
                 }
                 if(strcmp(rx_msg,"RT")==0){
                     itoa(watch, temp_msg);
