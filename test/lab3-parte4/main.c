@@ -20,7 +20,7 @@ int main(void)
 
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
-    int counter_max = 1; // Periodo de adquicision de temperatura en multiplos de 250 ms.
+    uint16_t counter_max =20; // Periodo de adquicision de temperatura en multiplos de 250 ms.
 
     char temp_msg[4];
     char counter_msg[4];
