@@ -13,7 +13,7 @@
 #include "timer.h"
 
 /// Determina si el modulo utiliza una cola para guardar datos de recepcion.
-static bool use_queue = false;
+
 
 /// Buffer de datos de transmision
 static uint8_t tx_data[16];
