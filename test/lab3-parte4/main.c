@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <msp430.h>
+#include <stdlib.h>
 
 #include "timer_hw.h"
 #include "temperatura.h"
@@ -67,11 +68,21 @@ int main(void)
 
                 copy_rx_buff(rx_msg, &rx_largo);
 
-                if(strcmp(rx_msg,"RP")==0){
+                char dataa[3] = {rx_msg[0], rx_msg[1], '\0'};
+
+                if(strcmp(dataa,"WP")==0){
+                    dataa[0]= rx_msg[3];
+                    dataa[1]= rx_msg[4];
+                    uint8_t new_tick_int = atoi(dataa);
+                    counter_max = new_tick_int;
+                    set_counter_max(counter_max);
+
+                }
+                if(strcmp(dataa,"RP")==0){
                     itoa(counter_max, counter_msg);
                     uart_transmit(counter_msg,strlen(counter_msg));
                 }
-                if(strcmp(rx_msg,"RT")==0){
+                if(strcmp(dataa,"RT")==0){
                     itoa(watch, temp_msg);
                     uart_transmit(temp_msg, strlen(temp_msg));
 
