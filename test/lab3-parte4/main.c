@@ -1,4 +1,4 @@
-##include <stdint.h>
+#include <stdint.h>
 #include <string.h>
 #include <msp430.h>
 
@@ -20,7 +20,7 @@ int main(void)
 
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
-    const uint32_t counter_max = 2; // Periodo de adquicision de temperatura en multiplos de 250 ms.
+    uint32_t counter_max = 1; // Periodo de adquicision de temperatura en multiplos de 250 ms.
 
     char temp_msg[4];
     int32_t watch;                      // Variable que toma el valor de la temperatura.
@@ -44,6 +44,38 @@ int main(void)
     const uint8_t *init_msg = "tx init ready";
     uart_transmit(init_msg, strlen(init_msg));
 
+    uint8_t rx_received_flag = 0;
+        uint8_t rx_largo;
+
+        set_flag_rx(&rx_received_flag);
+        static char rx_msg[16];
+
     __enable_interrupt();
+
+    while(1){
+
+        if (temp_flag && counter_flag) {
+            watch = getTemp();
+            counter_flag = 0;
+            runTemp();
+            }
+
+        if (rx_received_flag == 1)
+            {
+                rx_received_flag = 0;
+
+                copy_rx_buff(rx_msg, &rx_largo);
+
+                if(&rx_msg == 'RP'){
+                    uart_transmit(counter_max,strlen(counter_max));
+                }
+                if(&rx_msg =='RT'){
+                    itoa(watch, temp_msg);
+                    uart_transmit(temp_msg, strlen(temp_msg));
+                    counter_flag = 0;
+
+                }
+            }
+    }
 	return 0;
 }
