@@ -74,7 +74,6 @@ int main(void)
                 if(strcmp(rx_msg,"RT")==0){
                     itoa(watch, temp_msg);
                     uart_transmit(temp_msg, strlen(temp_msg));
-                    counter_flag = 0;
 
                 }
             }
