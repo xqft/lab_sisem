@@ -47,7 +47,8 @@ void set_counter_max(uint32_t max) {
 #pragma vector = TIMER0_A0_VECTOR
 __interrupt void int_timer_A (void){
 	P1OUT ^= LED1;  // Conmuta LED1 usando XOR
-	if (counter == counter_max) {
+	inc_time();
+	if (counter >= counter_max) {
 		*counter_flag = 1;
 		counter = 0;
 	}else{

@@ -7,9 +7,13 @@
 
 #include <stdint.h>
 #include <string.h>
+#include <stdbool.h>
 #include <msp430.h>
 
 #include "timer.h"
+
+/// Determina si el modulo utiliza una cola para guardar datos de recepcion.
+
 
 /// Buffer de datos de transmision
 static uint8_t tx_data[16];
@@ -24,7 +28,6 @@ static char rx_data[16];
 static volatile uint8_t rx_data_length = 0;
 /// Puntero a flag que indica la recepcion de un dato
 static volatile uint8_t *rx_received_flag;
-
 
 void p1_init()
 {
