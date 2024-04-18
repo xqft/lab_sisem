@@ -63,15 +63,18 @@ int main(void) {
 	__enable_interrupt();
 
 	while (1) {
-		if (temp_flag && counter_flag) {
+		if (counter_flag) {
 			// Inicio una medida de temperatura
-			watch = getTemp();
-			counter_flag = 0;
 			runTemp();
 
 			// Armo el mensaje con el tiempo actual
 			get_time(&t_actual);
 			create_time_msg(&t_actual, time_msg);
+
+			// Espero hasta tener la temperatura disponible
+			while (!temp_flag) {}
+
+			watch = getTemp();
 
 			// Añado temperatura
 			itoa(watch, temp_msg);
@@ -83,6 +86,7 @@ int main(void) {
 			strcat(time_msg, "\n");
 
 			uart_transmit(time_msg, strlen(time_msg));
+			counter_flag = 0;
 		}
 
 		if (rx_received_flag == 1) {
