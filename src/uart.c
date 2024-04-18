@@ -68,8 +68,11 @@ void uart_init()
 
 void uart_transmit(uint8_t *data, uint8_t length)
 {
-	if (length > TX_DATA_MAX_LEN) {
+	const uint8_t *error_msg = "tx overflow";
 
+	if (length > TX_DATA_MAX_LEN) {
+		data = error_msg;
+		length = strlen(data);
 	}
 
     memcpy(tx_data, data, length);
