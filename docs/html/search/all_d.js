@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['segundos_0',['segundos',['../structtiempo__t.html#a22744f5c9e53504d924918d878218739',1,'tiempo_t']]],
-  ['set_5fcounter_5fflag_1',['set_counter_flag',['../timer__hw_8c.html#ab813cc6f552c9da6ac224b873bf6ce94',1,'set_counter_flag(uint8_t *flag):&#160;timer_hw.c'],['../timer__hw_8h.html#ab813cc6f552c9da6ac224b873bf6ce94',1,'set_counter_flag(uint8_t *flag):&#160;timer_hw.c']]],
-  ['set_5fcounter_5fmax_2',['set_counter_max',['../timer__hw_8c.html#aa9871fa3d41077ae9e2ee285131c3937',1,'set_counter_max(uint32_t max):&#160;timer_hw.c'],['../timer__hw_8h.html#aa9871fa3d41077ae9e2ee285131c3937',1,'set_counter_max(uint32_t max):&#160;timer_hw.c']]],
-  ['set_5fflag_5frx_3',['set_flag_rx',['../uart_8c.html#a5c84d5d4cb8b4595dc0825d2e9636418',1,'set_flag_rx(uint8_t *flag):&#160;uart.c'],['../uart_8h.html#a5c84d5d4cb8b4595dc0825d2e9636418',1,'set_flag_rx(uint8_t *flag):&#160;uart.c']]],
-  ['set_5ftime_4',['set_time',['../timer_8c.html#a79505286387f67f704876b0271603e21',1,'set_time(tiempo_t nuevoTiempo):&#160;timer.c'],['../timer_8h.html#a79505286387f67f704876b0271603e21',1,'set_time(tiempo_t nuevoTiempo):&#160;timer.c']]],
-  ['setflagtemp_5',['setFlagTemp',['../temperatura_8c.html#ac8df7e112c539faf36a8276a7bea1508',1,'setFlagTemp(char *flag_main):&#160;temperatura.c'],['../temperatura_8h.html#ac8df7e112c539faf36a8276a7bea1508',1,'setFlagTemp(char *flag_main):&#160;temperatura.c']]],
-  ['strreverse_6',['strreverse',['../utils_8c.html#a01264c39e4ef8945e436d9a9a51e3ff1',1,'utils.c']]]
+  ['runtemp_0',['runTemp',['../temperatura_8c.html#a4f4ef1359800a4474e2568a0fed5cca4',1,'runTemp():&#160;temperatura.c'],['../temperatura_8h.html#a4f4ef1359800a4474e2568a0fed5cca4',1,'runTemp():&#160;temperatura.c']]],
+  ['rx_5fblock_5fflag_1',['rx_block_flag',['../uart_8c.html#a73cd3e091874fef53e7a4be5da7bbc86',1,'uart.c']]],
+  ['rx_5fdata_2',['rx_data',['../uart_8c.html#ab4189fb7143326d8dc79f757196bdd6f',1,'uart.c']]],
+  ['rx_5fdata_5flength_3',['rx_data_length',['../uart_8c.html#ad21330553a3b4fa07b8ce3b57870bde9',1,'uart.c']]],
+  ['rx_5fdata_5fmax_5flen_4',['RX_DATA_MAX_LEN',['../uart_8c.html#ab55c737a441eb0789aafa6be200d7501',1,'uart.c']]],
+  ['rx_5ferror_5fflag_5',['rx_error_flag',['../uart_8c.html#a0205f5853b3abf12b28436aae8165fd3',1,'uart.c']]],
+  ['rx_5fisr_6',['rx_isr',['../uart_8c.html#a56357d18276232e124dbf88c9276dcb1',1,'uart.c']]],
+  ['rx_5freceived_5fflag_7',['rx_received_flag',['../uart_8c.html#a8db95e5697b32d8af68fc781f220f106',1,'uart.c']]]
 ];

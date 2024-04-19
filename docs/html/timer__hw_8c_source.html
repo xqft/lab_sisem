@@ -158,16 +158,18 @@ $(function(){initNavTree('timer__hw_8c_source.html',''); initResizable(); });
 <div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#acd08b9248582f6b2bf2a72313b818b61">   48</a></span>__interrupt <span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#acd08b9248582f6b2bf2a72313b818b61">int_timer_A</a> (<span class="keywordtype">void</span>){</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    P1OUT ^= <a class="code hl_define" href="timer__hw_8c.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a>;  <span class="comment">// Conmuta LED1 usando XOR</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a> == <a class="code hl_variable" href="timer__hw_8c.html#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a>) {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        *<a class="code hl_variable" href="timer__hw_8c.html#ade057b2cfdc66b88f0193e5ef778f020">counter_flag</a> = 1;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a> = 0;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }<span class="keywordflow">else</span>{</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a>++;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="timer_8c.html#adf7670abf909a2f3bdff6b262732e817">inc_time</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a> &gt;= <a class="code hl_variable" href="timer__hw_8c.html#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a>) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        *<a class="code hl_variable" href="timer__hw_8c.html#ade057b2cfdc66b88f0193e5ef778f020">counter_flag</a> = 1;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a> = 0;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }<span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a>++;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
 </div>
 <div class="ttc" id="atemperatura_8c_html_a6a6c51c1bb8571c71d0f9a7167f8c649"><div class="ttname"><a href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a></div><div class="ttdeci">static char * flag</div><div class="ttdef"><b>Definition</b> <a href="temperatura_8c_source.html#l00005">temperatura.c:5</a></div></div>
+<div class="ttc" id="atimer_8c_html_adf7670abf909a2f3bdff6b262732e817"><div class="ttname"><a href="timer_8c.html#adf7670abf909a2f3bdff6b262732e817">inc_time</a></div><div class="ttdeci">void inc_time()</div><div class="ttdoc">Incrementa la variable de tiempo interna del modulo en 250 ms.</div><div class="ttdef"><b>Definition</b> <a href="timer_8c_source.html#l00017">timer.c:17</a></div></div>
 <div class="ttc" id="atimer_8h_html"><div class="ttname"><a href="timer_8h.html">timer.h</a></div></div>
 <div class="ttc" id="atimer__hw_8c_html_a229e9e5919673b2018dcd5c88a3d6b99"><div class="ttname"><a href="timer__hw_8c.html#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a></div><div class="ttdeci">static uint32_t counter_max</div><div class="ttdef"><b>Definition</b> <a href="#l00009">timer_hw.c:9</a></div></div>
 <div class="ttc" id="atimer__hw_8c_html_a7c114b7f6ec84ab3230fffd220c5d9e6"><div class="ttname"><a href="timer__hw_8c.html#a7c114b7f6ec84ab3230fffd220c5d9e6">config_timer_VLO</a></div><div class="ttdeci">void config_timer_VLO()</div><div class="ttdoc">Rutina de inicializacion del timer hardware usando el VLO como fuente de reloj.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">timer_hw.c:26</a></div></div>

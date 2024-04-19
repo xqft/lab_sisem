@@ -15,6 +15,10 @@
 
 #define LED1 (0x0001)
 
+#define TIME_MSG_MAX_LEN 16
+#define TEMP_MSG_MAX_LEN 4
+#define COUNTER_MSG_MAX_LEN 4
+
 const tiempo_t t_inicial = { 23, 59, 59, 500 };
 
 uint16_t counter_max = 20; // Periodo de adquicision de temperatura en multiplos de 250 ms.
@@ -24,9 +28,9 @@ int main(void) {
 
 	WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
-	uint8_t temp_msg[4];		// Mensaje a transmitir para el comando RT
-	uint8_t counter_msg[4];	// Mensaje a transmitir para el comando RP
-	uint8_t time_msg[16];		// Mensaje a transmitir para el comando RH y periodico
+	uint8_t temp_msg[TEMP_MSG_MAX_LEN];			// Mensaje a transmitir para el comando RT
+	uint8_t counter_msg[COUNTER_MSG_MAX_LEN];	// Mensaje a transmitir para el comando RP
+	uint8_t time_msg[TIME_MSG_MAX_LEN];			// Mensaje a transmitir para el comando RH y periodico
 
 	int32_t watch;              		// Variable que toma el valor de la temperatura.
 	volatile uint8_t temp_flag = 0; 	// Flag que indica nueva medida de temp. disponible.
@@ -62,30 +66,30 @@ int main(void) {
 	__enable_interrupt();
 
 	while (1) {
-		if (temp_flag && counter_flag) {
+		if (counter_flag) {
 			// Inicio una medida de temperatura
-			watch = getTemp();
-			counter_flag = 0;
 			runTemp();
 
 			// Armo el mensaje con el tiempo actual
 			get_time(&t_actual);
-			char aux_msg[2];
+			create_time_msg(&t_actual, time_msg);
 
-			itoa(t_actual.horas, time_msg);
-			strcat(time_msg, ":");
-			itoa(t_actual.minutos, aux_msg);
-			strcat(time_msg, aux_msg);
-			strcat(time_msg, ":");
-			itoa(t_actual.segundos, aux_msg);
-			strcat(time_msg, aux_msg);
+			// Espero hasta tener la temperatura disponible
+			while (!temp_flag) {}
+
+			watch = getTemp();
+
+			// Añado temperatura
 			itoa(watch, temp_msg);
 			strcat(time_msg, " T=");
 			strcat(time_msg, temp_msg);
+
+			// Nueva linea
 			strcat(time_msg, "\r");
 			strcat(time_msg, "\n");
 
 			uart_transmit(time_msg, strlen(time_msg));
+			counter_flag = 0;
 		}
 
 		if (rx_received_flag == 1) {
@@ -132,20 +136,16 @@ int main(void) {
 				set_time(t_actual);
 			}
 			if (strcmp(data, "RH") == 0) {
+				// Armo el mensaje con el tiempo actual
 				get_time(&t_actual);
-				char aux_msg[2];
-				itoa(t_actual.horas, time_msg);
-				strcat(time_msg, ":");
-				itoa(t_actual.minutos, aux_msg);
-				strcat(time_msg, aux_msg);
-				strcat(time_msg, ":");
-				itoa(t_actual.segundos, aux_msg);
-				strcat(time_msg, aux_msg);
+				create_time_msg(&t_actual, time_msg);
+
+				// Nueva linea
 				strcat(time_msg, "\r");
 				strcat(time_msg, "\n");
+
 				uart_transmit(time_msg, strlen(time_msg));
 			}
 		}
 	}
-
 }
