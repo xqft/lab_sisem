@@ -8,6 +8,7 @@
 #ifndef INCLUDE_TIMER_H_
 #define INCLUDE_TIMER_H_
 
+#include "stdint.h"
 
 /// Representa tiempo transcurrido
 typedef struct {
@@ -24,5 +25,8 @@ void set_time(tiempo_t nuevoTiempo);
 void get_time(tiempo_t *tiempo);
 /// Incrementa la variable de tiempo interna del modulo en 250 ms.
 void inc_time();
+
+/// Crear un arreglo con el tiempo
+void create_time_msg(tiempo_t *time, uint8_t *time_msg);
 
 #endif /* INCLUDE_TIMER_H_ */

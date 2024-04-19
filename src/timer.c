@@ -46,3 +46,33 @@ void get_time(tiempo_t *tiempo){
 
     __set_interrupt_state(s);
 }
+
+void create_time_msg(tiempo_t *time, uint8_t *time_msg) {
+	char aux_msg[2];
+
+	// "Borramos" el contenido de time_msg
+	time_msg[0] = '\0';
+
+	// horas
+	itoa(time->horas, aux_msg);
+	if (strlen(aux_msg) == 1) {
+		strcat(time_msg, "0");
+	}
+	strcat(time_msg, aux_msg);
+	strcat(time_msg, ":");
+
+	// minutos
+	itoa(time->minutos, aux_msg);
+	if (strlen(aux_msg) == 1) {
+		strcat(time_msg, "0");
+	}
+	strcat(time_msg, aux_msg);
+	strcat(time_msg, ":");
+
+	// segundos
+	itoa(time->segundos, aux_msg);
+	if (strlen(aux_msg) == 1) {
+		strcat(time_msg, "0");
+	}
+	strcat(time_msg, aux_msg);
+}
