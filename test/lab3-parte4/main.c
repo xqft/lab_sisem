@@ -8,13 +8,16 @@
 #include "uart.h"
 #include "utils.h"
 #include "timer.h"
-#include "constants.h"
 
 /**
  * main.c
  */
 
 #define LED1 (0x0001)
+
+#define TIME_MSG_MAX_LEN 16
+#define TEMP_MSG_MAX_LEN 4
+#define COUNTER_MSG_MAX_LEN 4
 
 const tiempo_t t_inicial = { 23, 59, 59, 500 };
 

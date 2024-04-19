@@ -1,3 +1,0 @@
-#define TIME_MSG_MAX_LEN 16
-#define TEMP_MSG_MAX_LEN 4
-#define COUNTER_MSG_MAX_LEN 4
