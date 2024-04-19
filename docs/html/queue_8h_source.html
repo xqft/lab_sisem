@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Laboratorio de Sistemas Embebidos: Globales</title>
+<title>Laboratorio de Sistemas Embebidos: Archivo de código fuente include/queue.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -53,6 +53,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -66,7 +71,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('globals_vars.html',''); initResizable(); });
+$(function(){initNavTree('queue_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -91,33 +96,29 @@ $(function(){initNavTree('globals_vars.html',''); initResizable(); });
 </div>
 </div>
 
+<div class="header">
+  <div class="headertitle"><div class="title">queue.h</div></div>
+</div><!--header-->
 <div class="contents">
-<div class="textblock">Lista de todas las variables con enlaces a los archivos a los que corresponden:</div><ul>
-<li>adcval&#160;:&#160;<a class="el" href="temperatura_8c.html#a12d489e73f212592b64fc0095babc8a9">temperatura.c</a></li>
-<li>counter&#160;:&#160;<a class="el" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">timer_hw.c</a></li>
-<li>counter_flag&#160;:&#160;<a class="el" href="timer__hw_8c.html#ade057b2cfdc66b88f0193e5ef778f020">timer_hw.c</a></li>
-<li>counter_max&#160;:&#160;<a class="el" href="timer__hw_8c.html#a229e9e5919673b2018dcd5c88a3d6b99">timer_hw.c</a></li>
-<li>datotemp&#160;:&#160;<a class="el" href="test-temp_2main_8c.html#a8933b34ffce9dec7cb0d94da852d40f7">main.c</a></li>
-<li>flag&#160;:&#160;<a class="el" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">temperatura.c</a></li>
-<li>rx_block_flag&#160;:&#160;<a class="el" href="uart_8c.html#a73cd3e091874fef53e7a4be5da7bbc86">uart.c</a></li>
-<li>rx_data&#160;:&#160;<a class="el" href="uart_8c.html#ab4189fb7143326d8dc79f757196bdd6f">uart.c</a></li>
-<li>rx_data_length&#160;:&#160;<a class="el" href="uart_8c.html#ad21330553a3b4fa07b8ce3b57870bde9">uart.c</a></li>
-<li>rx_error_flag&#160;:&#160;<a class="el" href="uart_8c.html#a0205f5853b3abf12b28436aae8165fd3">uart.c</a></li>
-<li>rx_received_flag&#160;:&#160;<a class="el" href="uart_8c.html#a8db95e5697b32d8af68fc781f220f106">uart.c</a></li>
-<li>t1&#160;:&#160;<a class="el" href="lab1_2main_8c.html#ab2b51a481c70221bd360126785af5bdc">main.c</a></li>
-<li>t2&#160;:&#160;<a class="el" href="lab1_2main_8c.html#a5e2b1e3b354c677dd9125ec84795c6a4">main.c</a></li>
-<li>t_inicial&#160;:&#160;<a class="el" href="lab1_2main_8c.html#aba24c3bb482e474d3c95585c2edf641e">main.c</a></li>
-<li>temp&#160;:&#160;<a class="el" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">main.c</a></li>
-<li>tiempoActual&#160;:&#160;<a class="el" href="timer_8c.html#a0ad450bcd5aaca370ad1b14abba62784">timer.c</a></li>
-<li>tx_data&#160;:&#160;<a class="el" href="uart_8c.html#a7dd72775f995a7392f8c7ea091a7e0dd">uart.c</a></li>
-<li>tx_data_count&#160;:&#160;<a class="el" href="uart_8c.html#a25b48c136ea1792280cae9471afaaaee">uart.c</a></li>
-<li>tx_data_length&#160;:&#160;<a class="el" href="uart_8c.html#a65fbd642aea5a8b3c5cae00edb00840e">uart.c</a></li>
-</ul>
-</div><!-- contents -->
+<a href="queue_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="queue_8h.html#a3f37b042a1e7cd4bd38fc564de81f0da">    7</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="queue_8h.html#a3f37b042a1e7cd4bd38fc564de81f0da">empty</a>();</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="queue_8h.html#a825cad95d5a85dba2844e74f50c174a3">    9</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="queue_8h.html#a825cad95d5a85dba2844e74f50c174a3">full</a>();</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="queue_8h.html#a347eccff08d45851c9bb1e5c38868bff">   11</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="queue_8h.html#a347eccff08d45851c9bb1e5c38868bff">enqueue</a>(uint8_t data);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="queue_8h.html#a8ab832cab4ff89f7ada8fe8ce272802e">   13</a></span>uint8_t <a class="code hl_function" href="queue_8h.html#a8ab832cab4ff89f7ada8fe8ce272802e">dequeue</a>();</div>
+<div class="ttc" id="aqueue_8h_html_a347eccff08d45851c9bb1e5c38868bff"><div class="ttname"><a href="queue_8h.html#a347eccff08d45851c9bb1e5c38868bff">enqueue</a></div><div class="ttdeci">void enqueue(uint8_t data)</div><div class="ttdoc">Encolar un byte.</div></div>
+<div class="ttc" id="aqueue_8h_html_a3f37b042a1e7cd4bd38fc564de81f0da"><div class="ttname"><a href="queue_8h.html#a3f37b042a1e7cd4bd38fc564de81f0da">empty</a></div><div class="ttdeci">bool empty()</div><div class="ttdoc">Indica si la cola esta vacia.</div></div>
+<div class="ttc" id="aqueue_8h_html_a825cad95d5a85dba2844e74f50c174a3"><div class="ttname"><a href="queue_8h.html#a825cad95d5a85dba2844e74f50c174a3">full</a></div><div class="ttdeci">bool full()</div><div class="ttdoc">Indica si la cola esta llena.</div></div>
+<div class="ttc" id="aqueue_8h_html_a8ab832cab4ff89f7ada8fe8ce272802e"><div class="ttname"><a href="queue_8h.html#a8ab832cab4ff89f7ada8fe8ce272802e">dequeue</a></div><div class="ttdeci">uint8_t dequeue()</div><div class="ttdoc">Desencolar un byte.</div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="queue_8h.html">queue.h</a></li>
     <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
