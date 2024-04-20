@@ -93,6 +93,8 @@ $(function(){initNavTree('queue_8h.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">defines</a> &#124;
+<a href="#typedef-members">typedefs</a> &#124;
 <a href="#func-members">Funciones</a>  </div>
   <div class="headertitle"><div class="title">Referencia del archivo queue.h</div></div>
 </div><!--header-->
@@ -102,30 +104,74 @@ $(function(){initNavTree('queue_8h.html',''); initResizable(); });
 </div>
 <p><a href="queue_8h_source.html">Ir al código fuente de este archivo.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a7e84dc6bd17e4e300f00d189794683f5" id="r_a7e84dc6bd17e4e300f00d189794683f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e84dc6bd17e4e300f00d189794683f5">QUEUE_MAX_LENGTH</a>&#160;&#160;&#160;32</td></tr>
+<tr class="separator:a7e84dc6bd17e4e300f00d189794683f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+typedefs</h2></td></tr>
+<tr class="memitem:aa072713b739042a5191e5960af5d1825" id="r_aa072713b739042a5191e5960af5d1825"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa072713b739042a5191e5960af5d1825">func_ptr_t</a>) ()</td></tr>
+<tr class="separator:aa072713b739042a5191e5960af5d1825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funciones</h2></td></tr>
-<tr class="memitem:a3f37b042a1e7cd4bd38fc564de81f0da" id="r_a3f37b042a1e7cd4bd38fc564de81f0da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f37b042a1e7cd4bd38fc564de81f0da">empty</a> ()</td></tr>
-<tr class="memdesc:a3f37b042a1e7cd4bd38fc564de81f0da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica si la cola esta vacia.  <br /></td></tr>
-<tr class="separator:a3f37b042a1e7cd4bd38fc564de81f0da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a825cad95d5a85dba2844e74f50c174a3" id="r_a825cad95d5a85dba2844e74f50c174a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a825cad95d5a85dba2844e74f50c174a3">full</a> ()</td></tr>
-<tr class="memdesc:a825cad95d5a85dba2844e74f50c174a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica si la cola esta llena.  <br /></td></tr>
-<tr class="separator:a825cad95d5a85dba2844e74f50c174a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347eccff08d45851c9bb1e5c38868bff" id="r_a347eccff08d45851c9bb1e5c38868bff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a347eccff08d45851c9bb1e5c38868bff">enqueue</a> (uint8_t data)</td></tr>
-<tr class="memdesc:a347eccff08d45851c9bb1e5c38868bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encolar un byte.  <br /></td></tr>
-<tr class="separator:a347eccff08d45851c9bb1e5c38868bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ab832cab4ff89f7ada8fe8ce272802e" id="r_a8ab832cab4ff89f7ada8fe8ce272802e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ab832cab4ff89f7ada8fe8ce272802e">dequeue</a> ()</td></tr>
-<tr class="memdesc:a8ab832cab4ff89f7ada8fe8ce272802e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desencolar un byte.  <br /></td></tr>
-<tr class="separator:a8ab832cab4ff89f7ada8fe8ce272802e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25af1905e8ff3d4de7a74e089d802180" id="r_a25af1905e8ff3d4de7a74e089d802180"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25af1905e8ff3d4de7a74e089d802180">queue_empty</a> ()</td></tr>
+<tr class="memdesc:a25af1905e8ff3d4de7a74e089d802180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica si la cola esta vacia.  <br /></td></tr>
+<tr class="separator:a25af1905e8ff3d4de7a74e089d802180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae314a977365be453cd52972b07007940" id="r_ae314a977365be453cd52972b07007940"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae314a977365be453cd52972b07007940">queue_full</a> ()</td></tr>
+<tr class="memdesc:ae314a977365be453cd52972b07007940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica si la cola esta llena.  <br /></td></tr>
+<tr class="separator:ae314a977365be453cd52972b07007940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd273b6f0287c9596c198dcbdec5bdba" id="r_acd273b6f0287c9596c198dcbdec5bdba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd273b6f0287c9596c198dcbdec5bdba">enqueue</a> (<a class="el" href="#aa072713b739042a5191e5960af5d1825">func_ptr_t</a> ptr)</td></tr>
+<tr class="memdesc:acd273b6f0287c9596c198dcbdec5bdba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encolar un byte.  <br /></td></tr>
+<tr class="separator:acd273b6f0287c9596c198dcbdec5bdba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab50e729194722fc36a03c7c7fc8bad39" id="r_ab50e729194722fc36a03c7c7fc8bad39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aa072713b739042a5191e5960af5d1825">func_ptr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab50e729194722fc36a03c7c7fc8bad39">dequeue</a> ()</td></tr>
+<tr class="memdesc:ab50e729194722fc36a03c7c7fc8bad39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desencolar un byte.  <br /></td></tr>
+<tr class="separator:ab50e729194722fc36a03c7c7fc8bad39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentación de funciones</h2>
-<a id="a8ab832cab4ff89f7ada8fe8ce272802e" name="a8ab832cab4ff89f7ada8fe8ce272802e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ab832cab4ff89f7ada8fe8ce272802e">&#9670;&#160;</a></span>dequeue()</h2>
+<h2 class="groupheader">Documentación de «define»</h2>
+<a id="a7e84dc6bd17e4e300f00d189794683f5" name="a7e84dc6bd17e4e300f00d189794683f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e84dc6bd17e4e300f00d189794683f5">&#9670;&#160;</a></span>QUEUE_MAX_LENGTH</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t dequeue </td>
+          <td class="memname">#define QUEUE_MAX_LENGTH&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="queue_8h_source.html#l00006">6</a> del archivo <a class="el" href="queue_8h_source.html">queue.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de «typedef»</h2>
+<a id="aa072713b739042a5191e5960af5d1825" name="aa072713b739042a5191e5960af5d1825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa072713b739042a5191e5960af5d1825">&#9670;&#160;</a></span>func_ptr_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* func_ptr_t) ()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="queue_8h_source.html#l00008">8</a> del archivo <a class="el" href="queue_8h_source.html">queue.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="ab50e729194722fc36a03c7c7fc8bad39" name="ab50e729194722fc36a03c7c7fc8bad39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab50e729194722fc36a03c7c7fc8bad39">&#9670;&#160;</a></span>dequeue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aa072713b739042a5191e5960af5d1825">func_ptr_t</a> dequeue </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -135,16 +181,74 @@ Funciones</h2></td></tr>
 
 <p>Desencolar un byte. </p>
 
+<p class="definition">Definición en la línea <a class="el" href="queue_8c_source.html#l00030">30</a> del archivo <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>                     {</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_define" href="assert_8h.html#a28301f76c53b643912da7c538f74e2c6">ASSERT</a>(!<a class="code hl_function" href="queue_8c.html#a25af1905e8ff3d4de7a74e089d802180">queue_empty</a>())</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>    <a class="code hl_typedef" href="#aa072713b739042a5191e5960af5d1825">func_ptr_t</a> ptr = *<a class="code hl_variable" href="queue_8c.html#a0224b71218cb2eece53c7986dd4a6802">tail</a>;</div>
+<div class="line"><span class="lineno">   34</span> </div>
+<div class="line"><span class="lineno">   35</span>    if (<a class="code hl_variable" href="queue_8c.html#a0224b71218cb2eece53c7986dd4a6802">tail</a> == <a class="code hl_variable" href="queue_8c.html#a683603d1e02ccb235ab1ec120b448832">queue</a> + <a class="code hl_define" href="#a7e84dc6bd17e4e300f00d189794683f5">QUEUE_MAX_LENGTH</a> - 1) {</div>
+<div class="line"><span class="lineno">   36</span>        <a class="code hl_variable" href="queue_8c.html#a0224b71218cb2eece53c7986dd4a6802">tail</a> = <a class="code hl_variable" href="queue_8c.html#a683603d1e02ccb235ab1ec120b448832">queue</a>;</div>
+<div class="line"><span class="lineno">   37</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   38</span>        <a class="code hl_variable" href="queue_8c.html#a0224b71218cb2eece53c7986dd4a6802">tail</a>++;</div>
+<div class="line"><span class="lineno">   39</span>    }</div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="queue_8c.html#a8514dd1bfec937933f7f69bc94aae956">queue_length</a>--;</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">return</span> ptr;</div>
+<div class="line"><span class="lineno">   43</span>}</div>
+<div class="ttc" id="aassert_8h_html_a28301f76c53b643912da7c538f74e2c6"><div class="ttname"><a href="assert_8h.html#a28301f76c53b643912da7c538f74e2c6">ASSERT</a></div><div class="ttdeci">#define ASSERT(expr)</div><div class="ttdef"><b>Definition</b> <a href="assert_8h_source.html#l00016">assert.h:16</a></div></div>
+<div class="ttc" id="aqueue_8c_html_a0224b71218cb2eece53c7986dd4a6802"><div class="ttname"><a href="queue_8c.html#a0224b71218cb2eece53c7986dd4a6802">tail</a></div><div class="ttdeci">static func_ptr_t * tail</div><div class="ttdef"><b>Definition</b> <a href="queue_8c_source.html#l00006">queue.c:6</a></div></div>
+<div class="ttc" id="aqueue_8c_html_a25af1905e8ff3d4de7a74e089d802180"><div class="ttname"><a href="queue_8c.html#a25af1905e8ff3d4de7a74e089d802180">queue_empty</a></div><div class="ttdeci">bool queue_empty()</div><div class="ttdoc">Indica si la cola esta vacia.</div><div class="ttdef"><b>Definition</b> <a href="queue_8c_source.html#l00009">queue.c:9</a></div></div>
+<div class="ttc" id="aqueue_8c_html_a683603d1e02ccb235ab1ec120b448832"><div class="ttname"><a href="queue_8c.html#a683603d1e02ccb235ab1ec120b448832">queue</a></div><div class="ttdeci">static func_ptr_t queue[QUEUE_MAX_LENGTH]</div><div class="ttdef"><b>Definition</b> <a href="queue_8c_source.html#l00004">queue.c:4</a></div></div>
+<div class="ttc" id="aqueue_8c_html_a8514dd1bfec937933f7f69bc94aae956"><div class="ttname"><a href="queue_8c.html#a8514dd1bfec937933f7f69bc94aae956">queue_length</a></div><div class="ttdeci">static int queue_length</div><div class="ttdef"><b>Definition</b> <a href="queue_8c_source.html#l00007">queue.c:7</a></div></div>
+<div class="ttc" id="aqueue_8h_html_a7e84dc6bd17e4e300f00d189794683f5"><div class="ttname"><a href="#a7e84dc6bd17e4e300f00d189794683f5">QUEUE_MAX_LENGTH</a></div><div class="ttdeci">#define QUEUE_MAX_LENGTH</div><div class="ttdef"><b>Definition</b> <a href="queue_8h_source.html#l00006">queue.h:6</a></div></div>
+<div class="ttc" id="aqueue_8h_html_aa072713b739042a5191e5960af5d1825"><div class="ttname"><a href="#aa072713b739042a5191e5960af5d1825">func_ptr_t</a></div><div class="ttdeci">void(* func_ptr_t)()</div><div class="ttdef"><b>Definition</b> <a href="queue_8h_source.html#l00008">queue.h:8</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<a id="a3f37b042a1e7cd4bd38fc564de81f0da" name="a3f37b042a1e7cd4bd38fc564de81f0da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f37b042a1e7cd4bd38fc564de81f0da">&#9670;&#160;</a></span>empty()</h2>
+<a id="acd273b6f0287c9596c198dcbdec5bdba" name="acd273b6f0287c9596c198dcbdec5bdba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd273b6f0287c9596c198dcbdec5bdba">&#9670;&#160;</a></span>enqueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool empty </td>
+          <td class="memname">void enqueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aa072713b739042a5191e5960af5d1825">func_ptr_t</a></td>          <td class="paramname"><span class="paramname"><em>ptr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Encolar un byte. </p>
+
+<p class="definition">Definición en la línea <a class="el" href="queue_8c_source.html#l00017">17</a> del archivo <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>                             {</div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_define" href="assert_8h.html#a28301f76c53b643912da7c538f74e2c6">ASSERT</a>(!<a class="code hl_function" href="queue_8c.html#ae314a977365be453cd52972b07007940">queue_full</a>())</div>
+<div class="line"><span class="lineno">   19</span> </div>
+<div class="line"><span class="lineno">   20</span>    *<a class="code hl_variable" href="queue_8c.html#ae925029069dd104f3c5049d44c2a0f89">head</a> = ptr;</div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="queue_8c.html#ae925029069dd104f3c5049d44c2a0f89">head</a> == <a class="code hl_variable" href="queue_8c.html#a683603d1e02ccb235ab1ec120b448832">queue</a> + <a class="code hl_define" href="#a7e84dc6bd17e4e300f00d189794683f5">QUEUE_MAX_LENGTH</a> - 1) {</div>
+<div class="line"><span class="lineno">   23</span>        <a class="code hl_variable" href="queue_8c.html#ae925029069dd104f3c5049d44c2a0f89">head</a> = <a class="code hl_variable" href="queue_8c.html#a683603d1e02ccb235ab1ec120b448832">queue</a>;</div>
+<div class="line"><span class="lineno">   24</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   25</span>        <a class="code hl_variable" href="queue_8c.html#ae925029069dd104f3c5049d44c2a0f89">head</a>++;</div>
+<div class="line"><span class="lineno">   26</span>    }</div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_variable" href="queue_8c.html#a8514dd1bfec937933f7f69bc94aae956">queue_length</a>++;</div>
+<div class="line"><span class="lineno">   28</span>}</div>
+<div class="ttc" id="aqueue_8c_html_ae314a977365be453cd52972b07007940"><div class="ttname"><a href="queue_8c.html#ae314a977365be453cd52972b07007940">queue_full</a></div><div class="ttdeci">bool queue_full()</div><div class="ttdoc">Indica si la cola esta llena.</div><div class="ttdef"><b>Definition</b> <a href="queue_8c_source.html#l00013">queue.c:13</a></div></div>
+<div class="ttc" id="aqueue_8c_html_ae925029069dd104f3c5049d44c2a0f89"><div class="ttname"><a href="queue_8c.html#ae925029069dd104f3c5049d44c2a0f89">head</a></div><div class="ttdeci">static func_ptr_t * head</div><div class="ttdef"><b>Definition</b> <a href="queue_8c_source.html#l00005">queue.c:5</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a25af1905e8ff3d4de7a74e089d802180" name="a25af1905e8ff3d4de7a74e089d802180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25af1905e8ff3d4de7a74e089d802180">&#9670;&#160;</a></span>queue_empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool queue_empty </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -154,35 +258,21 @@ Funciones</h2></td></tr>
 
 <p>Indica si la cola esta vacia. </p>
 
+<p class="definition">Definición en la línea <a class="el" href="queue_8c_source.html#l00009">9</a> del archivo <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                   {</div>
+<div class="line"><span class="lineno">   10</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="queue_8c.html#a8514dd1bfec937933f7f69bc94aae956">queue_length</a> == 0;</div>
+<div class="line"><span class="lineno">   11</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
-<a id="a347eccff08d45851c9bb1e5c38868bff" name="a347eccff08d45851c9bb1e5c38868bff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a347eccff08d45851c9bb1e5c38868bff">&#9670;&#160;</a></span>enqueue()</h2>
+<a id="ae314a977365be453cd52972b07007940" name="ae314a977365be453cd52972b07007940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae314a977365be453cd52972b07007940">&#9670;&#160;</a></span>queue_full()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void enqueue </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Encolar un byte. </p>
-
-</div>
-</div>
-<a id="a825cad95d5a85dba2844e74f50c174a3" name="a825cad95d5a85dba2844e74f50c174a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a825cad95d5a85dba2844e74f50c174a3">&#9670;&#160;</a></span>full()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool full </td>
+          <td class="memname">bool queue_full </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -192,6 +282,11 @@ Funciones</h2></td></tr>
 
 <p>Indica si la cola esta llena. </p>
 
+<p class="definition">Definición en la línea <a class="el" href="queue_8c_source.html#l00013">13</a> del archivo <a class="el" href="queue_8c_source.html">queue.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>                  {</div>
+<div class="line"><span class="lineno">   14</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="queue_8c.html#a8514dd1bfec937933f7f69bc94aae956">queue_length</a> == <a class="code hl_define" href="#a7e84dc6bd17e4e300f00d189794683f5">QUEUE_MAX_LENGTH</a> - 1;</div>
+<div class="line"><span class="lineno">   15</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
