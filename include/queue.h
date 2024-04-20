@@ -3,11 +3,15 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#define QUEUE_MAX_LENGTH 32
+
+typedef void (*func_ptr_t)();
+
 /// Indica si la cola esta vacia
-bool empty();
+bool queue_empty();
 /// Indica si la cola esta llena
-bool full();
+bool queue_full();
 /// Encolar un byte
-void enqueue(uint8_t data);
+void enqueue(func_ptr_t ptr);
 /// Desencolar un byte
-uint8_t dequeue();
+func_ptr_t dequeue();
