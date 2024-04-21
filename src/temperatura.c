@@ -1,10 +1,14 @@
 #include <msp430.h>      
 #include "temperatura.h"
+#include "queue.h"
 
 static int32_t  adcval;
 static char*    flag;
+static func_ptr_t temp_callback;
 
-
+void set_callback_temp(func_ptr_t func_temp){
+    temp_callback = func_temp;
+}
 void initTemp(){
 
   /* Temp Sensor ADC10CLK/4 */
@@ -46,4 +50,6 @@ __interrupt void ADC10_ISR (void)
 {
     *flag = 1;
     adcval = ADC10MEM;
+    enqueue(temp_callback);
 }
+

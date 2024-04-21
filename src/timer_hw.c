@@ -2,11 +2,14 @@
 #include <stdint.h>
 
 #include "timer.h"
+#include "queue.h"
 #define LED1 (0x0001)
 
 volatile static uint32_t counter = 0;
 static uint8_t *counter_flag;
 static uint32_t counter_max = 0;
+
+static func_ptr_t counter_callback;
 
 void config_timer_crystal() {
 	TACTL |= TASSEL_1;        // Selecciono ACLK para el Timer A.
@@ -41,6 +44,9 @@ void set_counter_flag(uint8_t *flag) {
 void set_counter_max(uint32_t max) {
 	counter_max = max;
 }
+void set_callback_counter(func_ptr_t func_counter){
+    counter_callback = func_counter;
+}
 
 #pragma vector = TIMER0_A0_VECTOR
 __interrupt void int_timer_A(void) {
@@ -48,6 +54,7 @@ __interrupt void int_timer_A(void) {
 	inc_time();
 	if (counter >= counter_max) {
 		*counter_flag = 1;
+        enqueue(counter_callback);
 		counter = 0;
 		__low_power_mode_off_on_exit();
 	} else {

@@ -11,7 +11,7 @@
 #include <msp430.h>
 
 #include "timer.h"
-
+#include "queue.h"
 #define TX_DATA_MAX_LEN 16
 #define RX_DATA_MAX_LEN 16
 
@@ -32,7 +32,12 @@ static volatile uint8_t *rx_received_flag;
 static volatile uint8_t *rx_error_flag;
 /// Bandera que bloquea la recepcion
 static volatile uint8_t rx_block_flag;
+///puntero que toma el valor de la funcion callback de rx
+static func_ptr_t rx_callback;
 
+void set_callback_rx(func_ptr_t func_rx){
+    rx_callback = func_rx;
+}
 void p1_init() {
 	P1SEL |= BIT1 + BIT2;       // Set pines RXD y TXD
 	P1SEL2 |= BIT1 + BIT2;      // ""
@@ -125,6 +130,7 @@ __interrupt void rx_isr(void) {
 		rx_data_length = rx_data_count;
 		rx_data_count = 0;
 		*rx_received_flag = 1;
+		enqueue(rx_callback);
 	} else if (rx_data_count < RX_DATA_MAX_LEN) // saturar en el limite del buffer
 	{
 		if (rx_block_flag) {
