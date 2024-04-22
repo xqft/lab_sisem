@@ -51,5 +51,6 @@ __interrupt void ADC10_ISR (void)
     *flag = 1;
     adcval = ADC10MEM;
     enqueue(temp_callback);
+	__low_power_mode_off_on_exit();
 }
 

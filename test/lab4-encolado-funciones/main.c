@@ -97,7 +97,7 @@ void func_temp()
 
     watch = getTemp();
 
-    // Añado temperatura
+    // Anado temperatura
     itoa(watch, temp_msg);
     strcat(time_msg, " T=");
     strcat(time_msg, temp_msg);
@@ -121,18 +121,14 @@ int main(void)
 
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
-    uint8_t temp_msg[TEMP_MSG_MAX_LEN]; // Mensaje a transmitir para el comando RT
-    uint8_t counter_msg[COUNTER_MSG_MAX_LEN]; // Mensaje a transmitir para el comando RP
-    uint8_t time_msg[TIME_MSG_MAX_LEN]; // Mensaje a transmitir para el comando RH y periodico
-
-// Init timer module
+    // Init timer module
     config_timer_crystal();
     set_counter_max(counter_max);
 
-// Init temperature module
+    // Init temperature module
     initTemp();
 
-// Init UART module
+    // Init UART module
     p1_init();
     uart_init();
 
@@ -148,7 +144,6 @@ int main(void)
 
     while (1)
     {
-
         if (!queue_empty())
         {
             func_ptr_t next = dequeue();
