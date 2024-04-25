@@ -8,6 +8,8 @@
 #include "uart.h"
 #include "utils.h"
 #include "timer.h"
+#include "ports_init.h"
+
 
 #define LED1 (0x0001)
 
@@ -45,6 +47,10 @@ int main(void) {
 	// Init UART module
 	p1_init();
 	uart_init();
+
+	// Init Ports
+	p2_p3_init();
+
 
 	set_time(t_inicial);
 
