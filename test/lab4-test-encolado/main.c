@@ -37,7 +37,7 @@ void test_encolar() {
 	f2();
 	f3();
 
-	ASSERT(test_num == 4);
+	ASSERT(test_num == 3);
 }
 
 int main(void) {

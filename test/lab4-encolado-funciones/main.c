@@ -9,6 +9,7 @@
 #include "utils.h"
 #include "timer.h"
 #include "queue.h"
+#include "ports_init.h"
 
 #define LED1 (0x0001)
 
@@ -117,7 +118,7 @@ void func_counter()
 
 int main(void)
 {
-    P1DIR |= LED1; // Configura pin LED1 salida
+   // P1DIR |= LED1; // Configura pin LED1 salida
 
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
@@ -131,6 +132,9 @@ int main(void)
     // Init UART module
     p1_init();
     uart_init();
+
+    // Init Ports
+    p2_p3_init();
 
     set_time(t_inicial);
 
