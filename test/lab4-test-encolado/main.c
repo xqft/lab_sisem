@@ -43,9 +43,9 @@ void test_encolar() {
 int main(void) {
 	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
 
-	// test_cola_vacia();
+	 test_cola_vacia();
 	// test_cola_llena();
-	test_encolar();
+	//test_encolar();
 
 	return 0;
 }

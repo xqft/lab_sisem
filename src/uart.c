@@ -110,7 +110,7 @@ __interrupt void tx_isr(void) {
 		IE2 &= ~UCA0TXIE;
 		tx_data_count = 0;
 	}
-	__low_power_mode_off_on_exit();
+	//__low_power_mode_off_on_exit();
 }
 
 #pragma vector = USCIAB0RX_VECTOR
@@ -121,9 +121,11 @@ __interrupt void rx_isr(void) {
 	char received_char = UCA0RXBUF; // Leer el caracter recibido
 
 	if (received_char == '\r') {
+
 		if (rx_block_flag) {
 			// Al terminar el mensaje invalido, levanto el bloqueo
 			rx_block_flag = 0;
+
 			return;
 		}
 
@@ -131,6 +133,8 @@ __interrupt void rx_isr(void) {
 		rx_data_count = 0;
 		*rx_received_flag = 1;
 		enqueue(rx_callback);
+		__low_power_mode_off_on_exit();
+
 	} else if (rx_data_count < RX_DATA_MAX_LEN) // saturar en el limite del buffer
 	{
 		if (rx_block_flag) {
@@ -148,5 +152,5 @@ __interrupt void rx_isr(void) {
 		*rx_error_flag = 1;
 		rx_block_flag = 1;
 	}
-	__low_power_mode_off_on_exit();
+	//__low_power_mode_off_on_exit();
 }

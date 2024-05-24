@@ -13,7 +13,7 @@ void p2_p3_init(){
     //P2DIR |= BIT0 +BIT3 + BIT4 + BIT5 + BIT7;
 
         P1DIR = 0xFF;
-        P1OUT = BIT3;
+        P1OUT = 0;
 
         P2DIR = 0xFF;
         P2OUT = 0x00;
