@@ -4,14 +4,14 @@
 
 // 0: white
 // 1: black
-#define RULE1 0b11100000
-#define RULE2 0b00000111
-#define RULE3 0b00101001
-#define RULE4 0b10010100
-#define RULE5 0b00101011
-#define RULE6 0b11010100
-#define RULE7 0b01101001
-#define RULE8 0b10010110
+#define RULE1 0b00000111
+#define RULE2 0b11100000
+#define RULE3 0b10010100
+#define RULE4 0b00101001
+#define RULE5 0b11010100
+#define RULE6 0b00101011
+#define RULE7 0b10010110
+#define RULE8 0b01101001
 
 /**
  * Corre el algoritmo fuzzy de deteccion de bordes, escribiendo la salida
@@ -34,7 +34,7 @@ void fuzzy_edge_detect(uint8_t* data);
  * si enumeramos cada bit del byte resultante de manera:
  *
  * byte: 0000 0000
- * enum: 7654 3210
+ * enum: 0123 4567
  *
  * entonces el mapeo a la grilla 3x3 de pixeles es:
  *
@@ -46,6 +46,6 @@ void fuzzy_edge_detect(uint8_t* data);
  *
  * @param data 	Puntero a arreglo de 441 bytes, en cuyo bit menos significativo
  * 				se contiene cada pixel de la imagen de entrada.
- * @param index Indice del pixel cuyos vecinos se quiere evaluar.
+ * @param pixel Indice del pixel cuyos vecinos se quiere evaluar.
  */
-uint8_t get_neighbours(uint8_t* data, uint16_t index);
+uint8_t get_neighbours(uint8_t* data, int16_t pixel);
