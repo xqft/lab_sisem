@@ -5,7 +5,7 @@
 
 void fuzzy_edge_detect(uint8_t* data) {
 	int16_t pixel;
-	for (pixel = 0; pixel < 21*21; pixel++) {
+	for (pixel = 0; pixel < 210; pixel++) {
 		switch(get_neighbours(data, pixel)) {
 			case RULE1:
 			case RULE2:
