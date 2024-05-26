@@ -3,7 +3,7 @@
 
 #include "fuzzy.h"
 
-void fuzzy_edge_detect(uint8_t* data) {
+void fuzzy_edge_detect(uint8_t* data,uint8_t* result) {
 	int16_t pixel;
 	for (pixel = 0; pixel < 210; pixel++) {
 		switch(get_neighbours(data, pixel)) {
@@ -15,14 +15,20 @@ void fuzzy_edge_detect(uint8_t* data) {
 			case RULE6:
 			case RULE7:
 			case RULE8:
-				data[pixel] |= 1 << 1;
-				break;
+			    {uint8_t byte_ = pixel / 8;
+			    uint8_t bit = 7 - (pixel % 8);
+
+				result[byte_] |= 1 << bit;
+
+				break;}
 		}
 	}
 }
 
+
 uint8_t get_neighbours(uint8_t* data, int16_t pixel) {
 	uint8_t result = 0;
+
 
 	uint8_t i_0 = pixel / 21;
 	uint8_t j_0 = pixel % 21;
@@ -44,8 +50,10 @@ uint8_t get_neighbours(uint8_t* data, int16_t pixel) {
 			if (j < 0) j_v = 0;
 			if (i > 20) i_v = 20;
 			if (j > 20) j_v = 20;
+			uint8_t neighbour = i_v*21 + j_v;
+			uint8_t bit = 7 - (neighbour % 8);
 
-			result |= data[i_v*21 + j_v] & 1;
+			result |= (data[neighbour / 8] >> bit) & 1;
 		}
 	}
 

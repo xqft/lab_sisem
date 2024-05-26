@@ -22,7 +22,7 @@
  * 				resultantes se escribiran en el segundo bit mas significativo
  * 				de cada byte.
  */
-void fuzzy_edge_detect(uint8_t* data);
+void fuzzy_edge_detect(uint8_t* data,uint8_t* result);
 
 /**
  * Evalua los 8 pixeles vecinos correspondientes al indice enviado como parametro y

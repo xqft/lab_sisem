@@ -10,8 +10,11 @@
 #include <stdbool.h>
 #include <msp430.h>
 
-//#include "timer.h"
-//#include "queue.h"
+#ifdef UART_RX_H
+#include "timer.h"
+#include "queue.h"
+#endif
+
 #define TX_DATA_MAX_LEN 16
 #define RX_DATA_MAX_LEN 16
 
@@ -21,25 +24,26 @@ static uint8_t tx_data[TX_DATA_MAX_LEN];
 static uint8_t tx_data_length = 0;
 /// Siguiente dato disponible del buffer de transmision
 static uint8_t tx_data_count = 0;
-
-/// Buffer de datos de transmision
-//static char rx_data[RX_DATA_MAX_LEN];
+#ifdef UART_RX_H
+/// Buffer de datos de recepcion
+static char rx_data[RX_DATA_MAX_LEN];
 /// Largo del buffer de datos de transmision
-//static volatile uint8_t rx_data_length = 0;
+static volatile uint8_t rx_data_length = 0;
 /// Puntero a flag que indica la recepcion de un dato
-//static volatile uint8_t *rx_received_flag;
+static volatile uint8_t *rx_received_flag;
 /// Bandera de error de recepcion
-//static volatile uint8_t *rx_error_flag;
+static volatile uint8_t *rx_error_flag;
 /// Bandera que bloquea la recepcion
-//static volatile uint8_t rx_block_flag;
+static volatile uint8_t rx_block_flag;
 ///puntero que toma el valor de la funcion callback de rx
-//static func_ptr_t rx_callback;
+static func_ptr_t rx_callback;
 
-/*
+
 void set_callback_rx(func_ptr_t func_rx){
     rx_callback = func_rx;
 }
-*/
+#endif
+
 void p1_init() {
 	P1SEL |= BIT1 + BIT2;       // Set pines RXD y TXD
 	P1SEL2 |= BIT1 + BIT2;      // ""
@@ -89,7 +93,8 @@ void uart_transmit(uint8_t *data, uint8_t length) {
 	// Habilito interrupcion de registro vacio
 	IE2 |= UCA0TXIE;
 }
-/*
+
+#ifdef UART_RX_H
 void copy_rx_buff(char *external_buff, uint8_t *length) {
 	memcpy(external_buff, rx_data, rx_data_length);
 	*length = rx_data_length;
@@ -103,6 +108,7 @@ void set_flag_rx(uint8_t *flag) {
 void set_flag_error_rx(uint8_t *flag) {
 	rx_error_flag = flag;
 }
+#endif
 
 #pragma vector = USCIAB0TX_VECTOR
 __interrupt void tx_isr(void) {
@@ -116,6 +122,7 @@ __interrupt void tx_isr(void) {
 	//__low_power_mode_off_on_exit();
 }
 
+#ifdef UART_RX_H
 #pragma vector = USCIAB0RX_VECTOR
 __interrupt void rx_isr(void) {
 	// Siguiente dato disponible del buffer de recepcion
@@ -157,4 +164,4 @@ __interrupt void rx_isr(void) {
 	}
 	//__low_power_mode_off_on_exit();
 }
-*/
+#endif
