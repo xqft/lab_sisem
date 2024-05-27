@@ -2,6 +2,9 @@
 
 #include <stdint.h>
 
+#define IMAGE_BYTES 56
+#define IMAGE_PIXELS 441
+
 // 0: white
 // 1: black
 #define RULE1 0b00000111
