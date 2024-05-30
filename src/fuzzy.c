@@ -8,24 +8,30 @@ void fuzzy_edge_detect(uint8_t *data, uint8_t *result)
     int16_t pixel;
     for (pixel = 0; pixel < IMAGE_PIXELS; pixel++)
     {
+        uint8_t byte = pixel / 8;
+        uint8_t bit = 7 - (pixel % 8);
+
         switch (get_neighbours(data, pixel))
         {
-            case RULE1:
-            case RULE2:
-            case RULE3:
-            case RULE4:
-            case RULE5:
-            case RULE6:
-            case RULE7:
-            case RULE8:
+        case RULE1:
+        case RULE2:
+        case RULE3:
+        case RULE4:
+        case RULE5:
+        case RULE6:
+        case RULE7:
+        case RULE8:
+        {
+            if (data[pixel] == 0)
             {
-                uint8_t byte = pixel / 8;
-                uint8_t bit = 7 - (pixel % 8);
-
                 result[byte] |= 1 << bit;
-
                 break;
+            } else {
+                result[byte] &= ~(1 << bit);
             }
+        }
+        default:
+            result[byte] &= ~(1 << bit);
         }
     }
 }
@@ -40,9 +46,9 @@ uint8_t get_neighbours(uint8_t *data, int16_t pixel)
     int8_t i;
     int8_t j;
 
-    for (i = i_0 - 1; i < i_0 + 1; i++)
+    for (i = i_0 - 1; i <= i_0 + 1; i++)
     {
-        for (j = j_0 - 1; j < j_0 + 1; j++)
+        for (j = j_0 - 1; j <= j_0 + 1; j++)
         {
             if (i == i_0 && j == j_0)
                 continue;
@@ -61,12 +67,9 @@ uint8_t get_neighbours(uint8_t *data, int16_t pixel)
                 i_v = 20;
             if (j > 20)
                 j_v = 20;
-            uint8_t neighbour = i_v * 21 + j_v;
-            uint8_t bit = 7 - (neighbour % 8);
 
-            result |= (data[neighbour / 8] >> bit) & 1;
+            result |= data[i_v * 21 + j_v];
         }
     }
-
     return result;
 }
