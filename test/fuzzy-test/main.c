@@ -49,7 +49,8 @@ int main(void)
 
 	uint8_t resultado[RESULT_BYTES];
     //fuzzy_edge_detect(data, resultado);
-	sobel_edge_detect(data,resultado);
+	//sobelex_edge_detect(data,resultado);
+	sobelaprox_edge_detect(data,resultado);
     uint8_t result_chars[23] = "";
     result_chars[0] = '\0';
 

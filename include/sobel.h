@@ -8,4 +8,6 @@ int gradiente_x(uint8_t* data,uint16_t pixel);
 
 int gradiente_y(uint8_t* data,uint16_t pixel);
 
-void sobel_edge_detect(uint8_t *data, uint8_t *result);
+void sobelex_edge_detect(uint8_t *data, uint8_t *result);
+
+void sobelaprox_edge_detect(uint8_t *data, uint8_t *result);

@@ -28,7 +28,7 @@ int gradiente_y(uint8_t* data,uint16_t pixel){
     return g_y;
 }
 
-void sobel_edge_detect(uint8_t *data, uint8_t *result){
+void sobelex_edge_detect(uint8_t *data, uint8_t *result){
     int16_t pixel;
     for (pixel = 0; pixel < IMAGE_PIXELS; pixel++)
     {
@@ -44,6 +44,23 @@ void sobel_edge_detect(uint8_t *data, uint8_t *result){
                 result[byte] &= ~(1 << bit);
             }
     }
+}
+void sobelaprox_edge_detect(uint8_t *data, uint8_t *result){
+    int16_t pixel;
+        for (pixel = 0; pixel < IMAGE_PIXELS; pixel++)
+        {
+            uint8_t byte = pixel / 8;
+            uint8_t bit = 7 - (pixel % 8);
+            int gx = abs(gradiente_x(data,pixel));
+            int gy = abs(gradiente_y(data,pixel));
+            float gradiente = gx  + gy;
+            if (gradiente > umbral){
+                result[byte] |= 1 << bit;
+                }
+            else {
+                    result[byte] &= ~(1 << bit);
+                }
+        }
 }
 
 
