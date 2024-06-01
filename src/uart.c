@@ -10,9 +10,12 @@
 #include <stdbool.h>
 #include <msp430.h>
 
+#ifdef UART_RX_H
 #include "timer.h"
 #include "queue.h"
-#define TX_DATA_MAX_LEN 16
+#endif
+
+#define TX_DATA_MAX_LEN 23
 #define RX_DATA_MAX_LEN 16
 
 /// Buffer de datos de transmision
@@ -21,8 +24,8 @@ static uint8_t tx_data[TX_DATA_MAX_LEN];
 static uint8_t tx_data_length = 0;
 /// Siguiente dato disponible del buffer de transmision
 static uint8_t tx_data_count = 0;
-
-/// Buffer de datos de transmision
+#ifdef UART_RX_H
+/// Buffer de datos de recepcion
 static char rx_data[RX_DATA_MAX_LEN];
 /// Largo del buffer de datos de transmision
 static volatile uint8_t rx_data_length = 0;
@@ -35,9 +38,12 @@ static volatile uint8_t rx_block_flag;
 ///puntero que toma el valor de la funcion callback de rx
 static func_ptr_t rx_callback;
 
+
 void set_callback_rx(func_ptr_t func_rx){
     rx_callback = func_rx;
 }
+#endif
+
 void p1_init() {
 	P1SEL |= BIT1 + BIT2;       // Set pines RXD y TXD
 	P1SEL2 |= BIT1 + BIT2;      // ""
@@ -88,10 +94,12 @@ void uart_transmit(uint8_t *data, uint8_t length) {
 	IE2 |= UCA0TXIE;
 }
 
+#ifdef UART_RX_H
 void copy_rx_buff(char *external_buff, uint8_t *length) {
 	memcpy(external_buff, rx_data, rx_data_length);
 	*length = rx_data_length;
 }
+
 
 void set_flag_rx(uint8_t *flag) {
 	rx_received_flag = flag;   // En main inicializar flag en cero
@@ -100,6 +108,7 @@ void set_flag_rx(uint8_t *flag) {
 void set_flag_error_rx(uint8_t *flag) {
 	rx_error_flag = flag;
 }
+#endif
 
 #pragma vector = USCIAB0TX_VECTOR
 __interrupt void tx_isr(void) {
@@ -110,9 +119,10 @@ __interrupt void tx_isr(void) {
 		IE2 &= ~UCA0TXIE;
 		tx_data_count = 0;
 	}
-	__low_power_mode_off_on_exit();
+	//__low_power_mode_off_on_exit();
 }
 
+#ifdef UART_RX_H
 #pragma vector = USCIAB0RX_VECTOR
 __interrupt void rx_isr(void) {
 	// Siguiente dato disponible del buffer de recepcion
@@ -121,9 +131,11 @@ __interrupt void rx_isr(void) {
 	char received_char = UCA0RXBUF; // Leer el caracter recibido
 
 	if (received_char == '\r') {
+
 		if (rx_block_flag) {
 			// Al terminar el mensaje invalido, levanto el bloqueo
 			rx_block_flag = 0;
+
 			return;
 		}
 
@@ -131,6 +143,8 @@ __interrupt void rx_isr(void) {
 		rx_data_count = 0;
 		*rx_received_flag = 1;
 		enqueue(rx_callback);
+		__low_power_mode_off_on_exit();
+
 	} else if (rx_data_count < RX_DATA_MAX_LEN) // saturar en el limite del buffer
 	{
 		if (rx_block_flag) {
@@ -148,5 +162,6 @@ __interrupt void rx_isr(void) {
 		*rx_error_flag = 1;
 		rx_block_flag = 1;
 	}
-	__low_power_mode_off_on_exit();
+	//__low_power_mode_off_on_exit();
 }
+#endif
