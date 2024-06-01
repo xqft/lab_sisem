@@ -60,10 +60,15 @@ int main(void)
 	        uint16_t pixel = row*21 + col;
 	        uint8_t byte = (pixel) / 8;
 	        uint8_t bit = 7 - (pixel % 8);
-
-	        char result_char;
-	        itoa((resultado[byte] >> bit) & 1, &result_char);
-	        strcat(result_chars, &result_char);
+	        if ((resultado[byte] >> bit) & 1 == 1){
+	            strcat(result_chars, "+");
+	        }
+	        else {
+	            strcat(result_chars, ".");
+	        }
+	      //  char result_char;
+	      //  itoa((resultado[byte] >> bit) & 1, &result_char);
+	      //  strcat(result_chars, &result_char);
 	    }
         strcat(result_chars, "\r");
         strcat(result_chars, "\n");
