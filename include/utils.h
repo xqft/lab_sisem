@@ -11,11 +11,9 @@
  *  @Version 1.1 Se comenta linea de #include "timer.h" incluída por error y se corrige campo @file de doxygen.
  */
 
+#include <stdint.h>
 
-#ifndef UTILS_H_INCLUDED
-#define UTILS_H_INCLUDED
-
-//#include "timer.h"
+#pragma once
 
 /**
  * Convierte un entero a ASCII
@@ -24,4 +22,21 @@
  */
 void itoa(int value, char* str);
 
-#endif // UTILS_H_INCLUDED
+/**
+ * Operacion mod rapida para dos bytes, donde el divisor
+ * es una potencia de dos.
+ *
+ * @param uint16_t num: numerador
+ * @param uint8_t div: divisor que debe ser potencia de dos
+ */
+inline uint8_t fast_mod2(uint16_t num, uint8_t div);
+
+/**
+ * Operacion div rapida para dos bytes, donde el divisor
+ * es una potencia de dos.
+ *
+ * @param uint16_t num: numerador
+ * @param uint8_t div_log2: logaritmo base 2 del divisor, que
+ *                          debe ser potencia de dos.
+ */
+inline uint8_t fast_div2(uint16_t num, uint8_t div_log2);

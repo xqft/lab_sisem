@@ -31,7 +31,6 @@ const static uint8_t input_img[IMAGE_PIXELS] = {
 };
 static uint8_t output_img[OUTPUT_BYTES];
 
-
 int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
@@ -42,39 +41,43 @@ int main(void)
 
     __enable_interrupt();
 
-    // Send ready UART message
-    const uint8_t *init_msg = "System ready.\r\n";
+    // Send button press UART message
+    const uint8_t *init_msg = "Press button to start.\r\n";
     uart_transmit(init_msg, strlen(init_msg));
 
-    fuzzy_edge_detect(data, resultado);
+    // Configure control button pin 1.3 register
+    P1DIR &= ~BIT3; // set 1.3 as output
 
-    uint8_t result_chars[23] = "";
-    result_chars[0] = '\0';
+    // Wait for button press
+    while ((P1IN & BIT3) != 0) {}
+
+    fuzzy_edge_detect(input_img, output_img);
+
+    show_result();
+
+    return 0;
+}
+
+void show_result() {
+    uint8_t result_chars[23] = "\0";
 
     uint16_t row;
     for (row = 0; row < 21; row++) {
         uint16_t col;
         for (col = 0; col < 21; col++) {
-            uint16_t pixel = row*21 + col;
-            uint8_t byte = (pixel) / 8;
-            uint8_t bit = 7 - (pixel % 8);
-            if ((resultado[byte] >> bit) & 1 == 1){
-                strcat(result_chars, "+");
-            }
-            else {
-                strcat(result_chars, ".");
-            }
-          //  char result_char;
-          //  itoa((resultado[byte] >> bit) & 1, &result_char);
-          //  strcat(result_chars, &result_char);
+            uint16_t pixel = row * 21 + col;
+            uint8_t byte = fast_div2(pixel, 3);
+            uint8_t bit = 7 - fast_mod2(pixel, 8);
+
+            char* pixel_char = (output_img[byte] >> bit) & 1 ? "+" : ".";
+            strcat(result_chars, pixel_char);
         }
-        strcat(result_chars, "\r");
-        strcat(result_chars, "\n");
+        strcat(result_chars, "\r\n");
+
+        // Wait while UART is busy
+        while ((UCA0STAT & UCBUSY) == 1) {}
         uart_transmit(result_chars, strlen(result_chars));
+
         result_chars[0] = '\0';
-
-        for (i = 0; i < 8000; i++);
     }
-
-    return 0;
 }
