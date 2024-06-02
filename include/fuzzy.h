@@ -3,7 +3,7 @@
 #include <stdint.h>
 
 #define IMAGE_PIXELS 441
-#define RESULT_BYTES 56
+#define OUTPUT_BYTES 56
 
 // 0: white
 // 1: black
