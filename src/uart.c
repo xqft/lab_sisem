@@ -15,7 +15,7 @@
 #include "queue.h"
 #endif
 
-#define TX_DATA_MAX_LEN 24
+#define TX_DATA_MAX_LEN 45
 #define RX_DATA_MAX_LEN 16
 
 /// Buffer de datos de transmision

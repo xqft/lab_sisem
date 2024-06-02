@@ -59,25 +59,24 @@ int main(void)
 }
 
 void show_result() {
-    uint8_t result_chars[23] = "\0";
+    uint8_t row_chars[IMAGE_SIZE * 2 + 3] = "\0";
 
-    uint16_t row;
-    for (row = 0; row < 21; row++) {
-        uint16_t col;
-        for (col = 0; col < 21; col++) {
-            uint16_t pixel = row * 21 + col;
+    uint16_t row, col;
+    for (row = 0; row < IMAGE_SIZE; row++) {
+        for (col = 0; col < IMAGE_SIZE; col++) {
+            uint16_t pixel = row * IMAGE_SIZE + col;
             uint8_t byte = fast_div2(pixel, 3);
             uint8_t bit = 7 - fast_mod2(pixel, 8);
 
-            char* pixel_char = (output_img[byte] >> bit) & 1 ? "+" : ".";
-            strcat(result_chars, pixel_char);
+            char* pixel_char = (output_img[byte] >> bit) & 1 ? "@ " : ". ";
+            strcat(row_chars, pixel_char);
         }
-        strcat(result_chars, "\r\n");
+        strcat(row_chars, "\r\n");
 
         // Wait while UART is busy
         while ((UCA0STAT & UCBUSY) == 1) {}
-        uart_transmit(result_chars, strlen(result_chars));
+        uart_transmit(row_chars, strlen(row_chars));
 
-        result_chars[0] = '\0';
+        row_chars[0] = '\0';
     }
 }
