@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 
+#define IMAGE_SIZE 21
 #define IMAGE_PIXELS 441
 #define OUTPUT_BYTES 56
 
