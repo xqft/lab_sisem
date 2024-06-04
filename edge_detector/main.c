@@ -5,6 +5,7 @@
 #include "uart.h"
 #include "fuzzy.h"
 #include "utils.h"
+#include "sobel.h"
 
 const static uint8_t input_img[IMAGE_PIXELS] = {
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -51,7 +52,9 @@ int main(void)
     // Wait for button press
     while ((P1IN & BIT3) != 0) {}
 
-    fuzzy_edge_detect(input_img, output_img);
+    // fuzzy_edge_detect(input_img, output_img);
+     sobelex_edge_detect(input_img, output_img);
+    // sobelaprox_edge_detect(input_img, output_img);
 
     show_result();
 

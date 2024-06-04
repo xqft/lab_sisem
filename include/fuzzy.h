@@ -26,7 +26,7 @@
  * 				resultantes se escribiran en el segundo bit mas significativo
  * 				de cada byte.
  */
-void fuzzy_edge_detect(uint8_t* data,uint8_t* result);
+void fuzzy_edge_detect(uint8_t* data, uint8_t* result);
 
 /**
  * Evalua los 8 pixeles vecinos correspondientes al indice enviado como parametro y
@@ -47,9 +47,9 @@ void fuzzy_edge_detect(uint8_t* data,uint8_t* result);
  * | 5 | 6 | 7 |
  *
  * donde el pixel E se evalua por separado.
- *
+ *```
  * @param data 	Puntero a arreglo de 441 bytes, en cuyo bit menos significativo
  * 				se contiene cada pixel de la imagen de entrada.
  * @param pixel Indice del pixel cuyos vecinos se quiere evaluar.
  */
-uint8_t get_neighbours(uint8_t* data, int16_t pixel);
+uint8_t get_neighbours(uint8_t* data, uint16_t pixel);
