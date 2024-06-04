@@ -6,6 +6,7 @@
 #include "fuzzy.h"
 #include "utils.h"
 #include "sobel.h"
+
 const uint8_t data[IMAGE_PIXELS] = {
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
