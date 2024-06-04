@@ -2,14 +2,15 @@
 #include <stdbool.h>
 
 #include "fuzzy.h"
+#include "utils.h"
 
 void fuzzy_edge_detect(uint8_t *data, uint8_t *result)
 {
     int16_t pixel;
     for (pixel = 0; pixel < IMAGE_PIXELS; pixel++)
     {
-        uint8_t byte = pixel / 8;
-        uint8_t bit = 7 - (pixel % 8);
+        uint8_t byte = fast_div2(pixel, 3);
+        uint8_t bit = 7 - fast_mod2(pixel, 8);
 
         switch (get_neighbours(data, pixel))
         {
@@ -36,7 +37,7 @@ void fuzzy_edge_detect(uint8_t *data, uint8_t *result)
     }
 }
 
-uint8_t get_neighbours(uint8_t *data, int16_t pixel)
+uint8_t get_neighbours(uint8_t *data, uint16_t pixel)
 {
     uint8_t result = 0;
 

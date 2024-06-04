@@ -34,3 +34,12 @@ void itoa(int value, char* str) {
     strreverse(str,wstr-1);
     *wstr='\0';
 }
+
+inline uint8_t fast_mod2(uint16_t num, uint8_t div) {
+    return num & (div - 1);
+}
+
+inline uint8_t fast_div2(uint16_t num, uint8_t div_log2) {
+    return num >> div_log2;
+}
+
