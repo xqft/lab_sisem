@@ -34,7 +34,7 @@ int16_t gradiente_y(uint8_t *data, uint16_t pixel)
     return g_y;
 }
 
-void sobelex_edge_detect(uint8_t *data, uint8_t *result)
+void sobelex_edge_detect(uint8_t *data, uint8_t *result, float UMBRAL)
 {
     int16_t pixel;
     for (pixel = 0; pixel < IMAGE_PIXELS; pixel++)
@@ -54,7 +54,7 @@ void sobelex_edge_detect(uint8_t *data, uint8_t *result)
         }
     }
 }
-void sobelaprox_edge_detect(uint8_t *data, uint8_t *result)
+void sobelaprox_edge_detect(uint8_t *data, uint8_t *result, float UMBRAL)
 {
     int16_t pixel;
     for (pixel = 0; pixel < IMAGE_PIXELS; pixel++)
