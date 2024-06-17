@@ -1,12 +1,13 @@
 #include <msp430.h>
 #include <stdint.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "uart.h"
 #include "fuzzy.h"
 #include "utils.h"
 #include "sobel.h"
-#include "tiemr_hw.h"
+#include "timer_hw.h"
 
 const static uint8_t input_img[IMAGE_PIXELS] = {
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -43,28 +44,37 @@ int main(void)
     config_timer_crystal();
     float umbral1 = 3;
     __enable_interrupt();
-
     // Send button press UART message
     const uint8_t *init_msg = "Press button to start.\r\n";
     uart_transmit(init_msg, strlen(init_msg));
 
-    // Configure control button pin 1.3 register
-    P1DIR &= ~BIT3; // set 1.3 as output
-
     // Wait for button press
-    while ((P1IN & BIT3) != 0) {}
+    // while ((P1IN & BIT3) != 0) {}
 
-    TACTL   |= TAIE;  //habilito interrupciones del timer A
-     //fuzzy_edge_detect(input_img, output_img);
-     sobelex_edge_detect(input_img, output_img, umbral1);
-     //sobelaprox_edge_detect(input_img, output_img);
+    // Leer el valor inicial del contador del Timer_A
+    unsigned int start_time = TAR;
 
-     TACTL   &= ~TAIE; //Deshabilito las inter del Timer
+    // Ejecutar el algoritmo
+    sobelex_edge_detect(input_img, output_img, umbral1);
 
-     show_result();
+    // Leer el valor final del contador del Timer_A
+    unsigned int end_time = TAR;
 
-     const uint8_t *init_msg = TA0R ;
-     uart_transmit(init_msg, strlen(init_msg));
+    // Calcular el tiempo transcurrido
+    uint16_t final_time = (end_time - start_time);
+
+    // Convertir el tiempo transcurrido a microsegundos (ACLK = 32768 Hz, cada tick = ~30.5 us)
+    unsigned int final_time_us = final_time * 30.5;
+
+    show_result();
+
+    // Transmitir el tiempo transcurrido por UART
+    uint8_t* msg[10];
+    sprintf(msg, "Time: %d us\r\n", final_time_us);
+    uart_transmit(msg, strlen(msg));
+
+
+
     return 0;
 }
 

@@ -56,7 +56,7 @@ __interrupt void int_timer_A(void) {
 		*counter_flag = 1;
         enqueue(counter_callback);
 		counter = 0;
-		__low_power_mode_off_on_exit();
+		//__low_power_mode_off_on_exit();
 	} else {
 		counter++;
 	}
