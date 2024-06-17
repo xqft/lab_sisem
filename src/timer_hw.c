@@ -21,7 +21,7 @@ void config_timer_crystal() {
 	BCSCTL3 |= LFXT1S_0;        // Cristal de 32768-Hz para el oscilador LFXT1.
 
 	//TACTL   |= TAIE;            // Habilito las interrupciones del Timer A.
-	TACCTL0 |= CCIE; // Habilito las interrupciones del Timer A en modo comparacion.
+	//TACCTL0 |= CCIE; // Habilito las interrupciones del Timer A en modo comparacion.
 }
 
 void config_timer_VLO() {
@@ -50,7 +50,7 @@ void set_callback_counter(func_ptr_t func_counter){
 
 #pragma vector = TIMER0_A0_VECTOR
 __interrupt void int_timer_A(void) {
-	//P1OUT ^= LED1;  // Conmuta LED1 usando XOR
+	P1OUT ^= LED1;  // Conmuta LED1 usando XOR
 	inc_time();
 	if (counter >= counter_max) {
 		*counter_flag = 1;
