@@ -53,7 +53,7 @@ int main(void)
     while ((P1IN & BIT3) != 0) {}
 
      //fuzzy_edge_detect(input_img, output_img);
-     sobelex_edge_detect(input_img, output_img);
+     sobelex_edge_detect(input_img, output_img,3);
      //sobelaprox_edge_detect(input_img, output_img);
 
     show_result();
