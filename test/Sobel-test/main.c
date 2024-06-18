@@ -43,6 +43,7 @@ int main(void)
     uart_init();
     config_timer_crystal();
     float umbral1 = 3;
+
     __enable_interrupt();
     // Send button press UART message
     const uint8_t *init_msg = "Press button to start.\r\n";
@@ -52,26 +53,33 @@ int main(void)
     // while ((P1IN & BIT3) != 0) {}
 
     // Leer el valor inicial del contador del Timer_A
-    unsigned int start_time = TAR;
+    uint16_t start_time = TAR;
 
     // Ejecutar el algoritmo
+    //fuzzy_edge_detect(input_img, output_img);
     sobelex_edge_detect(input_img, output_img, umbral1);
+    //sobelaprox_edge_detect(input_img, output_img, umbral1);
 
     // Leer el valor final del contador del Timer_A
-    unsigned int end_time = TAR;
+    uint16_t end_time = TAR;
 
     // Calcular el tiempo transcurrido
-    uint16_t final_time = (end_time - start_time);
+    int final_time = (end_time - start_time);
 
-    // Convertir el tiempo transcurrido a microsegundos (ACLK = 32768 Hz, cada tick = ~30.5 us)
-    unsigned int final_time_us = final_time * 30.5;
+    // Convertir el tiempo transcurrido a microsegundos (ACLK = 32768 Hz, cada tick = ~0.030.5 ms)
+    float final_time_us = final_time * 0.0305;
 
     show_result();
 
     // Transmitir el tiempo transcurrido por UART
-    uint8_t* msg[10];
-    sprintf(msg, "Time: %d us\r\n", final_time_us);
+    uint8_t msg[40]= "\r\n Demora del algoritmo: ";
+   // itoa(final_time_us, msg);
+    uint8_t aux_msg[4];
+    itoa(final_time_us, aux_msg);
+    strcat(msg,aux_msg);
+    strcat(msg," ms");
     uart_transmit(msg, strlen(msg));
+
 
 
 
