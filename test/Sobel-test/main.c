@@ -61,8 +61,8 @@ int main(void)
     P2OUT |= BIT0;
     // Ejecutar el algoritmo
     //fuzzy_edge_detect(input_img, output_img);
-    //sobelex_edge_detect(input_img, output_img, umbral1);
-    sobelaprox_edge_detect(input_img, output_img, umbral1);
+    sobelex_edge_detect(input_img, output_img, umbral1);
+    //sobelaprox_edge_detect(input_img, output_img, umbral1);
     P2OUT &= ~BIT0;
     // Leer el valor final del contador del Timer_A
     int end_time = TAR;
@@ -71,7 +71,7 @@ int main(void)
     int final_time = (end_time - start_time);
 
     // Convertir el tiempo transcurrido a microsegundos (ACLK = 32768 Hz, cada tick = ~0.030.5 ms)
-    float final_time_us = final_time * 0.0305;
+    float final_time_us = (final_time/4.096) ;
 
     show_result();
 
