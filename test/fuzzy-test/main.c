@@ -46,7 +46,7 @@ int main(void)
     static char rx_msg[7];
     p1_init();
     uart_init();
-    float UMBRAL1;
+    float UMBRAL1 = 0;
 
     __enable_interrupt();
     const uint8_t *init_msg22 = "Elige otro algoritmo para procesar \r\n";
@@ -68,18 +68,18 @@ int main(void)
                 }else if (strcmp(data, "SE") == 0){
                     rx_received_flag = 0;
                     data[0] = rx_msg[3];
-                    data[1] = rx_msg[5];
-                    data[2] = rx_msg[6];
+                    data[1] = rx_msg[4];
+                    data[2] = rx_msg[5];
 
-                    UMBRAL1 = atoi(data);
+                    UMBRAL1 = (atoi(data))/100;
                     sobelex_edge_detect(input_img, output_img,UMBRAL1);
                 }else if (strcmp(data, "SA") == 0){
                     rx_received_flag = 0;
                     data[0] = rx_msg[3];
-                    data[1] = rx_msg[5];
-                    data[2] = rx_msg[6];
+                    data[1] = rx_msg[4];
+                    data[2] = rx_msg[5];
 
-                    UMBRAL1 = ((atoi(data))/100);
+                    UMBRAL1 = (atoi(data))/100;
                     sobelaprox_edge_detect(input_img, output_img,UMBRAL1);
                 }
      }
