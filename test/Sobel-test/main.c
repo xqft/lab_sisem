@@ -1,13 +1,16 @@
 #include <msp430.h>
 #include <stdint.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "uart.h"
 #include "fuzzy.h"
 #include "utils.h"
 #include "sobel.h"
+#include "timer_hw.h"
 
-const uint8_t data[IMAGE_PIXELS] = {
+
+const static uint8_t input_img[IMAGE_PIXELS] = {
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -22,7 +25,7 @@ const uint8_t data[IMAGE_PIXELS] = {
                              0,0,0,1,1,1,1,1,1,0,1,1,0,0,0,0,0,1,0,0,0,
                              0,0,0,1,1,1,1,1,0,0,1,1,1,0,0,0,0,1,0,0,0,
                              0,0,0,1,1,1,1,0,0,0,1,1,1,1,0,0,0,1,0,0,0,
-                             0,0,0,1,1,1,0,0,0,0,1,1,1,1,1,0,0,1,0,0,0, // asd
+                             0,0,0,1,1,1,0,0,0,0,1,1,1,1,1,0,0,1,0,0,0,
                              0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,0,1,0,0,0,
                              0,0,0,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,
                              0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,
@@ -30,54 +33,82 @@ const uint8_t data[IMAGE_PIXELS] = {
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 };
-
+static uint8_t output_img[OUTPUT_BYTES];
 
 int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
     // Init UART module
-    config_timer_crystal();
     p1_init();
     uart_init();
+    config_timer_crystal();
+    float umbral1 = 3;
 
+    P2DIR |= BIT0;
+    P2OUT &= ~BIT0;
     __enable_interrupt();
-    const uint8_t *init_msg = "tx init ready\r\n";
+    // Send button press UART message
+    const uint8_t *init_msg = "Press button to start.\r\n";
     uart_transmit(init_msg, strlen(init_msg));
-    int i;
-    for (i = 0; i < 5000; i++);
+
+    // Wait for button press
+    while ((P1IN & BIT3) != 0) {}
+
+    // Leer el valor inicial del contador del Timer_A
+    TACTL |= TACLR;
+    int start_time = TAR;
+    P2OUT |= BIT0;
+    // Ejecutar el algoritmo
+    //fuzzy_edge_detect(input_img, output_img);
+    sobelex_edge_detect(input_img, output_img, umbral1);
+    //sobelaprox_edge_detect(input_img, output_img, umbral1);
+    P2OUT &= ~BIT0;
+    // Leer el valor final del contador del Timer_A
+    int end_time = TAR;
+
+    // Calcular el tiempo transcurrido
+    int final_time = (end_time - start_time);
+
+    // Convertir el tiempo transcurrido a microsegundos (ACLK = 32768 Hz, cada tick = ~0.030.5 ms)
+    float final_time_us = (final_time/4.096) ;
+
+    show_result();
+
+    // Transmitir el tiempo transcurrido por UART
+    uint8_t msg[40]= "\r\n Demora del algoritmo: ";
+   // itoa(final_time_us, msg);
+    uint8_t aux_msg[4];
+    itoa(final_time_us, aux_msg);
+    strcat(msg,aux_msg);
+    strcat(msg," ms");
+    uart_transmit(msg, strlen(msg));
 
 
-    uint8_t resultado[RESULT_BYTES];
-    sobel_edge_detect(data, resultado);
 
-    uint8_t result_chars[23] = "";
-    result_chars[0] = '\0';
-
-    uint16_t row;
-    for (row = 0; row < 21; row++) {
-        uint16_t col;
-        for (col = 0; col < 21; col++) {
-            uint16_t pixel = row*21 + col;
-            uint8_t byte = (pixel) / 8;
-            uint8_t bit = 7 - (pixel % 8);
-            if ((resultado[byte] >> bit) & 1 == 1){
-                strcat(result_chars, "+");
-            }
-            else {
-                strcat(result_chars, ".");
-            }
-          //  char result_char;
-          //  itoa((resultado[byte] >> bit) & 1, &result_char);
-          //  strcat(result_chars, &result_char);
-        }
-        strcat(result_chars, "\r");
-        strcat(result_chars, "\n");
-        uart_transmit(result_chars, strlen(result_chars));
-        result_chars[0] = '\0';
-
-        for (i = 0; i < 8000; i++);
-    }
 
     return 0;
+}
+
+void show_result() {
+    uint8_t row_chars[IMAGE_SIZE * 2 + 3] = "\0";
+
+    uint16_t row, col;
+    for (row = 0; row < IMAGE_SIZE; row++) {
+        for (col = 0; col < IMAGE_SIZE; col++) {
+            uint16_t pixel = row * IMAGE_SIZE + col;
+            uint8_t byte = fast_div2(pixel, 3);
+            uint8_t bit = 7 - fast_mod2(pixel, 8);
+
+            char* pixel_char = (output_img[byte] >> bit) & 1 ? "@ " : ". ";
+            strcat(row_chars, pixel_char);
+        }
+        strcat(row_chars, "\r\n");
+
+        // Wait while UART is busy
+        while ((UCA0STAT & UCBUSY) == 1) {}
+        uart_transmit(row_chars, strlen(row_chars));
+
+        row_chars[0] = '\0';
+    }
 }

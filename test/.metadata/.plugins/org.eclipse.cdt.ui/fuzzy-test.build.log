@@ -1,0 +1,18 @@
+
+**** Build of configuration Debug for project fuzzy-test ****
+
+"C:\\ti\\ccs1260\\ccs\\utils\\bin\\gmake" -k -j 8 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"C:/ti/ccs1260/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmsp --use_hw_mpy=none --include_path="C:/ti/ccs1260/ccs/ccs_base/msp430/include" --include_path="C:/Users/Usuario/workspace_v12/CCS/lab_sisem/test/include" --include_path="C:/Users/Usuario/workspace_v12/CCS/lab_sisem/test/fuzzy-test" --include_path="C:/ti/ccs1260/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --define=__MSP430G2553__ --define=UART_RX_H -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'main.obj' failed
+"../main.c", line 5: fatal error #1965: cannot open source file "uart.h"
+1 catastrophic error detected in the compilation of "../main.c".
+Compilation terminated.
+gmake: *** [main.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
