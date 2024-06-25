@@ -61,13 +61,13 @@ int main(void)
 
     start_timing();
 
-    //fuzzy_edge_detect(input_img, output_img);
-    sobelex_edge_detect(input_img, output_img,3);
+    fuzzy_edge_detect(input_img, output_img);
+    //sobelex_edge_detect(input_img, output_img,3);
     //sobelaprox_edge_detect(input_img, output_img);
 
-    stop_timing();
-
+    uint16_t time_ms = stop_timing();
     show_result();
+    print_time(time_ms);
 
     return 0;
 }
@@ -96,21 +96,29 @@ void show_result() {
 }
 
 inline void start_timing() {
-    const uint8_t *msg = "Timer ON.\r\n";
-    uart_transmit(msg, strlen(msg));
-
     restart_timer_capture();
     P2OUT |= BIT0;
 }
 
-inline void stop_timing() {
+inline uint16_t stop_timing() {
     P2OUT &= ~BIT0;
-    uint16_t time_ms = get_timer_capture();
+    return get_timer_capture();
+}
 
-    uint8_t *msg[40] = "\r\n Demora del algoritmo: ";
-    uint8_t time_msg[4];
-    itoa(time_ms, time_msg);
-    strcat(msg, time_msg);
-    strcat(msg, " ms");
-    uart_transmit(msg, strlen(msg));
+inline void print_time(uint16_t time_ms) {
+    // Wait while UART is busy
+    while ((UCA0STAT & UCBUSY) == 1) {}
+
+    const uint8_t *msg0 = "Demora del algoritmo: ";
+    uart_transmit(msg0, strlen(msg0));
+    while ((UCA0STAT & UCBUSY) == 1) {}
+
+    uint8_t msg1[4] = 0;
+    itoa(time_ms, msg1);
+    uart_transmit(msg1, strlen(msg1));
+    while ((UCA0STAT & UCBUSY) == 1) {}
+
+    const uint8_t *msg2 = " ms.\r\n";
+    uart_transmit(msg2, strlen(msg2));
+    while ((UCA0STAT & UCBUSY) == 1) {}
 }

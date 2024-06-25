@@ -87,7 +87,7 @@ __interrupt void int_timer_A(void) {
 inline void restart_timer_capture() {
 	TACTL |= MC_0;  // Modo 0 para el Timer A: apagado
     TACTL |= TACLR; // Reset TAR y ID
-	TACTL |= ID_3;  // Divisor /2. Cuenta maximo 4 segundos.
+	TACTL |= ID_1;  // Divisor /2. Cuenta maximo 4 segundos.
 	TACTL |= MC_2;  // Modo 2 para el Timer A: cuenta hasta 0xFFFF (enceder)
 }
 
