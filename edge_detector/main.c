@@ -32,6 +32,9 @@ const static uint8_t input_img[IMAGE_PIXELS] = {
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 };
 static uint8_t output_img[OUTPUT_BYTES];
+static uint8_t rx_received_flag = 0;
+static uint8_t rx_largo;
+static uint8_t rx_msg[7];
 
 int main(void)
 {
@@ -41,7 +44,7 @@ int main(void)
     p1_init();
     uart_init();
     config_timer_crystal_capture();
-    float umbral1 = 3;
+    set_flag_rx(&rx_received_flag);
 
     // Pin used for timing
     P2DIR |= BIT0;
@@ -50,25 +53,47 @@ int main(void)
     __enable_interrupt();
 
     // Send button press UART message
-    const uint8_t *init_msg = "Press button to start.\r\n";
+    const uint8_t *init_msg = "Elige un algoritmo para procesar.\r\n";
     uart_transmit(init_msg, strlen(init_msg));
 
-    // Configure control button pin 1.3 register
-    P1DIR &= ~BIT3; // set 1.3 as output
+    for (;;) {
+        if (rx_received_flag) {
+            copy_rx_buff(rx_msg, &rx_largo);
+            char data[3] = { rx_msg[0], rx_msg[1], '\0' };
+            uint16_t time_ms;
+            if (strcmp(data, "FU") == 0) {
+                rx_received_flag = 0;
+                // Asumimos que el comando viene en el formato correcto
+                start_timing();
+                fuzzy_edge_detect(input_img, output_img);
+                time_ms = stop_timing();
+            } else if (strcmp(data, "SE") == 0) {
+                rx_received_flag = 0;
+                data[0] = rx_msg[3];
+                data[1] = rx_msg[4];
+                data[2] = rx_msg[5];
 
-    // Wait for button press
-    while ((P1IN & BIT3) != 0) {}
+                float umbral = atoi(data) / 100;
+                start_timing();
+                sobelex_edge_detect(input_img, output_img, umbral);
+                time_ms = stop_timing();
+            } else if (strcmp(data, "SA") == 0) {
+                rx_received_flag = 0;
+                data[0] = rx_msg[3];
+                data[1] = rx_msg[4];
+                data[2] = rx_msg[5];
 
-    start_timing();
-
-    fuzzy_edge_detect(input_img, output_img);
-    //sobelex_edge_detect(input_img, output_img,3);
-    //sobelaprox_edge_detect(input_img, output_img);
-
-    uint16_t time_ms = stop_timing();
-    show_result();
-    print_time(time_ms);
-
+                float umbral = atoi(data) / 100;
+                start_timing();
+                sobelaprox_edge_detect(input_img, output_img, umbral);
+                time_ms = stop_timing();
+            } else {
+                continue;
+            }
+            show_result();
+            print_time(time_ms);
+        }
+    }
     return 0;
 }
 
@@ -109,16 +134,12 @@ inline void print_time(uint16_t time_ms) {
     // Wait while UART is busy
     while ((UCA0STAT & UCBUSY) == 1) {}
 
-    const uint8_t *msg0 = "Demora del algoritmo: ";
-    uart_transmit(msg0, strlen(msg0));
-    while ((UCA0STAT & UCBUSY) == 1) {}
+    uint8_t time_msg[4] = {};
+    itoa(time_ms, time_msg);
 
-    uint8_t msg1[4] = 0;
-    itoa(time_ms, msg1);
-    uart_transmit(msg1, strlen(msg1));
-    while ((UCA0STAT & UCBUSY) == 1) {}
-
-    const uint8_t *msg2 = " ms.\r\n";
-    uart_transmit(msg2, strlen(msg2));
-    while ((UCA0STAT & UCBUSY) == 1) {}
+    uint8_t *msg[32 + 1] = { '\0' };
+    strcat(msg, "Demora del algoritmo: ");
+    strcat(msg, time_msg);
+    strcat(msg, " ms.\r\n");
+    uart_transmit(msg, strlen(msg));
 }
