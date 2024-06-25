@@ -12,7 +12,9 @@
 
 #ifdef UART_RX_H
 #include "timer.h"
+#ifdef QUEUE
 #include "queue.h"
+#endif
 #endif
 
 #define TX_DATA_MAX_LEN 45
@@ -35,6 +37,7 @@ static volatile uint8_t *rx_received_flag;
 static volatile uint8_t *rx_error_flag;
 /// Bandera que bloquea la recepcion
 static volatile uint8_t rx_block_flag;
+#ifdef QUEUE
 ///puntero que toma el valor de la funcion callback de rx
 static func_ptr_t rx_callback;
 
@@ -42,6 +45,7 @@ static func_ptr_t rx_callback;
 void set_callback_rx(func_ptr_t func_rx){
     rx_callback = func_rx;
 }
+#endif
 #endif
 
 void p1_init() {
@@ -142,7 +146,9 @@ __interrupt void rx_isr(void) {
 		rx_data_length = rx_data_count;
 		rx_data_count = 0;
 		*rx_received_flag = 1;
+        #ifdef QUEUE
 		enqueue(rx_callback);
+        #endif
 		__low_power_mode_off_on_exit();
 
 	} else if (rx_data_count < RX_DATA_MAX_LEN) // saturar en el limite del buffer
