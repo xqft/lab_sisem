@@ -6,6 +6,7 @@
 #include "fuzzy.h"
 #include "utils.h"
 #include "sobel.h"
+#include "timer_hw.h"
 
 const static uint8_t input_img[IMAGE_PIXELS] = {
                              0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -39,6 +40,12 @@ int main(void)
     // Init UART module
     p1_init();
     uart_init();
+    config_timer_crystal_capture();
+    float umbral1 = 3;
+
+    // Pin used for timing
+    P2DIR |= BIT0;
+    P2OUT &= ~BIT0;
 
     __enable_interrupt();
 
@@ -52,9 +59,13 @@ int main(void)
     // Wait for button press
     while ((P1IN & BIT3) != 0) {}
 
-     //fuzzy_edge_detect(input_img, output_img);
-     sobelex_edge_detect(input_img, output_img,3);
-     //sobelaprox_edge_detect(input_img, output_img);
+    start_timing();
+
+    //fuzzy_edge_detect(input_img, output_img);
+    sobelex_edge_detect(input_img, output_img,3);
+    //sobelaprox_edge_detect(input_img, output_img);
+
+    stop_timing();
 
     show_result();
 
@@ -82,4 +93,24 @@ void show_result() {
 
         row_chars[0] = '\0';
     }
+}
+
+inline void start_timing() {
+    const uint8_t *msg = "Timer ON.\r\n";
+    uart_transmit(msg, strlen(msg));
+
+    restart_timer_capture();
+    P2OUT |= BIT0;
+}
+
+inline void stop_timing() {
+    P2OUT &= ~BIT0;
+    uint16_t time_ms = get_timer_capture();
+
+    uint8_t *msg[40] = "\r\n Demora del algoritmo: ";
+    uint8_t time_msg[4];
+    itoa(time_ms, time_msg);
+    strcat(msg, time_msg);
+    strcat(msg, " ms");
+    uart_transmit(msg, strlen(msg));
 }
