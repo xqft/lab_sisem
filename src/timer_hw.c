@@ -97,11 +97,12 @@ inline void restart_timer_capture()
 
 inline uint16_t get_timer_capture()
 {
-    TACTL |= MC_0;  // Modo 0 para el Timer A: apagado
+    TACTL &= MC_0;  // Modo 0 para el Timer A: apagado
     // Para calcular la cantidad de tiempo en milisegundos, dividimos
     // por la cantidad de ticks en un milisegundo. O sea
     // f / 2 * 1000 = 16.339 ticks. Redondeamos a 16 ticks.
     // Entonces tenemos que dividir entre 16. Es lo mismo que
     // hacer x >> 4.
-    return TAR >> 4;
+    float timer_exacto = TAR/16.339;
+    return timer_exacto;
 }
