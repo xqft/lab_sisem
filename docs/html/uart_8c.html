@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Laboratorio de Sistemas Embebidos: Referencia del archivo src/uart.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -11,9 +11,9 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -36,10 +36,15 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generado por Doxygen 1.10.0 -->
+<!-- Generado por Doxygen 1.11.0 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -47,7 +52,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Buscar');
+  initMenu('',true,false,'search.php','Buscar',true);
   $(function() { init_search(); });
 });
 /* @license-end */
@@ -66,7 +71,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('uart_8c.html',''); initResizable(); });
+$(function(){initNavTree('uart_8c.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -103,13 +108,12 @@ $(function(){initNavTree('uart_8c.html',''); initResizable(); });
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;msp430.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="timer_8h_source.html">timer.h</a>&quot;</code><br />
 </div>
 <p><a href="uart_8c_source.html">Ir al código fuente de este archivo.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 defines</h2></td></tr>
-<tr class="memitem:a2d129e9cf185904bc15ab0e0edc6767f" id="r_a2d129e9cf185904bc15ab0e0edc6767f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d129e9cf185904bc15ab0e0edc6767f">TX_DATA_MAX_LEN</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memitem:a2d129e9cf185904bc15ab0e0edc6767f" id="r_a2d129e9cf185904bc15ab0e0edc6767f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d129e9cf185904bc15ab0e0edc6767f">TX_DATA_MAX_LEN</a>&#160;&#160;&#160;45</td></tr>
 <tr class="separator:a2d129e9cf185904bc15ab0e0edc6767f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab55c737a441eb0789aafa6be200d7501" id="r_ab55c737a441eb0789aafa6be200d7501"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab55c737a441eb0789aafa6be200d7501">RX_DATA_MAX_LEN</a>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:ab55c737a441eb0789aafa6be200d7501"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,27 +121,16 @@ defines</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funciones</h2></td></tr>
 <tr class="memitem:a34e99ec11986682323a3bdbf30a137c1" id="r_a34e99ec11986682323a3bdbf30a137c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34e99ec11986682323a3bdbf30a137c1">p1_init</a> ()</td></tr>
-<tr class="memdesc:a34e99ec11986682323a3bdbf30a137c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializar pines de transmision UART del puerto 1.  <br /></td></tr>
+<tr class="memdesc:a34e99ec11986682323a3bdbf30a137c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa el puerto 1.  <br /></td></tr>
 <tr class="separator:a34e99ec11986682323a3bdbf30a137c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01f5996cfbcef121abc486e732b208c7" id="r_a01f5996cfbcef121abc486e732b208c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01f5996cfbcef121abc486e732b208c7">uart_init</a> ()</td></tr>
-<tr class="memdesc:a01f5996cfbcef121abc486e732b208c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializar configuracion del modulo UART.  <br /></td></tr>
+<tr class="memdesc:a01f5996cfbcef121abc486e732b208c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa configuracion del modulo UART.  <br /></td></tr>
 <tr class="separator:a01f5996cfbcef121abc486e732b208c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6de0d99ed4b5e30001f6c57790efd46" id="r_ae6de0d99ed4b5e30001f6c57790efd46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6de0d99ed4b5e30001f6c57790efd46">uart_transmit</a> (uint8_t *data, uint8_t length)</td></tr>
-<tr class="memdesc:ae6de0d99ed4b5e30001f6c57790efd46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmitir un mensaje por UART.  <br /></td></tr>
+<tr class="memdesc:ae6de0d99ed4b5e30001f6c57790efd46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmistir un mensaje por UART.  <br /></td></tr>
 <tr class="separator:ae6de0d99ed4b5e30001f6c57790efd46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a589b6f5e617cea5660a4b97279a245d3" id="r_a589b6f5e617cea5660a4b97279a245d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a589b6f5e617cea5660a4b97279a245d3">copy_rx_buff</a> (char *external_buff, uint8_t *length)</td></tr>
-<tr class="memdesc:a589b6f5e617cea5660a4b97279a245d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copiar un mensaje recibido por UART.  <br /></td></tr>
-<tr class="separator:a589b6f5e617cea5660a4b97279a245d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c84d5d4cb8b4595dc0825d2e9636418" id="r_a5c84d5d4cb8b4595dc0825d2e9636418"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c84d5d4cb8b4595dc0825d2e9636418">set_flag_rx</a> (uint8_t *<a class="el" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a>)</td></tr>
-<tr class="memdesc:a5c84d5d4cb8b4595dc0825d2e9636418"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establecer la flag de recepcion.  <br /></td></tr>
-<tr class="separator:a5c84d5d4cb8b4595dc0825d2e9636418"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a284495c46a0e4c1ef45563a9fb87d48c" id="r_a284495c46a0e4c1ef45563a9fb87d48c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a284495c46a0e4c1ef45563a9fb87d48c">set_flag_error_rx</a> (uint8_t *<a class="el" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a>)</td></tr>
-<tr class="memdesc:a284495c46a0e4c1ef45563a9fb87d48c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establecer la flag de error de recepcion.  <br /></td></tr>
-<tr class="separator:a284495c46a0e4c1ef45563a9fb87d48c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1ea6edd2c5c6963721c4601699eafa9" id="r_ac1ea6edd2c5c6963721c4601699eafa9"><td class="memItemLeft" align="right" valign="top">__interrupt void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1ea6edd2c5c6963721c4601699eafa9">tx_isr</a> (void)</td></tr>
 <tr class="separator:ac1ea6edd2c5c6963721c4601699eafa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56357d18276232e124dbf88c9276dcb1" id="r_a56357d18276232e124dbf88c9276dcb1"><td class="memItemLeft" align="right" valign="top">__interrupt void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56357d18276232e124dbf88c9276dcb1">rx_isr</a> (void)</td></tr>
-<tr class="separator:a56357d18276232e124dbf88c9276dcb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -150,21 +143,6 @@ Variables</h2></td></tr>
 <tr class="memitem:a25b48c136ea1792280cae9471afaaaee" id="r_a25b48c136ea1792280cae9471afaaaee"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a> = 0</td></tr>
 <tr class="memdesc:a25b48c136ea1792280cae9471afaaaee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Siguiente dato disponible del buffer de transmision.  <br /></td></tr>
 <tr class="separator:a25b48c136ea1792280cae9471afaaaee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4189fb7143326d8dc79f757196bdd6f" id="r_ab4189fb7143326d8dc79f757196bdd6f"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4189fb7143326d8dc79f757196bdd6f">rx_data</a> [<a class="el" href="#ab55c737a441eb0789aafa6be200d7501">RX_DATA_MAX_LEN</a>]</td></tr>
-<tr class="memdesc:ab4189fb7143326d8dc79f757196bdd6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffer de datos de transmision.  <br /></td></tr>
-<tr class="separator:ab4189fb7143326d8dc79f757196bdd6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad21330553a3b4fa07b8ce3b57870bde9" id="r_ad21330553a3b4fa07b8ce3b57870bde9"><td class="memItemLeft" align="right" valign="top">static volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad21330553a3b4fa07b8ce3b57870bde9">rx_data_length</a> = 0</td></tr>
-<tr class="memdesc:ad21330553a3b4fa07b8ce3b57870bde9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largo del buffer de datos de transmision.  <br /></td></tr>
-<tr class="separator:ad21330553a3b4fa07b8ce3b57870bde9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8db95e5697b32d8af68fc781f220f106" id="r_a8db95e5697b32d8af68fc781f220f106"><td class="memItemLeft" align="right" valign="top">static volatile uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8db95e5697b32d8af68fc781f220f106">rx_received_flag</a></td></tr>
-<tr class="memdesc:a8db95e5697b32d8af68fc781f220f106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puntero a flag que indica la recepcion de un dato.  <br /></td></tr>
-<tr class="separator:a8db95e5697b32d8af68fc781f220f106"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0205f5853b3abf12b28436aae8165fd3" id="r_a0205f5853b3abf12b28436aae8165fd3"><td class="memItemLeft" align="right" valign="top">static volatile uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0205f5853b3abf12b28436aae8165fd3">rx_error_flag</a></td></tr>
-<tr class="memdesc:a0205f5853b3abf12b28436aae8165fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bandera de error de recepcion.  <br /></td></tr>
-<tr class="separator:a0205f5853b3abf12b28436aae8165fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73cd3e091874fef53e7a4be5da7bbc86" id="r_a73cd3e091874fef53e7a4be5da7bbc86"><td class="memItemLeft" align="right" valign="top">static volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73cd3e091874fef53e7a4be5da7bbc86">rx_block_flag</a></td></tr>
-<tr class="memdesc:a73cd3e091874fef53e7a4be5da7bbc86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bandera que bloquea la recepcion.  <br /></td></tr>
-<tr class="separator:a73cd3e091874fef53e7a4be5da7bbc86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación de «define»</h2>
 <a id="ab55c737a441eb0789aafa6be200d7501" name="ab55c737a441eb0789aafa6be200d7501"></a>
@@ -179,7 +157,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00016">16</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00021">21</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
 
 </div>
 </div>
@@ -190,47 +168,16 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TX_DATA_MAX_LEN&#160;&#160;&#160;16</td>
+          <td class="memname">#define TX_DATA_MAX_LEN&#160;&#160;&#160;45</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00015">15</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00020">20</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Documentación de funciones</h2>
-<a id="a589b6f5e617cea5660a4b97279a245d3" name="a589b6f5e617cea5660a4b97279a245d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a589b6f5e617cea5660a4b97279a245d3">&#9670;&#160;</a></span>copy_rx_buff()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void copy_rx_buff </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>external_buff</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Copiar un mensaje recibido por UART. </p>
-
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00086">86</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   86</span>                                                        {</div>
-<div class="line"><span class="lineno">   87</span>    memcpy(external_buff, <a class="code hl_variable" href="#ab4189fb7143326d8dc79f757196bdd6f">rx_data</a>, <a class="code hl_variable" href="#ad21330553a3b4fa07b8ce3b57870bde9">rx_data_length</a>);</div>
-<div class="line"><span class="lineno">   88</span>    *length = <a class="code hl_variable" href="#ad21330553a3b4fa07b8ce3b57870bde9">rx_data_length</a>;</div>
-<div class="line"><span class="lineno">   89</span>}</div>
-<div class="ttc" id="auart_8c_html_ab4189fb7143326d8dc79f757196bdd6f"><div class="ttname"><a href="#ab4189fb7143326d8dc79f757196bdd6f">rx_data</a></div><div class="ttdeci">static char rx_data[RX_DATA_MAX_LEN]</div><div class="ttdoc">Buffer de datos de transmision.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00026">uart.c:26</a></div></div>
-<div class="ttc" id="auart_8c_html_ad21330553a3b4fa07b8ce3b57870bde9"><div class="ttname"><a href="#ad21330553a3b4fa07b8ce3b57870bde9">rx_data_length</a></div><div class="ttdeci">static volatile uint8_t rx_data_length</div><div class="ttdoc">Largo del buffer de datos de transmision.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00028">uart.c:28</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="a34e99ec11986682323a3bdbf30a137c1" name="a34e99ec11986682323a3bdbf30a137c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34e99ec11986682323a3bdbf30a137c1">&#9670;&#160;</a></span>p1_init()</h2>
 
@@ -240,126 +187,19 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void p1_init </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inicializar pines de transmision UART del puerto 1. </p>
+<p>Inicializa el puerto 1. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00036">36</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   36</span>               {</div>
-<div class="line"><span class="lineno">   37</span>    P1SEL |= BIT1 + BIT2;       <span class="comment">// Set pines RXD y TXD</span></div>
-<div class="line"><span class="lineno">   38</span>    P1SEL2 |= BIT1 + BIT2;      <span class="comment">// &quot;&quot;</span></div>
-<div class="line"><span class="lineno">   39</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a56357d18276232e124dbf88c9276dcb1" name="a56357d18276232e124dbf88c9276dcb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56357d18276232e124dbf88c9276dcb1">&#9670;&#160;</a></span>rx_isr()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">__interrupt void rx_isr </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00112">112</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  112</span>                              {</div>
-<div class="line"><span class="lineno">  113</span>    <span class="comment">// Siguiente dato disponible del buffer de recepcion</span></div>
-<div class="line"><span class="lineno">  114</span>    <span class="keyword">static</span> <span class="keyword">volatile</span> uint8_t rx_data_count = 0;</div>
-<div class="line"><span class="lineno">  115</span> </div>
-<div class="line"><span class="lineno">  116</span>    <span class="keywordtype">char</span> received_char = UCA0RXBUF; <span class="comment">// Leer el caracter recibido</span></div>
-<div class="line"><span class="lineno">  117</span> </div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">if</span> (received_char == <span class="charliteral">&#39;\r&#39;</span>) {</div>
-<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a73cd3e091874fef53e7a4be5da7bbc86">rx_block_flag</a>) {</div>
-<div class="line"><span class="lineno">  120</span>            <span class="comment">// Al terminar el mensaje invalido, levanto el bloqueo</span></div>
-<div class="line"><span class="lineno">  121</span>            <a class="code hl_variable" href="#a73cd3e091874fef53e7a4be5da7bbc86">rx_block_flag</a> = 0;</div>
-<div class="line"><span class="lineno">  122</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  123</span>        }</div>
-<div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>        <a class="code hl_variable" href="#ad21330553a3b4fa07b8ce3b57870bde9">rx_data_length</a> = rx_data_count;</div>
-<div class="line"><span class="lineno">  126</span>        rx_data_count = 0;</div>
-<div class="line"><span class="lineno">  127</span>        *<a class="code hl_variable" href="#a8db95e5697b32d8af68fc781f220f106">rx_received_flag</a> = 1;</div>
-<div class="line"><span class="lineno">  128</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rx_data_count &lt; <a class="code hl_define" href="#ab55c737a441eb0789aafa6be200d7501">RX_DATA_MAX_LEN</a>) <span class="comment">// saturar en el limite del buffer</span></div>
-<div class="line"><span class="lineno">  129</span>    {</div>
-<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a73cd3e091874fef53e7a4be5da7bbc86">rx_block_flag</a>) {</div>
-<div class="line"><span class="lineno">  131</span>            <span class="comment">// Si hay un error, bloqueo la recepcion hasta terminar el mensaje.</span></div>
-<div class="line"><span class="lineno">  132</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  133</span>        }</div>
-<div class="line"><span class="lineno">  134</span> </div>
-<div class="line"><span class="lineno">  135</span>        <a class="code hl_variable" href="#ab4189fb7143326d8dc79f757196bdd6f">rx_data</a>[rx_data_count] = received_char;</div>
-<div class="line"><span class="lineno">  136</span>        rx_data_count++;</div>
-<div class="line"><span class="lineno">  137</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  138</span>        <span class="comment">// Buffer overflow, bloqueo la recepcion y reinicio el buffer</span></div>
-<div class="line"><span class="lineno">  139</span>        <a class="code hl_variable" href="#ad21330553a3b4fa07b8ce3b57870bde9">rx_data_length</a> = 0;</div>
-<div class="line"><span class="lineno">  140</span>        rx_data_count = 0;</div>
-<div class="line"><span class="lineno">  141</span> </div>
-<div class="line"><span class="lineno">  142</span>        *<a class="code hl_variable" href="#a0205f5853b3abf12b28436aae8165fd3">rx_error_flag</a> = 1;</div>
-<div class="line"><span class="lineno">  143</span>        <a class="code hl_variable" href="#a73cd3e091874fef53e7a4be5da7bbc86">rx_block_flag</a> = 1;</div>
-<div class="line"><span class="lineno">  144</span>    }</div>
-<div class="line"><span class="lineno">  145</span>    __low_power_mode_off_on_exit();</div>
-<div class="line"><span class="lineno">  146</span>}</div>
-<div class="ttc" id="auart_8c_html_a0205f5853b3abf12b28436aae8165fd3"><div class="ttname"><a href="#a0205f5853b3abf12b28436aae8165fd3">rx_error_flag</a></div><div class="ttdeci">static volatile uint8_t * rx_error_flag</div><div class="ttdoc">Bandera de error de recepcion.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00032">uart.c:32</a></div></div>
-<div class="ttc" id="auart_8c_html_a73cd3e091874fef53e7a4be5da7bbc86"><div class="ttname"><a href="#a73cd3e091874fef53e7a4be5da7bbc86">rx_block_flag</a></div><div class="ttdeci">static volatile uint8_t rx_block_flag</div><div class="ttdoc">Bandera que bloquea la recepcion.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00034">uart.c:34</a></div></div>
-<div class="ttc" id="auart_8c_html_a8db95e5697b32d8af68fc781f220f106"><div class="ttname"><a href="#a8db95e5697b32d8af68fc781f220f106">rx_received_flag</a></div><div class="ttdeci">static volatile uint8_t * rx_received_flag</div><div class="ttdoc">Puntero a flag que indica la recepcion de un dato.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00030">uart.c:30</a></div></div>
-<div class="ttc" id="auart_8c_html_ab55c737a441eb0789aafa6be200d7501"><div class="ttname"><a href="#ab55c737a441eb0789aafa6be200d7501">RX_DATA_MAX_LEN</a></div><div class="ttdeci">#define RX_DATA_MAX_LEN</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00016">uart.c:16</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a284495c46a0e4c1ef45563a9fb87d48c" name="a284495c46a0e4c1ef45563a9fb87d48c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a284495c46a0e4c1ef45563a9fb87d48c">&#9670;&#160;</a></span>set_flag_error_rx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void set_flag_error_rx </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>flag</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Establecer la flag de error de recepcion. </p>
-
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00095">95</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   95</span>                                      {</div>
-<div class="line"><span class="lineno">   96</span>    <a class="code hl_variable" href="#a0205f5853b3abf12b28436aae8165fd3">rx_error_flag</a> = <a class="code hl_variable" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a>;</div>
-<div class="line"><span class="lineno">   97</span>}</div>
-<div class="ttc" id="atemperatura_8c_html_a6a6c51c1bb8571c71d0f9a7167f8c649"><div class="ttname"><a href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a></div><div class="ttdeci">static char * flag</div><div class="ttdef"><b>Definition</b> <a href="temperatura_8c_source.html#l00005">temperatura.c:5</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a5c84d5d4cb8b4595dc0825d2e9636418" name="a5c84d5d4cb8b4595dc0825d2e9636418"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c84d5d4cb8b4595dc0825d2e9636418">&#9670;&#160;</a></span>set_flag_rx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void set_flag_rx </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>flag</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Establecer la flag de recepcion. </p>
-
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00091">91</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   91</span>                                {</div>
-<div class="line"><span class="lineno">   92</span>    <a class="code hl_variable" href="#a8db95e5697b32d8af68fc781f220f106">rx_received_flag</a> = <a class="code hl_variable" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a>;   <span class="comment">// En main inicializar flag en cero</span></div>
-<div class="line"><span class="lineno">   93</span>}</div>
+<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00051">51</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>               {</div>
+<div class="line"><span class="lineno">   52</span>    P1SEL |= BIT1 + BIT2;       <span class="comment">// Set pines RXD y TXD</span></div>
+<div class="line"><span class="lineno">   53</span>    P1SEL2 |= BIT1 + BIT2;      <span class="comment">// &quot;&quot;</span></div>
+<div class="line"><span class="lineno">   54</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -372,26 +212,26 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">__interrupt void tx_isr </td>
           <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00100">100</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  100</span>                              {</div>
-<div class="line"><span class="lineno">  101</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a> &lt; <a class="code hl_variable" href="#a65fbd642aea5a8b3c5cae00edb00840e">tx_data_length</a>) {</div>
-<div class="line"><span class="lineno">  102</span>        UCA0TXBUF = <a class="code hl_variable" href="#a7dd72775f995a7392f8c7ea091a7e0dd">tx_data</a>[<a class="code hl_variable" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a>];</div>
-<div class="line"><span class="lineno">  103</span>        <a class="code hl_variable" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a>++;</div>
-<div class="line"><span class="lineno">  104</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  105</span>        IE2 &amp;= ~UCA0TXIE;</div>
-<div class="line"><span class="lineno">  106</span>        <a class="code hl_variable" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a> = 0;</div>
-<div class="line"><span class="lineno">  107</span>    }</div>
-<div class="line"><span class="lineno">  108</span>    __low_power_mode_off_on_exit();</div>
-<div class="line"><span class="lineno">  109</span>}</div>
-<div class="ttc" id="auart_8c_html_a25b48c136ea1792280cae9471afaaaee"><div class="ttname"><a href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a></div><div class="ttdeci">static uint8_t tx_data_count</div><div class="ttdoc">Siguiente dato disponible del buffer de transmision.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00023">uart.c:23</a></div></div>
-<div class="ttc" id="auart_8c_html_a65fbd642aea5a8b3c5cae00edb00840e"><div class="ttname"><a href="#a65fbd642aea5a8b3c5cae00edb00840e">tx_data_length</a></div><div class="ttdeci">static uint8_t tx_data_length</div><div class="ttdoc">Largo del buffer de transmision en bytes.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00021">uart.c:21</a></div></div>
-<div class="ttc" id="auart_8c_html_a7dd72775f995a7392f8c7ea091a7e0dd"><div class="ttname"><a href="#a7dd72775f995a7392f8c7ea091a7e0dd">tx_data</a></div><div class="ttdeci">static uint8_t tx_data[TX_DATA_MAX_LEN]</div><div class="ttdoc">Buffer de datos de transmision.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00019">uart.c:19</a></div></div>
+<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00118">118</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  118</span>                              {</div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a> &lt; <a class="code hl_variable" href="#a65fbd642aea5a8b3c5cae00edb00840e">tx_data_length</a>) {</div>
+<div class="line"><span class="lineno">  120</span>        UCA0TXBUF = <a class="code hl_variable" href="#a7dd72775f995a7392f8c7ea091a7e0dd">tx_data</a>[<a class="code hl_variable" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a>];</div>
+<div class="line"><span class="lineno">  121</span>        <a class="code hl_variable" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a>++;</div>
+<div class="line"><span class="lineno">  122</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  123</span>        IE2 &amp;= ~UCA0TXIE;</div>
+<div class="line"><span class="lineno">  124</span>        <a class="code hl_variable" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a> = 0;</div>
+<div class="line"><span class="lineno">  125</span>    }</div>
+<div class="line"><span class="lineno">  126</span>    <span class="comment">//__low_power_mode_off_on_exit();</span></div>
+<div class="line"><span class="lineno">  127</span>}</div>
+<div class="ttc" id="auart_8c_html_a25b48c136ea1792280cae9471afaaaee"><div class="ttname"><a href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a></div><div class="ttdeci">static uint8_t tx_data_count</div><div class="ttdoc">Siguiente dato disponible del buffer de transmision.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00028">uart.c:28</a></div></div>
+<div class="ttc" id="auart_8c_html_a65fbd642aea5a8b3c5cae00edb00840e"><div class="ttname"><a href="#a65fbd642aea5a8b3c5cae00edb00840e">tx_data_length</a></div><div class="ttdeci">static uint8_t tx_data_length</div><div class="ttdoc">Largo del buffer de transmision en bytes.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00026">uart.c:26</a></div></div>
+<div class="ttc" id="auart_8c_html_a7dd72775f995a7392f8c7ea091a7e0dd"><div class="ttname"><a href="#a7dd72775f995a7392f8c7ea091a7e0dd">tx_data</a></div><div class="ttdeci">static uint8_t tx_data[TX_DATA_MAX_LEN]</div><div class="ttdoc">Buffer de datos de transmision.</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00024">uart.c:24</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -404,40 +244,40 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void uart_init </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Inicializar configuracion del modulo UART. </p>
+<p>Inicializa configuracion del modulo UART. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00041">41</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   41</span>                 {</div>
-<div class="line"><span class="lineno">   42</span>    UCA0CTL1 |= UCSWRST;    <span class="comment">// Set reset</span></div>
-<div class="line"><span class="lineno">   43</span> </div>
-<div class="line"><span class="lineno">   44</span>    <span class="comment">// Estado por defecto luego de un reset</span></div>
-<div class="line"><span class="lineno">   45</span>    <span class="comment">// UCA0CTL0 &amp;= ~UCPEN;  // Set paridad off</span></div>
-<div class="line"><span class="lineno">   46</span>    <span class="comment">// UCA0CTL0 |= UC7BIT;  // Set 8-bit</span></div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>    UCA0CTL1 |= UCSSEL_1;   <span class="comment">// Set fuente ACLK</span></div>
-<div class="line"><span class="lineno">   49</span>    UCA0CTL1 |= UCSSEL0;    <span class="comment">// &quot;&quot;</span></div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>    <span class="comment">// Estado por defecto luego de un reset</span></div>
-<div class="line"><span class="lineno">   52</span>    <span class="comment">// BCSCTL1 &amp;= ~XTS;     // Modo 0 para el oscilador LFXT1 (selecciona low frequency).</span></div>
-<div class="line"><span class="lineno">   53</span>    <span class="comment">// BCSCTL1 |= DIVA_0;   // Divisor en /1.</span></div>
-<div class="line"><span class="lineno">   54</span>    <span class="comment">// BCSCTL3 |= LFXT1S_0; // Cristal de 32768-Hz para el oscilador LFXT1.</span></div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>    <span class="comment">// Establecer baud-rate 9600 con fuente de 32 kHz.</span></div>
-<div class="line"><span class="lineno">   57</span>    <span class="comment">// Ref: Tabla 15-4, Family User&#39;s Guide.</span></div>
-<div class="line"><span class="lineno">   58</span>    UCA0BR1 = 0x00;</div>
-<div class="line"><span class="lineno">   59</span>    UCA0BR0 = 0x03;</div>
-<div class="line"><span class="lineno">   60</span>    UCA0MCTL |= UCBRS_3;</div>
-<div class="line"><span class="lineno">   61</span>    UCA0MCTL |= UCBRF_0;</div>
+<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00056">56</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>                 {</div>
+<div class="line"><span class="lineno">   57</span>    UCA0CTL1 |= UCSWRST;    <span class="comment">// Set reset</span></div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    <span class="comment">// Estado por defecto luego de un reset</span></div>
+<div class="line"><span class="lineno">   60</span>    <span class="comment">// UCA0CTL0 &amp;= ~UCPEN;  // Set paridad off</span></div>
+<div class="line"><span class="lineno">   61</span>    <span class="comment">// UCA0CTL0 |= UC7BIT;  // Set 8-bit</span></div>
 <div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>    UCA0CTL1 &amp;= ~UCSWRST;   <span class="comment">// Reestablecer reset</span></div>
-<div class="line"><span class="lineno">   64</span>    IE2 |= UCA0RXIE;        <span class="comment">// Habilito interrupciones de recepcion</span></div>
-<div class="line"><span class="lineno">   65</span>}</div>
+<div class="line"><span class="lineno">   63</span>    UCA0CTL1 |= UCSSEL_1;   <span class="comment">// Set fuente ACLK</span></div>
+<div class="line"><span class="lineno">   64</span>    UCA0CTL1 |= UCSSEL0;    <span class="comment">// &quot;&quot;</span></div>
+<div class="line"><span class="lineno">   65</span> </div>
+<div class="line"><span class="lineno">   66</span>    <span class="comment">// Estado por defecto luego de un reset</span></div>
+<div class="line"><span class="lineno">   67</span>    <span class="comment">// BCSCTL1 &amp;= ~XTS;     // Modo 0 para el oscilador LFXT1 (selecciona low frequency).</span></div>
+<div class="line"><span class="lineno">   68</span>    <span class="comment">// BCSCTL1 |= DIVA_0;   // Divisor en /1.</span></div>
+<div class="line"><span class="lineno">   69</span>    <span class="comment">// BCSCTL3 |= LFXT1S_0; // Cristal de 32768-Hz para el oscilador LFXT1.</span></div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>    <span class="comment">// Establecer baud-rate 9600 con fuente de 32 kHz.</span></div>
+<div class="line"><span class="lineno">   72</span>    <span class="comment">// Ref: Tabla 15-4, Family User&#39;s Guide.</span></div>
+<div class="line"><span class="lineno">   73</span>    UCA0BR1 = 0x00;</div>
+<div class="line"><span class="lineno">   74</span>    UCA0BR0 = 0x03;</div>
+<div class="line"><span class="lineno">   75</span>    UCA0MCTL |= UCBRS_3;</div>
+<div class="line"><span class="lineno">   76</span>    UCA0MCTL |= UCBRF_0;</div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    UCA0CTL1 &amp;= ~UCSWRST;   <span class="comment">// Reestablecer reset</span></div>
+<div class="line"><span class="lineno">   79</span>    IE2 |= UCA0RXIE;        <span class="comment">// Habilito interrupciones de recepcion</span></div>
+<div class="line"><span class="lineno">   80</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -450,7 +290,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void uart_transmit </td>
           <td>(</td>
-          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em>, </span></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -460,162 +300,39 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Transmitir un mensaje por UART. </p>
+<p>Transmistir un mensaje por UART. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>datos del mensaje a transmitir </td></tr>
+    <tr><td class="paramname">length</td><td>largo del mensaje a transmitir </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00067">67</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>                                                  {</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keyword">const</span> uint8_t *error_msg = <span class="stringliteral">&quot;tx overflow&quot;</span>;</div>
-<div class="line"><span class="lineno">   69</span> </div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span> (length &gt; <a class="code hl_define" href="#a2d129e9cf185904bc15ab0e0edc6767f">TX_DATA_MAX_LEN</a>) {</div>
-<div class="line"><span class="lineno">   71</span>        data = error_msg;</div>
-<div class="line"><span class="lineno">   72</span>        length = strlen(data);</div>
-<div class="line"><span class="lineno">   73</span>    }</div>
-<div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span>    memcpy(<a class="code hl_variable" href="#a7dd72775f995a7392f8c7ea091a7e0dd">tx_data</a>, data, length);</div>
-<div class="line"><span class="lineno">   76</span>    <a class="code hl_variable" href="#a65fbd642aea5a8b3c5cae00edb00840e">tx_data_length</a> = length;</div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>    <span class="comment">// Transmito el primer byte</span></div>
-<div class="line"><span class="lineno">   79</span>    UCA0TXBUF = <a class="code hl_variable" href="#a7dd72775f995a7392f8c7ea091a7e0dd">tx_data</a>[0];</div>
-<div class="line"><span class="lineno">   80</span>    <a class="code hl_variable" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a> = 1;</div>
-<div class="line"><span class="lineno">   81</span> </div>
-<div class="line"><span class="lineno">   82</span>    <span class="comment">// Habilito interrupcion de registro vacio</span></div>
-<div class="line"><span class="lineno">   83</span>    IE2 |= UCA0TXIE;</div>
-<div class="line"><span class="lineno">   84</span>}</div>
-<div class="ttc" id="auart_8c_html_a2d129e9cf185904bc15ab0e0edc6767f"><div class="ttname"><a href="#a2d129e9cf185904bc15ab0e0edc6767f">TX_DATA_MAX_LEN</a></div><div class="ttdeci">#define TX_DATA_MAX_LEN</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00015">uart.c:15</a></div></div>
+<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00082">82</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   82</span>                                                  {</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keyword">const</span> uint8_t *error_msg = <span class="stringliteral">&quot;tx overflow&quot;</span>;</div>
+<div class="line"><span class="lineno">   84</span> </div>
+<div class="line"><span class="lineno">   85</span>    <span class="keywordflow">if</span> (length &gt; <a class="code hl_define" href="#a2d129e9cf185904bc15ab0e0edc6767f">TX_DATA_MAX_LEN</a>) {</div>
+<div class="line"><span class="lineno">   86</span>        data = error_msg;</div>
+<div class="line"><span class="lineno">   87</span>        length = strlen(data);</div>
+<div class="line"><span class="lineno">   88</span>    }</div>
+<div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   90</span>    memcpy(<a class="code hl_variable" href="#a7dd72775f995a7392f8c7ea091a7e0dd">tx_data</a>, data, length);</div>
+<div class="line"><span class="lineno">   91</span>    <a class="code hl_variable" href="#a65fbd642aea5a8b3c5cae00edb00840e">tx_data_length</a> = length;</div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>    <span class="comment">// Transmito el primer byte</span></div>
+<div class="line"><span class="lineno">   94</span>    UCA0TXBUF = <a class="code hl_variable" href="#a7dd72775f995a7392f8c7ea091a7e0dd">tx_data</a>[0];</div>
+<div class="line"><span class="lineno">   95</span>    <a class="code hl_variable" href="#a25b48c136ea1792280cae9471afaaaee">tx_data_count</a> = 1;</div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>    <span class="comment">// Habilito interrupcion de registro vacio</span></div>
+<div class="line"><span class="lineno">   98</span>    IE2 |= UCA0TXIE;</div>
+<div class="line"><span class="lineno">   99</span>}</div>
+<div class="ttc" id="auart_8c_html_a2d129e9cf185904bc15ab0e0edc6767f"><div class="ttname"><a href="#a2d129e9cf185904bc15ab0e0edc6767f">TX_DATA_MAX_LEN</a></div><div class="ttdeci">#define TX_DATA_MAX_LEN</div><div class="ttdef"><b>Definition</b> <a href="uart_8c_source.html#l00020">uart.c:20</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Documentación de variables</h2>
-<a id="a73cd3e091874fef53e7a4be5da7bbc86" name="a73cd3e091874fef53e7a4be5da7bbc86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73cd3e091874fef53e7a4be5da7bbc86">&#9670;&#160;</a></span>rx_block_flag</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint8_t rx_block_flag</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Bandera que bloquea la recepcion. </p>
-
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00034">34</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-
-</div>
-</div>
-<a id="ab4189fb7143326d8dc79f757196bdd6f" name="ab4189fb7143326d8dc79f757196bdd6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4189fb7143326d8dc79f757196bdd6f">&#9670;&#160;</a></span>rx_data</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char rx_data[<a class="el" href="#ab55c737a441eb0789aafa6be200d7501">RX_DATA_MAX_LEN</a>]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Buffer de datos de transmision. </p>
-
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00026">26</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-
-</div>
-</div>
-<a id="ad21330553a3b4fa07b8ce3b57870bde9" name="ad21330553a3b4fa07b8ce3b57870bde9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad21330553a3b4fa07b8ce3b57870bde9">&#9670;&#160;</a></span>rx_data_length</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint8_t rx_data_length = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Largo del buffer de datos de transmision. </p>
-
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00028">28</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-
-</div>
-</div>
-<a id="a0205f5853b3abf12b28436aae8165fd3" name="a0205f5853b3abf12b28436aae8165fd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0205f5853b3abf12b28436aae8165fd3">&#9670;&#160;</a></span>rx_error_flag</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint8_t* rx_error_flag</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Bandera de error de recepcion. </p>
-
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00032">32</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-
-</div>
-</div>
-<a id="a8db95e5697b32d8af68fc781f220f106" name="a8db95e5697b32d8af68fc781f220f106"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8db95e5697b32d8af68fc781f220f106">&#9670;&#160;</a></span>rx_received_flag</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint8_t* rx_received_flag</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Puntero a flag que indica la recepcion de un dato. </p>
-
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00030">30</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
-
-</div>
-</div>
 <a id="a7dd72775f995a7392f8c7ea091a7e0dd" name="a7dd72775f995a7392f8c7ea091a7e0dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7dd72775f995a7392f8c7ea091a7e0dd">&#9670;&#160;</a></span>tx_data</h2>
 
@@ -638,7 +355,7 @@ Variables</h2></td></tr>
 
 <p>Buffer de datos de transmision. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00019">19</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00024">24</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
 
 </div>
 </div>
@@ -664,7 +381,7 @@ Variables</h2></td></tr>
 
 <p>Siguiente dato disponible del buffer de transmision. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00023">23</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00028">28</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
 
 </div>
 </div>
@@ -690,7 +407,7 @@ Variables</h2></td></tr>
 
 <p>Largo del buffer de transmision en bytes. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00021">21</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="uart_8c_source.html#l00026">26</a> del archivo <a class="el" href="uart_8c_source.html">uart.c</a>.</p>
 
 </div>
 </div>
@@ -700,7 +417,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="uart_8c.html">uart.c</a></li>
-    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>
 </body>

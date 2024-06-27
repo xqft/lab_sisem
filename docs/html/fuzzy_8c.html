@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Laboratorio de Sistemas Embebidos: Referencia del archivo src/fuzzy.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Laboratorio de Sistemas Embebidos
+   </div>
+   <div id="projectbrief">Grupo 8: Estefano Bargas, Lucas Pereyra, Juan Andres Silveira</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.11.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('fuzzy_8c.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle"><div class="title">Referencia del archivo fuzzy.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="fuzzy_8h_source.html">fuzzy.h</a>&quot;</code><br />
+</div>
+<p><a href="fuzzy_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:acba0e96cfc0e905e757d68c79244ef8d" id="r_acba0e96cfc0e905e757d68c79244ef8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acba0e96cfc0e905e757d68c79244ef8d">fuzzy_edge_detect</a> (uint8_t *data, uint8_t *result)</td></tr>
+<tr class="memdesc:acba0e96cfc0e905e757d68c79244ef8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corre el algoritmo fuzzy de deteccion de bordes, escribiendo la salida en el segundo bit menos significativo de los bytes de entrada.  <br /></td></tr>
+<tr class="separator:acba0e96cfc0e905e757d68c79244ef8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ac49ca77ebd4d4fc1c4b070195905e1" id="r_a2ac49ca77ebd4d4fc1c4b070195905e1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ac49ca77ebd4d4fc1c4b070195905e1">get_neighbours</a> (uint8_t *data, uint16_t pixel)</td></tr>
+<tr class="separator:a2ac49ca77ebd4d4fc1c4b070195905e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de funciones</h2>
+<a id="acba0e96cfc0e905e757d68c79244ef8d" name="acba0e96cfc0e905e757d68c79244ef8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acba0e96cfc0e905e757d68c79244ef8d">&#9670;&#160;</a></span>fuzzy_edge_detect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fuzzy_edge_detect </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Corre el algoritmo fuzzy de deteccion de bordes, escribiendo la salida en el segundo bit menos significativo de los bytes de entrada. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Puntero a arreglo de 441 bytes, en cuyo bit menos significativo se contiene cada pixel de la imagen de entrada. Los pixeles resultantes se escribiran en el segundo bit mas significativo de cada byte. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definición en la línea <a class="el" href="fuzzy_8c_source.html#l00007">7</a> del archivo <a class="el" href="fuzzy_8c_source.html">fuzzy.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    8</span>{</div>
+<div class="line"><span class="lineno">    9</span>    uint16_t pixel;</div>
+<div class="line"><span class="lineno">   10</span>    <span class="keywordflow">for</span> (pixel = 0; pixel &lt; <a class="code hl_define" href="fuzzy_8h.html#a4a29d3cfeca2f2a636be7467d99aa852">IMAGE_PIXELS</a>; pixel++)</div>
+<div class="line"><span class="lineno">   11</span>    {</div>
+<div class="line"><span class="lineno">   12</span>        uint8_t <span class="keywordtype">byte</span> = <a class="code hl_function" href="utils_8c.html#acac7594a8d4d3c243917a91729775565">fast_div2</a>(pixel, 3);</div>
+<div class="line"><span class="lineno">   13</span>        uint8_t bit = 7 - <a class="code hl_function" href="utils_8c.html#aec1a377d1df9c6d5769d1e2396746293">fast_mod2</a>(pixel, 8);</div>
+<div class="line"><span class="lineno">   14</span> </div>
+<div class="line"><span class="lineno">   15</span>        <span class="keywordflow">switch</span> (<a class="code hl_function" href="#a2ac49ca77ebd4d4fc1c4b070195905e1">get_neighbours</a>(data, pixel))</div>
+<div class="line"><span class="lineno">   16</span>        {</div>
+<div class="line"><span class="lineno">   17</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="fuzzy_8h.html#a9dc2bfcded1e28b87e0d868cb948708c">RULE1</a>:</div>
+<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="fuzzy_8h.html#ae785fe79efc8385fa56f1d284bad06ad">RULE2</a>:</div>
+<div class="line"><span class="lineno">   19</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="fuzzy_8h.html#af2264a81f832ffb09a4ed122b2be1c73">RULE3</a>:</div>
+<div class="line"><span class="lineno">   20</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="fuzzy_8h.html#aebc3f49fbd054bdf337ad9da6e986d70">RULE4</a>:</div>
+<div class="line"><span class="lineno">   21</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="fuzzy_8h.html#a08f109be7ab437afa444801c396d2aeb">RULE5</a>:</div>
+<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="fuzzy_8h.html#af10a345a141b031dd3c768ec24bfd51c">RULE6</a>:</div>
+<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="fuzzy_8h.html#a3ca9af37eed5b3b9e506bb1dbb54bcc2">RULE7</a>:</div>
+<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="fuzzy_8h.html#afebe6e17c2d5a425c9310986a5ff2485">RULE8</a>:</div>
+<div class="line"><span class="lineno">   25</span>        {</div>
+<div class="line"><span class="lineno">   26</span>            <span class="keywordflow">if</span> (data[pixel] == 0)</div>
+<div class="line"><span class="lineno">   27</span>            {</div>
+<div class="line"><span class="lineno">   28</span>                result[byte] |= 1 &lt;&lt; bit;</div>
+<div class="line"><span class="lineno">   29</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   30</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   31</span>                result[byte] &amp;= ~(1 &lt;&lt; bit);</div>
+<div class="line"><span class="lineno">   32</span>            }</div>
+<div class="line"><span class="lineno">   33</span>        }</div>
+<div class="line"><span class="lineno">   34</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">   35</span>            result[byte] &amp;= ~(1 &lt;&lt; bit);</div>
+<div class="line"><span class="lineno">   36</span>        }</div>
+<div class="line"><span class="lineno">   37</span>    }</div>
+<div class="line"><span class="lineno">   38</span>}</div>
+<div class="ttc" id="afuzzy_8c_html_a2ac49ca77ebd4d4fc1c4b070195905e1"><div class="ttname"><a href="#a2ac49ca77ebd4d4fc1c4b070195905e1">get_neighbours</a></div><div class="ttdeci">uint8_t get_neighbours(uint8_t *data, uint16_t pixel)</div><div class="ttdef"><b>Definition</b> <a href="fuzzy_8c_source.html#l00040">fuzzy.c:40</a></div></div>
+<div class="ttc" id="afuzzy_8h_html_a08f109be7ab437afa444801c396d2aeb"><div class="ttname"><a href="fuzzy_8h.html#a08f109be7ab437afa444801c396d2aeb">RULE5</a></div><div class="ttdeci">#define RULE5</div><div class="ttdef"><b>Definition</b> <a href="fuzzy_8h_source.html#l00015">fuzzy.h:15</a></div></div>
+<div class="ttc" id="afuzzy_8h_html_a3ca9af37eed5b3b9e506bb1dbb54bcc2"><div class="ttname"><a href="fuzzy_8h.html#a3ca9af37eed5b3b9e506bb1dbb54bcc2">RULE7</a></div><div class="ttdeci">#define RULE7</div><div class="ttdef"><b>Definition</b> <a href="fuzzy_8h_source.html#l00017">fuzzy.h:17</a></div></div>
+<div class="ttc" id="afuzzy_8h_html_a4a29d3cfeca2f2a636be7467d99aa852"><div class="ttname"><a href="fuzzy_8h.html#a4a29d3cfeca2f2a636be7467d99aa852">IMAGE_PIXELS</a></div><div class="ttdeci">#define IMAGE_PIXELS</div><div class="ttdef"><b>Definition</b> <a href="fuzzy_8h_source.html#l00006">fuzzy.h:6</a></div></div>
+<div class="ttc" id="afuzzy_8h_html_a9dc2bfcded1e28b87e0d868cb948708c"><div class="ttname"><a href="fuzzy_8h.html#a9dc2bfcded1e28b87e0d868cb948708c">RULE1</a></div><div class="ttdeci">#define RULE1</div><div class="ttdef"><b>Definition</b> <a href="fuzzy_8h_source.html#l00011">fuzzy.h:11</a></div></div>
+<div class="ttc" id="afuzzy_8h_html_ae785fe79efc8385fa56f1d284bad06ad"><div class="ttname"><a href="fuzzy_8h.html#ae785fe79efc8385fa56f1d284bad06ad">RULE2</a></div><div class="ttdeci">#define RULE2</div><div class="ttdef"><b>Definition</b> <a href="fuzzy_8h_source.html#l00012">fuzzy.h:12</a></div></div>
+<div class="ttc" id="afuzzy_8h_html_aebc3f49fbd054bdf337ad9da6e986d70"><div class="ttname"><a href="fuzzy_8h.html#aebc3f49fbd054bdf337ad9da6e986d70">RULE4</a></div><div class="ttdeci">#define RULE4</div><div class="ttdef"><b>Definition</b> <a href="fuzzy_8h_source.html#l00014">fuzzy.h:14</a></div></div>
+<div class="ttc" id="afuzzy_8h_html_af10a345a141b031dd3c768ec24bfd51c"><div class="ttname"><a href="fuzzy_8h.html#af10a345a141b031dd3c768ec24bfd51c">RULE6</a></div><div class="ttdeci">#define RULE6</div><div class="ttdef"><b>Definition</b> <a href="fuzzy_8h_source.html#l00016">fuzzy.h:16</a></div></div>
+<div class="ttc" id="afuzzy_8h_html_af2264a81f832ffb09a4ed122b2be1c73"><div class="ttname"><a href="fuzzy_8h.html#af2264a81f832ffb09a4ed122b2be1c73">RULE3</a></div><div class="ttdeci">#define RULE3</div><div class="ttdef"><b>Definition</b> <a href="fuzzy_8h_source.html#l00013">fuzzy.h:13</a></div></div>
+<div class="ttc" id="afuzzy_8h_html_afebe6e17c2d5a425c9310986a5ff2485"><div class="ttname"><a href="fuzzy_8h.html#afebe6e17c2d5a425c9310986a5ff2485">RULE8</a></div><div class="ttdeci">#define RULE8</div><div class="ttdef"><b>Definition</b> <a href="fuzzy_8h_source.html#l00018">fuzzy.h:18</a></div></div>
+<div class="ttc" id="autils_8c_html_acac7594a8d4d3c243917a91729775565"><div class="ttname"><a href="utils_8c.html#acac7594a8d4d3c243917a91729775565">fast_div2</a></div><div class="ttdeci">uint8_t fast_div2(uint16_t num, uint8_t div_log2)</div><div class="ttdoc">Operacion div rapida para dos bytes, donde el divisor es una potencia de dos.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00042">utils.c:42</a></div></div>
+<div class="ttc" id="autils_8c_html_aec1a377d1df9c6d5769d1e2396746293"><div class="ttname"><a href="utils_8c.html#aec1a377d1df9c6d5769d1e2396746293">fast_mod2</a></div><div class="ttdeci">uint8_t fast_mod2(uint16_t num, uint8_t div)</div><div class="ttdoc">Operacion mod rapida para dos bytes, donde el divisor es una potencia de dos.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00038">utils.c:38</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2ac49ca77ebd4d4fc1c4b070195905e1" name="a2ac49ca77ebd4d4fc1c4b070195905e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ac49ca77ebd4d4fc1c4b070195905e1">&#9670;&#160;</a></span>get_neighbours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t get_neighbours </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>pixel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="fuzzy_8c_source.html#l00040">40</a> del archivo <a class="el" href="fuzzy_8c_source.html">fuzzy.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>{</div>
+<div class="line"><span class="lineno">   42</span>    uint8_t result = 0;</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>    uint8_t i_0 = pixel / 21;</div>
+<div class="line"><span class="lineno">   45</span>    uint8_t j_0 = pixel % 21;</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    int8_t i;</div>
+<div class="line"><span class="lineno">   48</span>    int8_t j;</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">for</span> (i = i_0 - 1; i &lt;= i_0 + 1; i++)</div>
+<div class="line"><span class="lineno">   51</span>    {</div>
+<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">for</span> (j = j_0 - 1; j &lt;= j_0 + 1; j++)</div>
+<div class="line"><span class="lineno">   53</span>        {</div>
+<div class="line"><span class="lineno">   54</span>            <span class="keywordflow">if</span> (i == i_0 &amp;&amp; j == j_0)</div>
+<div class="line"><span class="lineno">   55</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   57</span>            result &lt;&lt;= 1;</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>            uint8_t i_v = i;</div>
+<div class="line"><span class="lineno">   60</span>            uint8_t j_v = j;</div>
+<div class="line"><span class="lineno">   61</span> </div>
+<div class="line"><span class="lineno">   62</span>            <span class="comment">// saturo bordes</span></div>
+<div class="line"><span class="lineno">   63</span>            <span class="keywordflow">if</span> (i &lt; 0)</div>
+<div class="line"><span class="lineno">   64</span>                i_v = 0;</div>
+<div class="line"><span class="lineno">   65</span>            <span class="keywordflow">if</span> (j &lt; 0)</div>
+<div class="line"><span class="lineno">   66</span>                j_v = 0;</div>
+<div class="line"><span class="lineno">   67</span>            <span class="keywordflow">if</span> (i &gt; 20)</div>
+<div class="line"><span class="lineno">   68</span>                i_v = 20;</div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">if</span> (j &gt; 20)</div>
+<div class="line"><span class="lineno">   70</span>                j_v = 20;</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>            result |= data[i_v * 21 + j_v];</div>
+<div class="line"><span class="lineno">   73</span>        }</div>
+<div class="line"><span class="lineno">   74</span>    }</div>
+<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><span class="lineno">   76</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="fuzzy_8c.html">fuzzy.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
+  </ul>
+</div>
+</body>
+</html>

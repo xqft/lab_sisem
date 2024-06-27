@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Laboratorio de Sistemas Embebidos: Referencia del archivo src/temperatura.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -11,9 +11,9 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -36,10 +36,15 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generado por Doxygen 1.10.0 -->
+<!-- Generado por Doxygen 1.11.0 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -47,7 +52,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Buscar');
+  initMenu('',true,false,'search.php','Buscar',true);
   $(function() { init_search(); });
 });
 /* @license-end */
@@ -66,7 +71,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('temperatura_8c.html',''); initResizable(); });
+$(function(){initNavTree('temperatura_8c.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -100,11 +105,14 @@ $(function(){initNavTree('temperatura_8c.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;msp430.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="temperatura_8h_source.html">temperatura.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="queue_8h_source.html">queue.h</a>&quot;</code><br />
 </div>
 <p><a href="temperatura_8c_source.html">Ir al código fuente de este archivo.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Funciones</h2></td></tr>
+<tr class="memitem:a7df8b0f6d3efcef2b5a1044b576cf0fb" id="r_a7df8b0f6d3efcef2b5a1044b576cf0fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7df8b0f6d3efcef2b5a1044b576cf0fb">set_callback_temp</a> (<a class="el" href="queue_8h.html#aa072713b739042a5191e5960af5d1825">func_ptr_t</a> func_temp)</td></tr>
+<tr class="separator:a7df8b0f6d3efcef2b5a1044b576cf0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4951849af33974c808373658703b9e03" id="r_a4951849af33974c808373658703b9e03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4951849af33974c808373658703b9e03">initTemp</a> ()</td></tr>
 <tr class="memdesc:a4951849af33974c808373658703b9e03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa el ADC, lo configura en modo "sensar temperatura" y espera que estabilice la Ref0.  <br /></td></tr>
 <tr class="separator:a4951849af33974c808373658703b9e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +134,8 @@ Variables</h2></td></tr>
 <tr class="separator:a12d489e73f212592b64fc0095babc8a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a6c51c1bb8571c71d0f9a7167f8c649" id="r_a6a6c51c1bb8571c71d0f9a7167f8c649"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a></td></tr>
 <tr class="separator:a6a6c51c1bb8571c71d0f9a7167f8c649"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ee40325a0481404848e5211156f3703" id="r_a2ee40325a0481404848e5211156f3703"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="queue_8h.html#aa072713b739042a5191e5960af5d1825">func_ptr_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ee40325a0481404848e5211156f3703">temp_callback</a></td></tr>
+<tr class="separator:a2ee40325a0481404848e5211156f3703"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentación de funciones</h2>
 <a id="ab1581ed1b539a6912bff880d419e015f" name="ab1581ed1b539a6912bff880d419e015f"></a>
@@ -137,19 +147,24 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">__interrupt void ADC10_ISR </td>
           <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00045">45</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   46</span>{</div>
-<div class="line"><span class="lineno">   47</span>    *<a class="code hl_variable" href="#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a> = 1;</div>
-<div class="line"><span class="lineno">   48</span>    <a class="code hl_variable" href="#a12d489e73f212592b64fc0095babc8a9">adcval</a> = ADC10MEM;</div>
-<div class="line"><span class="lineno">   49</span>}</div>
-<div class="ttc" id="atemperatura_8c_html_a12d489e73f212592b64fc0095babc8a9"><div class="ttname"><a href="#a12d489e73f212592b64fc0095babc8a9">adcval</a></div><div class="ttdeci">static int32_t adcval</div><div class="ttdef"><b>Definition</b> <a href="temperatura_8c_source.html#l00004">temperatura.c:4</a></div></div>
-<div class="ttc" id="atemperatura_8c_html_a6a6c51c1bb8571c71d0f9a7167f8c649"><div class="ttname"><a href="#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a></div><div class="ttdeci">static char * flag</div><div class="ttdef"><b>Definition</b> <a href="temperatura_8c_source.html#l00005">temperatura.c:5</a></div></div>
+<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00049">49</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
+<div class="line"><span class="lineno">   51</span>    *<a class="code hl_variable" href="#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a> = 1;</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="#a12d489e73f212592b64fc0095babc8a9">adcval</a> = ADC10MEM;</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_function" href="queue_8c.html#acd273b6f0287c9596c198dcbdec5bdba">enqueue</a>(<a class="code hl_variable" href="#a2ee40325a0481404848e5211156f3703">temp_callback</a>);</div>
+<div class="line"><span class="lineno">   54</span>    ADC10CTL0 &amp;= ~SREF_1;</div>
+<div class="line"><span class="lineno">   55</span>    __low_power_mode_off_on_exit();</div>
+<div class="line"><span class="lineno">   56</span>}</div>
+<div class="ttc" id="aqueue_8c_html_acd273b6f0287c9596c198dcbdec5bdba"><div class="ttname"><a href="queue_8c.html#acd273b6f0287c9596c198dcbdec5bdba">enqueue</a></div><div class="ttdeci">void enqueue(func_ptr_t ptr)</div><div class="ttdoc">Encolar un byte.</div><div class="ttdef"><b>Definition</b> <a href="queue_8c_source.html#l00017">queue.c:17</a></div></div>
+<div class="ttc" id="atemperatura_8c_html_a12d489e73f212592b64fc0095babc8a9"><div class="ttname"><a href="#a12d489e73f212592b64fc0095babc8a9">adcval</a></div><div class="ttdeci">static int32_t adcval</div><div class="ttdef"><b>Definition</b> <a href="temperatura_8c_source.html#l00005">temperatura.c:5</a></div></div>
+<div class="ttc" id="atemperatura_8c_html_a2ee40325a0481404848e5211156f3703"><div class="ttname"><a href="#a2ee40325a0481404848e5211156f3703">temp_callback</a></div><div class="ttdeci">static func_ptr_t temp_callback</div><div class="ttdef"><b>Definition</b> <a href="temperatura_8c_source.html#l00007">temperatura.c:7</a></div></div>
+<div class="ttc" id="atemperatura_8c_html_a6a6c51c1bb8571c71d0f9a7167f8c649"><div class="ttname"><a href="#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a></div><div class="ttdeci">static char * flag</div><div class="ttdef"><b>Definition</b> <a href="temperatura_8c_source.html#l00006">temperatura.c:6</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -162,7 +177,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int32_t getTemp </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -171,17 +186,17 @@ Variables</h2></td></tr>
 <p>Obtengo la ultima medida de temperatura en miligrados Celsius. </p>
 <dl class="section return"><dt>Devuelve</dt><dd>int32_t temperatura en miligrados celsius </dd></dl>
 
-<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00031">31</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   31</span>                 {</div>
-<div class="line"><span class="lineno">   32</span>    int32_t  <a class="code hl_variable" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a>;</div>
-<div class="line"><span class="lineno">   33</span>  <span class="comment">/* Convert ADC value to celsius degrees*/</span></div>
-<div class="line"><span class="lineno">   34</span>    <a class="code hl_variable" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a> = (((<a class="code hl_variable" href="#a12d489e73f212592b64fc0095babc8a9">adcval</a> - 673) * 423)/1024);</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>    *<a class="code hl_variable" href="#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a> = 0;</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a>;</div>
+<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00035">35</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   35</span>                 {</div>
+<div class="line"><span class="lineno">   36</span>    int32_t  <a class="code hl_variable" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a>;</div>
+<div class="line"><span class="lineno">   37</span>  <span class="comment">/* Convert ADC value to celsius degrees*/</span></div>
+<div class="line"><span class="lineno">   38</span>    <a class="code hl_variable" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a> = (((<a class="code hl_variable" href="#a12d489e73f212592b64fc0095babc8a9">adcval</a> - 673) * 423)/1024);</div>
 <div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>}</div>
+<div class="line"><span class="lineno">   40</span>    *<a class="code hl_variable" href="#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a> = 0;</div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a>;</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>}</div>
 <div class="ttc" id="atest-temp_2main_8c_html_ab0360163c4915c1f3e616af00d4c9503"><div class="ttname"><a href="test-temp_2main_8c.html#ab0360163c4915c1f3e616af00d4c9503">temp</a></div><div class="ttdeci">temp_celsius_t temp</div><div class="ttdef"><b>Definition</b> <a href="test-temp_2main_8c_source.html#l00007">main.c:7</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -195,7 +210,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void initTemp </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -203,16 +218,16 @@ Variables</h2></td></tr>
 
 <p>Inicializa el ADC, lo configura en modo "sensar temperatura" y espera que estabilice la Ref0. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00008">8</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    8</span>               {</div>
-<div class="line"><span class="lineno">    9</span> </div>
-<div class="line"><span class="lineno">   10</span>  <span class="comment">/* Temp Sensor ADC10CLK/4 */</span></div>
-<div class="line"><span class="lineno">   11</span>    ADC10CTL1 = INCH_10 + ADC10DIV_3;         <span class="comment">//</span></div>
-<div class="line"><span class="lineno">   12</span>    ADC10CTL0 = SREF_1 + ADC10SHT_3 + REFON + ADC10ON + ADC10IE;</div>
+<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00012">12</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   12</span>               {</div>
 <div class="line"><span class="lineno">   13</span> </div>
-<div class="line"><span class="lineno">   14</span>  <span class="comment">/* Espero que se estabilice la Ref del ADC */</span></div>
-<div class="line"><span class="lineno">   15</span>    __delay_cycles(1000);</div>
-<div class="line"><span class="lineno">   16</span>}</div>
+<div class="line"><span class="lineno">   14</span>  <span class="comment">/* Temp Sensor ADC10CLK/4 */</span></div>
+<div class="line"><span class="lineno">   15</span>    ADC10CTL1 = INCH_10 + ADC10DIV_3;         <span class="comment">//</span></div>
+<div class="line"><span class="lineno">   16</span>    ADC10CTL0 = ADC10SHT_3 + REFON + ADC10ON + ADC10IE;</div>
+<div class="line"><span class="lineno">   17</span> </div>
+<div class="line"><span class="lineno">   18</span>  <span class="comment">/* Espero que se estabilice la Ref del ADC */</span></div>
+<div class="line"><span class="lineno">   19</span>    __delay_cycles(1000);</div>
+<div class="line"><span class="lineno">   20</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -225,7 +240,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void runTemp </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -233,13 +248,35 @@ Variables</h2></td></tr>
 
 <p>Comienza una lectura de temperatura. </p>
 
-<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00023">23</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>              {</div>
-<div class="line"><span class="lineno">   24</span> </div>
-<div class="line"><span class="lineno">   25</span>  <span class="comment">/* Start samppling and conversionb*/</span></div>
-<div class="line"><span class="lineno">   26</span>    ADC10CTL0 |= ENC + ADC10SC;</div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>}</div>
+<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00027">27</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>              {</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>  <span class="comment">/* Start samppling and conversionb*/</span></div>
+<div class="line"><span class="lineno">   30</span>    ADC10CTL0 |= ENC + ADC10SC + SREF_1;</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7df8b0f6d3efcef2b5a1044b576cf0fb" name="a7df8b0f6d3efcef2b5a1044b576cf0fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7df8b0f6d3efcef2b5a1044b576cf0fb">&#9670;&#160;</a></span>set_callback_temp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_callback_temp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="queue_8h.html#aa072713b739042a5191e5960af5d1825">func_ptr_t</a></td>          <td class="paramname"><span class="paramname"><em>func_temp</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00009">9</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                                            {</div>
+<div class="line"><span class="lineno">   10</span>    <a class="code hl_variable" href="#a2ee40325a0481404848e5211156f3703">temp_callback</a> = func_temp;</div>
+<div class="line"><span class="lineno">   11</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -266,11 +303,11 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00018">18</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   18</span>                                 {</div>
-<div class="line"><span class="lineno">   19</span>    <span class="comment">/*Set flag*/</span></div>
-<div class="line"><span class="lineno">   20</span>    <a class="code hl_variable" href="#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a> = flag_main;</div>
-<div class="line"><span class="lineno">   21</span>}</div>
+<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00022">22</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>                                 {</div>
+<div class="line"><span class="lineno">   23</span>    <span class="comment">/*Set flag*/</span></div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_variable" href="#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a> = flag_main;</div>
+<div class="line"><span class="lineno">   25</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -295,7 +332,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00004">4</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00005">5</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
 
 </div>
 </div>
@@ -319,7 +356,31 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00005">5</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
+<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00006">6</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
+
+</div>
+</div>
+<a id="a2ee40325a0481404848e5211156f3703" name="a2ee40325a0481404848e5211156f3703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ee40325a0481404848e5211156f3703">&#9670;&#160;</a></span>temp_callback</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="queue_8h.html#aa072713b739042a5191e5960af5d1825">func_ptr_t</a> temp_callback</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="temperatura_8c_source.html#l00007">7</a> del archivo <a class="el" href="temperatura_8c_source.html">temperatura.c</a>.</p>
 
 </div>
 </div>
@@ -329,7 +390,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="temperatura_8c.html">temperatura.c</a></li>
-    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>
 </body>

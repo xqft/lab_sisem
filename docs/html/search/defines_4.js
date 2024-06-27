@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rx_5fdata_5fmax_5flen_0',['RX_DATA_MAX_LEN',['../uart_8c.html#ab55c737a441eb0789aafa6be200d7501',1,'uart.c']]]
+  ['output_5fbytes_0',['OUTPUT_BYTES',['../fuzzy_8h.html#a3f0fdd3abcb4f2fa047a87beedb88d57',1,'fuzzy.h']]]
 ];

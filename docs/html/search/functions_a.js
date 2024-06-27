@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['set_5fcounter_5fflag_0',['set_counter_flag',['../timer__hw_8c.html#ab813cc6f552c9da6ac224b873bf6ce94',1,'set_counter_flag(uint8_t *flag):&#160;timer_hw.c'],['../timer__hw_8h.html#ab813cc6f552c9da6ac224b873bf6ce94',1,'set_counter_flag(uint8_t *flag):&#160;timer_hw.c']]],
-  ['set_5fcounter_5fmax_1',['set_counter_max',['../timer__hw_8c.html#aa9871fa3d41077ae9e2ee285131c3937',1,'set_counter_max(uint32_t max):&#160;timer_hw.c'],['../timer__hw_8h.html#aa9871fa3d41077ae9e2ee285131c3937',1,'set_counter_max(uint32_t max):&#160;timer_hw.c']]],
-  ['set_5fflag_5ferror_5frx_2',['set_flag_error_rx',['../uart_8c.html#a284495c46a0e4c1ef45563a9fb87d48c',1,'set_flag_error_rx(uint8_t *flag):&#160;uart.c'],['../uart_8h.html#a284495c46a0e4c1ef45563a9fb87d48c',1,'set_flag_error_rx(uint8_t *flag):&#160;uart.c']]],
-  ['set_5fflag_5frx_3',['set_flag_rx',['../uart_8c.html#a5c84d5d4cb8b4595dc0825d2e9636418',1,'set_flag_rx(uint8_t *flag):&#160;uart.c'],['../uart_8h.html#a5c84d5d4cb8b4595dc0825d2e9636418',1,'set_flag_rx(uint8_t *flag):&#160;uart.c']]],
-  ['set_5ftime_4',['set_time',['../timer_8c.html#a79505286387f67f704876b0271603e21',1,'set_time(tiempo_t nuevoTiempo):&#160;timer.c'],['../timer_8h.html#a79505286387f67f704876b0271603e21',1,'set_time(tiempo_t nuevoTiempo):&#160;timer.c']]],
-  ['setflagtemp_5',['setFlagTemp',['../temperatura_8c.html#ac8df7e112c539faf36a8276a7bea1508',1,'setFlagTemp(char *flag_main):&#160;temperatura.c'],['../temperatura_8h.html#ac8df7e112c539faf36a8276a7bea1508',1,'setFlagTemp(char *flag_main):&#160;temperatura.c']]],
-  ['strreverse_6',['strreverse',['../utils_8c.html#a01264c39e4ef8945e436d9a9a51e3ff1',1,'utils.c']]]
+  ['restart_5ftimer_5fcapture_0',['restart_timer_capture',['../timer__hw_8c.html#ac13e7b449e18cb2420cf817b0aa2b707',1,'restart_timer_capture():&#160;timer_hw.c'],['../timer__hw_8h.html#ac13e7b449e18cb2420cf817b0aa2b707',1,'restart_timer_capture():&#160;timer_hw.c']]],
+  ['runtemp_1',['runTemp',['../temperatura_8c.html#a4f4ef1359800a4474e2568a0fed5cca4',1,'runTemp():&#160;temperatura.c'],['../temperatura_8h.html#a4f4ef1359800a4474e2568a0fed5cca4',1,'runTemp():&#160;temperatura.c']]]
 ];

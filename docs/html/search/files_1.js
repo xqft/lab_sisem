@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main_2ec_0',['main.c',['../lab1-blink_2main_8c.html',1,'(Espacio de nombres global)'],['../lab1_2main_8c.html',1,'(Espacio de nombres global)'],['../test-temp_2main_8c.html',1,'(Espacio de nombres global)']]]
+  ['fuzzy_2ec_0',['fuzzy.c',['../fuzzy_8c.html',1,'']]],
+  ['fuzzy_2eh_1',['fuzzy.h',['../fuzzy_8h.html',1,'']]]
 ];

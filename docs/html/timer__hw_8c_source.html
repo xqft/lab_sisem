@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="generator" content="Doxygen 1.11.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Laboratorio de Sistemas Embebidos: Archivo de cÃ³digo fuente src/timer_hw.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -11,9 +11,9 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -36,10 +36,15 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Generado por Doxygen 1.10.0 -->
+<!-- Generado por Doxygen 1.11.0 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -47,17 +52,12 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Buscar');
+  initMenu('',true,false,'search.php','Buscar',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function() { codefold.init(0); });
-/* @license-end */
-</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -71,7 +71,7 @@ $(function() { codefold.init(0); });
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('timer__hw_8c_source.html',''); initResizable(); });
+$(function(){initNavTree('timer__hw_8c_source.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -104,87 +104,159 @@ $(function(){initNavTree('timer__hw_8c_source.html',''); initResizable(); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="timer_8h.html">timer.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9">    5</a></span><span class="preprocessor">#define LED1 (0x0001)</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">    7</a></span><span class="keyword">volatile</span> <span class="keyword">static</span> uint32_t <a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a> = 0;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#ade057b2cfdc66b88f0193e5ef778f020">    8</a></span><span class="keyword">static</span> uint8_t *<a class="code hl_variable" href="timer__hw_8c.html#ade057b2cfdc66b88f0193e5ef778f020">counter_flag</a>;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#a229e9e5919673b2018dcd5c88a3d6b99">    9</a></span><span class="keyword">static</span> uint32_t <a class="code hl_variable" href="timer__hw_8c.html#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a> = 0;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#af7a418f397f4e37bf327ee39e6e04ed8">   11</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#af7a418f397f4e37bf327ee39e6e04ed8">config_timer_crystal</a>() {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    TACTL |= TASSEL_1;        <span class="comment">// Selecciono ACLK para el Timer A.</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    TACTL |= MC_1;        <span class="comment">// Modo 1 para el Timer A: cuenta de forma ascendente.</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    TACCR0 = 8192;     <span class="comment">// Constante a decrementar por el Timer A cada t=1/32768.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifdef QUEUE</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="queue_8h.html">queue.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9">    8</a></span><span class="preprocessor">#define LED1 (0x0001)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">   10</a></span><span class="keyword">volatile</span> <span class="keyword">static</span> uint32_t <a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a> = 0;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifdef QUEUE</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">static</span> uint8_t *counter_flag;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">static</span> uint32_t counter_max = 0;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    BCSCTL1 &amp;= ~XTS; <span class="comment">// Modo 0 para el oscilador LFXT1 (selecciona low frequency).</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    BCSCTL1 |= DIVA_0;          <span class="comment">// Divisor en /1.</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    BCSCTL3 |= LFXT1S_0;        <span class="comment">// Cristal de 32768-Hz para el oscilador LFXT1.</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="comment">//TACTL   |= TAIE;            // Habilito las interrupciones del Timer A.</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    TACCTL0 |= CCIE; <span class="comment">// Habilito las interrupciones del Timer A en modo comparacion.</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">static</span> <a class="code hl_typedef" href="queue_8h.html#aa072713b739042a5191e5960af5d1825">func_ptr_t</a> counter_callback;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#af7a418f397f4e37bf327ee39e6e04ed8">   19</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#af7a418f397f4e37bf327ee39e6e04ed8">config_timer_crystal</a>()</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    TACTL |= TASSEL_1;        <span class="comment">// Selecciono ACLK para el Timer A.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    TACTL |= MC_1;        <span class="comment">// Modo 1 para el Timer A: cuenta de forma ascendente.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    TACCR0 = 9011;     <span class="comment">// Constante a decrementar por el Timer A cada t=1/32768.</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    TACTL |= ID_3;             <span class="comment">// Preescalador /8.</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="comment">//TACCR0 = 4915;             // Constante a decrementar por el Timer A.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    BCSCTL1 &amp;= ~XTS; <span class="comment">// Modo 0 para el oscilador LFXT1 (selecciona low frequency).</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    BCSCTL1 |= DIVA_0;          <span class="comment">// Divisor en /1.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    BCSCTL3 |= LFXT1S_0;        <span class="comment">// Cristal de 32768-Hz para el oscilador LFXT1.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">//TACTL   |= TAIE;            // Habilito las interrupciones del Timer A.</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">//TACCTL0 |= CCIE; // Habilito las interrupciones del Timer A en modo comparacion.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#a7c114b7f6ec84ab3230fffd220c5d9e6">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#a7c114b7f6ec84ab3230fffd220c5d9e6">config_timer_VLO</a>() {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    TACTL |= TASSEL_1;        <span class="comment">// Selecciono ACLK para el Timer A.</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    TACTL |= MC_1;        <span class="comment">// Modo 1 para el Timer A: cuenta de forma ascendente.</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    TACCR0 = 3000;     <span class="comment">// Constante a decrementar por el Timer A cada t=1/12000.</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    BCSCTL1 &amp;= ~XTS; <span class="comment">// Modo 0 para el oscilador VLO (selecciona low frequency).</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    BCSCTL1 |= DIVA_0;          <span class="comment">// Divisor en /1.</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    BCSCTL3 |= LFXT1S_2;        <span class="comment">// Oscilador VLO de frecuencia 12-KHz.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">//TACTL   |= TAIE;             // Habilito las interrupciones del Timer A.</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    TACCTL0 |= CCIE; <span class="comment">// Habilito las interrupciones del Timer A en modo comparacion.</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#a2b79f2b590c6c0945a23a55d5c493420">   35</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#a2b79f2b590c6c0945a23a55d5c493420">config_timer_crystal_capture</a>()</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    TACTL |= TACLR;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    TACTL |= TASSEL_1;  <span class="comment">// Selecciono ACLK para el Timer A.</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    TACCTL0 |= CAP;   <span class="comment">// Modo capture (sirve para capturar intervalos de tiempo)</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">//TACCTL0 |= CM_1;    // Captura en flanco de subida del input</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    BCSCTL1 &amp;= ~XTS; <span class="comment">// Modo 0 para el oscilador LFXT1 (selecciona low frequency).</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    BCSCTL1 |= DIVA_0;  <span class="comment">// Divisor en /1.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    BCSCTL3 |= LFXT1S_0;  <span class="comment">// Cristal de 32768-Hz para el oscilador LFXT1.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
 </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#ab813cc6f552c9da6ac224b873bf6ce94">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#ab813cc6f552c9da6ac224b873bf6ce94">set_counter_flag</a>(uint8_t *<a class="code hl_variable" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a>) {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_variable" href="timer__hw_8c.html#ade057b2cfdc66b88f0193e5ef778f020">counter_flag</a> = <a class="code hl_variable" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#a7c114b7f6ec84ab3230fffd220c5d9e6">   47</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#a7c114b7f6ec84ab3230fffd220c5d9e6">config_timer_VLO</a>()</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    TACTL |= TASSEL_1;        <span class="comment">// Selecciono ACLK para el Timer A.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    TACTL |= MC_1;        <span class="comment">// Modo 1 para el Timer A: cuenta de forma ascendente.</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    TACCR0 = 3000;     <span class="comment">// Constante a decrementar por el Timer A cada t=1/12000.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    BCSCTL1 &amp;= ~XTS; <span class="comment">// Modo 0 para el oscilador VLO (selecciona low frequency).</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    BCSCTL1 |= DIVA_0;          <span class="comment">// Divisor en /1.</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    BCSCTL3 |= LFXT1S_2;        <span class="comment">// Oscilador VLO de frecuencia 12-KHz.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">//TACTL   |= TAIE;             // Habilito las interrupciones del Timer A.</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    TACCTL0 |= CCIE; <span class="comment">// Habilito las interrupciones del Timer A en modo comparacion.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
 </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#aa9871fa3d41077ae9e2ee285131c3937">   41</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#aa9871fa3d41077ae9e2ee285131c3937">set_counter_max</a>(uint32_t max) {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_variable" href="timer__hw_8c.html#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a> = max;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#ifdef QUEUE</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordtype">void</span> set_counter_flag(uint8_t *<a class="code hl_variable" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a>) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    counter_flag = <a class="code hl_variable" href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> set_counter_max(uint32_t max) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    counter_max = max;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> set_callback_counter(<a class="code hl_typedef" href="queue_8h.html#aa072713b739042a5191e5960af5d1825">func_ptr_t</a> func_counter){</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    counter_callback = func_counter;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#ifdef QUEUE</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#pragma vector = TIMER0_A0_VECTOR</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>__interrupt <span class="keywordtype">void</span> int_timer_A(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    P1OUT ^= <a class="code hl_define" href="timer__hw_8c.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a>;  <span class="comment">// Conmuta LED1 usando XOR</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_function" href="timer_8c.html#adf7670abf909a2f3bdff6b262732e817">inc_time</a>();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a> &gt;= counter_max) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        *counter_flag = 1;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_function" href="queue_8c.html#acd273b6f0287c9596c198dcbdec5bdba">enqueue</a>(counter_callback);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a> = 0;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="comment">//__low_power_mode_off_on_exit();</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a>++;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#ac13e7b449e18cb2420cf817b0aa2b707">   90</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#ac13e7b449e18cb2420cf817b0aa2b707">restart_timer_capture</a>()</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>{</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    TACTL |= MC_0;  <span class="comment">// Modo 0 para el Timer A: apagado</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    TACTL |= TACLR; <span class="comment">// Reset TAR y ID</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    TACTL |= ID_1;  <span class="comment">// Divisor /2. Cuenta maximo 4 segundos.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    TACTL |= MC_2;  <span class="comment">// Modo 2 para el Timer A: cuenta hasta 0xFFFF (enceder)</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
 </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#pragma vector = TIMER0_A0_VECTOR</span></div>
-<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#acd08b9248582f6b2bf2a72313b818b61">   46</a></span>__interrupt <span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#acd08b9248582f6b2bf2a72313b818b61">int_timer_A</a>(<span class="keywordtype">void</span>) {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    P1OUT ^= <a class="code hl_define" href="timer__hw_8c.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a>;  <span class="comment">// Conmuta LED1 usando XOR</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="timer_8c.html#adf7670abf909a2f3bdff6b262732e817">inc_time</a>();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a> &gt;= <a class="code hl_variable" href="timer__hw_8c.html#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a>) {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        *<a class="code hl_variable" href="timer__hw_8c.html#ade057b2cfdc66b88f0193e5ef778f020">counter_flag</a> = 1;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a> = 0;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        __low_power_mode_off_on_exit();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <a class="code hl_variable" href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a>++;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#a01b1bbf0f24edd3b074e204502e5da24">   98</a></span><span class="keyword">inline</span> uint16_t <a class="code hl_function" href="timer__hw_8c.html#a01b1bbf0f24edd3b074e204502e5da24">get_timer_capture</a>()</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">//TACTL &amp;= MC_0;  // Modo 0 para el Timer A: apagado</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment">// Para calcular la cantidad de tiempo en milisegundos, dividimos</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// por la cantidad de ticks en un milisegundo. O sea</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// f / 2 * 1000 = 16.339 ticks. Redondeamos a 16 ticks.</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// Entonces tenemos que dividir entre 16. Es lo mismo que</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// hacer x &gt;&gt; 4.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordtype">float</span> timer_exacto = TAR/16.339;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">return</span> timer_exacto;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}</div>
 </div>
-<div class="ttc" id="atemperatura_8c_html_a6a6c51c1bb8571c71d0f9a7167f8c649"><div class="ttname"><a href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a></div><div class="ttdeci">static char * flag</div><div class="ttdef"><b>Definition</b> <a href="temperatura_8c_source.html#l00005">temperatura.c:5</a></div></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="timer__hw_8c.html#a180f2b8a103a9c4e7a92f72becbe30d1">  110</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="timer__hw_8c.html#a180f2b8a103a9c4e7a92f72becbe30d1">CPU_16MHz</a>()</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>{</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordflow">if</span> (CALBC1_16MHZ != 0xFF) { <span class="comment">// Verificar si los valores de calibración están presentes</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>               DCOCTL = 0;             <span class="comment">// Limpiar los bits de DCO</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>               BCSCTL1 = CALBC1_16MHZ; <span class="comment">// Establecer el rango de DCO a 16 MHz</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>               DCOCTL = CALDCO_16MHZ;  <span class="comment">// Establecer DCO a 16 MHz</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>           } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>               <span class="comment">// Manejar el caso en que los valores de calibración no estén presentes</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>               <span class="comment">// Esto podría significar que el microcontrolador no tiene valores de calibración cargados</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>               <span class="keywordflow">while</span> (1); <span class="comment">// Bucle infinito, o cualquier otra medida de recuperación</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>           }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>           <span class="comment">// Configurar MCLK para usar el DCO a 16 MHz</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>           BCSCTL2 = SELM_0 | DIVM_0 | DIVS_0; <span class="comment">// MCLK = DCO, SMCLK = DCO, sin divisiones</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
+</div>
+<div class="ttc" id="aqueue_8c_html_acd273b6f0287c9596c198dcbdec5bdba"><div class="ttname"><a href="queue_8c.html#acd273b6f0287c9596c198dcbdec5bdba">enqueue</a></div><div class="ttdeci">void enqueue(func_ptr_t ptr)</div><div class="ttdoc">Encolar un byte.</div><div class="ttdef"><b>Definition</b> <a href="queue_8c_source.html#l00017">queue.c:17</a></div></div>
+<div class="ttc" id="aqueue_8h_html"><div class="ttname"><a href="queue_8h.html">queue.h</a></div></div>
+<div class="ttc" id="aqueue_8h_html_aa072713b739042a5191e5960af5d1825"><div class="ttname"><a href="queue_8h.html#aa072713b739042a5191e5960af5d1825">func_ptr_t</a></div><div class="ttdeci">void(* func_ptr_t)()</div><div class="ttdef"><b>Definition</b> <a href="queue_8h_source.html#l00008">queue.h:8</a></div></div>
+<div class="ttc" id="atemperatura_8c_html_a6a6c51c1bb8571c71d0f9a7167f8c649"><div class="ttname"><a href="temperatura_8c.html#a6a6c51c1bb8571c71d0f9a7167f8c649">flag</a></div><div class="ttdeci">static char * flag</div><div class="ttdef"><b>Definition</b> <a href="temperatura_8c_source.html#l00006">temperatura.c:6</a></div></div>
 <div class="ttc" id="atimer_8c_html_adf7670abf909a2f3bdff6b262732e817"><div class="ttname"><a href="timer_8c.html#adf7670abf909a2f3bdff6b262732e817">inc_time</a></div><div class="ttdeci">void inc_time()</div><div class="ttdoc">Incrementa la variable de tiempo interna del modulo en 250 ms.</div><div class="ttdef"><b>Definition</b> <a href="timer_8c_source.html#l00017">timer.c:17</a></div></div>
 <div class="ttc" id="atimer_8h_html"><div class="ttname"><a href="timer_8h.html">timer.h</a></div></div>
-<div class="ttc" id="atimer__hw_8c_html_a229e9e5919673b2018dcd5c88a3d6b99"><div class="ttname"><a href="timer__hw_8c.html#a229e9e5919673b2018dcd5c88a3d6b99">counter_max</a></div><div class="ttdeci">static uint32_t counter_max</div><div class="ttdef"><b>Definition</b> <a href="#l00009">timer_hw.c:9</a></div></div>
-<div class="ttc" id="atimer__hw_8c_html_a7c114b7f6ec84ab3230fffd220c5d9e6"><div class="ttname"><a href="timer__hw_8c.html#a7c114b7f6ec84ab3230fffd220c5d9e6">config_timer_VLO</a></div><div class="ttdeci">void config_timer_VLO()</div><div class="ttdoc">Rutina de inicializacion del timer hardware usando el VLO como fuente de reloj.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">timer_hw.c:24</a></div></div>
-<div class="ttc" id="atimer__hw_8c_html_a8aa85ae9867fabf70ec72cd3bf6fb6b9"><div class="ttname"><a href="timer__hw_8c.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a></div><div class="ttdeci">#define LED1</div><div class="ttdef"><b>Definition</b> <a href="#l00005">timer_hw.c:5</a></div></div>
-<div class="ttc" id="atimer__hw_8c_html_aa9871fa3d41077ae9e2ee285131c3937"><div class="ttname"><a href="timer__hw_8c.html#aa9871fa3d41077ae9e2ee285131c3937">set_counter_max</a></div><div class="ttdeci">void set_counter_max(uint32_t max)</div><div class="ttdoc">Establecer el periodo del contador.</div><div class="ttdef"><b>Definition</b> <a href="#l00041">timer_hw.c:41</a></div></div>
-<div class="ttc" id="atimer__hw_8c_html_ab813cc6f552c9da6ac224b873bf6ce94"><div class="ttname"><a href="timer__hw_8c.html#ab813cc6f552c9da6ac224b873bf6ce94">set_counter_flag</a></div><div class="ttdeci">void set_counter_flag(uint8_t *flag)</div><div class="ttdoc">Establecer la flag del contador que indica cuando el mismo mide un periodo.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">timer_hw.c:37</a></div></div>
-<div class="ttc" id="atimer__hw_8c_html_acd08b9248582f6b2bf2a72313b818b61"><div class="ttname"><a href="timer__hw_8c.html#acd08b9248582f6b2bf2a72313b818b61">int_timer_A</a></div><div class="ttdeci">__interrupt void int_timer_A(void)</div><div class="ttdef"><b>Definition</b> <a href="#l00046">timer_hw.c:46</a></div></div>
-<div class="ttc" id="atimer__hw_8c_html_ade057b2cfdc66b88f0193e5ef778f020"><div class="ttname"><a href="timer__hw_8c.html#ade057b2cfdc66b88f0193e5ef778f020">counter_flag</a></div><div class="ttdeci">static uint8_t * counter_flag</div><div class="ttdef"><b>Definition</b> <a href="#l00008">timer_hw.c:8</a></div></div>
-<div class="ttc" id="atimer__hw_8c_html_aeeebb32803adf351ccddd3d4a382939b"><div class="ttname"><a href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a></div><div class="ttdeci">static volatile uint32_t counter</div><div class="ttdef"><b>Definition</b> <a href="#l00007">timer_hw.c:7</a></div></div>
-<div class="ttc" id="atimer__hw_8c_html_af7a418f397f4e37bf327ee39e6e04ed8"><div class="ttname"><a href="timer__hw_8c.html#af7a418f397f4e37bf327ee39e6e04ed8">config_timer_crystal</a></div><div class="ttdeci">void config_timer_crystal()</div><div class="ttdoc">Rutina de inicializacion del timer hardware usando el cristal como fuente de reloj.</div><div class="ttdef"><b>Definition</b> <a href="#l00011">timer_hw.c:11</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_a01b1bbf0f24edd3b074e204502e5da24"><div class="ttname"><a href="timer__hw_8c.html#a01b1bbf0f24edd3b074e204502e5da24">get_timer_capture</a></div><div class="ttdeci">uint16_t get_timer_capture()</div><div class="ttdoc">Para el timer y devuelve la cuenta en milisegundos.</div><div class="ttdef"><b>Definition</b> <a href="#l00098">timer_hw.c:98</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_a180f2b8a103a9c4e7a92f72becbe30d1"><div class="ttname"><a href="timer__hw_8c.html#a180f2b8a103a9c4e7a92f72becbe30d1">CPU_16MHz</a></div><div class="ttdeci">void CPU_16MHz()</div><div class="ttdoc">Rutina para Frecuencia del CPU 16MHz.</div><div class="ttdef"><b>Definition</b> <a href="#l00110">timer_hw.c:110</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_a2b79f2b590c6c0945a23a55d5c493420"><div class="ttname"><a href="timer__hw_8c.html#a2b79f2b590c6c0945a23a55d5c493420">config_timer_crystal_capture</a></div><div class="ttdeci">void config_timer_crystal_capture()</div><div class="ttdoc">Rutina de inicializacion del timer hardware usando el cristal como fuente de reloj,...</div><div class="ttdef"><b>Definition</b> <a href="#l00035">timer_hw.c:35</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_a7c114b7f6ec84ab3230fffd220c5d9e6"><div class="ttname"><a href="timer__hw_8c.html#a7c114b7f6ec84ab3230fffd220c5d9e6">config_timer_VLO</a></div><div class="ttdeci">void config_timer_VLO()</div><div class="ttdoc">Rutina de inicializacion del timer hardware usando el VLO como fuente de reloj.</div><div class="ttdef"><b>Definition</b> <a href="#l00047">timer_hw.c:47</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_a8aa85ae9867fabf70ec72cd3bf6fb6b9"><div class="ttname"><a href="timer__hw_8c.html#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a></div><div class="ttdeci">#define LED1</div><div class="ttdef"><b>Definition</b> <a href="#l00008">timer_hw.c:8</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_ac13e7b449e18cb2420cf817b0aa2b707"><div class="ttname"><a href="timer__hw_8c.html#ac13e7b449e18cb2420cf817b0aa2b707">restart_timer_capture</a></div><div class="ttdeci">void restart_timer_capture()</div><div class="ttdoc">Comienza una cuenta del timer (previamente configurado en modo capture).</div><div class="ttdef"><b>Definition</b> <a href="#l00090">timer_hw.c:90</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_aeeebb32803adf351ccddd3d4a382939b"><div class="ttname"><a href="timer__hw_8c.html#aeeebb32803adf351ccddd3d4a382939b">counter</a></div><div class="ttdeci">static volatile uint32_t counter</div><div class="ttdef"><b>Definition</b> <a href="#l00010">timer_hw.c:10</a></div></div>
+<div class="ttc" id="atimer__hw_8c_html_af7a418f397f4e37bf327ee39e6e04ed8"><div class="ttname"><a href="timer__hw_8c.html#af7a418f397f4e37bf327ee39e6e04ed8">config_timer_crystal</a></div><div class="ttdeci">void config_timer_crystal()</div><div class="ttdoc">Rutina de inicializacion del timer hardware usando el cristal como fuente de reloj.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">timer_hw.c:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="timer__hw_8c.html">timer_hw.c</a></li>
-    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>
 </body>

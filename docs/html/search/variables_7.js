@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['queue_0',['queue',['../queue_8c.html#a683603d1e02ccb235ab1ec120b448832',1,'queue.c']]],
-  ['queue_5flength_1',['queue_length',['../queue_8c.html#a8514dd1bfec937933f7f69bc94aae956',1,'queue.c']]]
+  ['opg_5fx_0',['opg_x',['../sobel_8c.html#a6c6f2f4c7873a7dabd955c317aa6b1f4',1,'sobel.c']]],
+  ['opg_5fy_1',['opg_y',['../sobel_8c.html#afd40915fb865a68e5e541665836ee220',1,'sobel.c']]]
 ];
