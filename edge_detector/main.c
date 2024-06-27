@@ -44,6 +44,8 @@ int main(void)
     P3OUT = 0;
 
     // Init UART module
+
+    CPU_16MHz(); // Set CPU frec 16MHz
     p1_init();
     uart_init();
     config_timer_crystal_capture();

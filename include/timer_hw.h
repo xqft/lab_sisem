@@ -21,3 +21,5 @@ void set_counter_max(uint32_t max);
 inline void restart_timer_capture();
 /// Para el timer y devuelve la cuenta en milisegundos.
 inline uint16_t get_timer_capture();
+/// Rutina para Frecuencia del CPU 16MHz
+void CPU_16MHz();
