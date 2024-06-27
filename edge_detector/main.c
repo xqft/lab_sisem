@@ -30,13 +30,18 @@ const static uint8_t input_img[IMAGE_PIXELS] =
           0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
           0, 0, 0, 0 };
 static uint8_t output_img[OUTPUT_BYTES];
-static uint8_t rx_received_flag = 0;
-static uint8_t rx_largo;
 static uint8_t rx_msg[7];
 
 int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
+
+    static uint8_t rx_received_flag = 0;
+    static uint8_t rx_largo;
+
+    // Init unused ports
+    P3DIR = 0xFF;
+    P3OUT = 0;
 
     // Init UART module
     p1_init();
