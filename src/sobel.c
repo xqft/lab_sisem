@@ -26,7 +26,7 @@ int16_t gradiente_y(uint8_t *data, uint16_t pixel)
 {
     uint8_t vecinos = get_neighbours(data, pixel);
     int16_t g_y = 0;
-    int16_t i;
+    uint16_t i;
     for (i = 0; i <= 7; i++)
     {
         g_y = g_y + opg_y[i] * ((vecinos >> 7 - i) & 1);

@@ -6,7 +6,7 @@
 
 void fuzzy_edge_detect(uint8_t *data, uint8_t *result)
 {
-    int16_t pixel;
+    uint16_t pixel;
     for (pixel = 0; pixel < IMAGE_PIXELS; pixel++)
     {
         uint8_t byte = fast_div2(pixel, 3);
