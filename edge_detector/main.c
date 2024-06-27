@@ -39,6 +39,19 @@ int main(void)
     WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
     // Init UART module
+    if (CALBC1_16MHZ != 0xFF) { // Verificar si los valores de calibración están presentes
+            DCOCTL = 0;             // Limpiar los bits de DCO
+            BCSCTL1 = CALBC1_16MHZ; // Establecer el rango de DCO a 16 MHz
+            DCOCTL = CALDCO_16MHZ;  // Establecer DCO a 16 MHz
+        } else {
+            // Manejar el caso en que los valores de calibración no estén presentes
+            // Esto podría significar que el microcontrolador no tiene valores de calibración cargados
+            while (1); // Bucle infinito, o cualquier otra medida de recuperación
+        }
+
+        // Configurar MCLK para usar el DCO a 16 MHz
+        BCSCTL2 = SELM_0 | DIVM_0 | DIVS_0; // MCLK = DCO, SMCLK = DCO, sin divisiones
+
     p1_init();
     uart_init();
     config_timer_crystal_capture();
