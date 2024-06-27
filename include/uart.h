@@ -9,20 +9,38 @@
 #ifndef INCLUDE_UART_H_
 #define INCLUDE_UART_H_
 
-/// Inicializar pines de transmision UART del puerto 1.
+/**
+ * Inicializa el puerto 1
+ */
 void p1_init();
-/// Inicializar configuracion del modulo UART
+/**
+ * Inicializa configuracion del modulo UART
+ */
 void uart_init();
-/// Transmitir un mensaje por UART
+/**
+ * Transmistir un mensaje por UART
+ * @param data datos del mensaje a transmitir
+ * @param length largo del mensaje a transmitir
+ */
 void uart_transmit(uint8_t *data, uint8_t length);
-/// Copiar un mensaje recibido por UART
 
 #ifdef UART_RX_H
-
+/**
+ * Copiar un mensaje recibido por UART
+ * @param external_buff buffer externo de destino
+ * @param length largo del mensaje
+ *
+ */
 void copy_rx_buff(char *external_buff, uint8_t *length);
-/// Establecer la flag de recepcion
+/**
+ * Establece la flag de recepcion
+ * @param flag puntero a la flag
+ */
 void set_flag_rx(uint8_t *flag);
-/// Establecer la flag de error de recepcion
+/**
+ * Establece la flag de error recepcion
+ * @param flag puntero a la flag
+ */
 void set_flag_error_rx(uint8_t *flag);
 
 #endif /* INCLUDE_UART_H_ */
